@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<atom:link href="https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-georss.php?layer=all" rel="self" type="application/rss+xml" />
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?layer=0</link>
+<title>G-ET-S - cartes</title>
+<lastBuildDate>Tue, 25 Feb 2020 05:02:58 +0200</lastBuildDate>
+<generator>www.mapsmarker.com</generator>
+<description>GeoRSS-feed created with Maps Marker Pro (www.mapsmarker.com)</description>
+<item>
+<title>PARIS</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=1</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-1</guid>
+<pubDate>Tue, 25 Feb 2020 03:02:19 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<p style="text-align: center"><b><span style="color: #000099;font-size: small">Région Haute et Basse Normandie</span></b></p><br /><p style="text-align: center"><span style="font-size: small">Délégué Régional </span></p><br /><p style="text-align: center"><span style="font-size: small">Philippe Godin</span></p><br /><p style="text-align: center"><img class="" src="http://www.g-et-s.com/images/phgodin.jpg" width="160" height="206" /></p><br /><p style="text-align: center"><span style="color: #000000;font-size: small">11, rue Vauquelin<br />14000 CAEN</span></p><br /><p style="text-align: center"><span style="font-size: small">Téléphone : 33(0) 02 31 38 89 83<br />Mobile :33(0) 6 86 08 30 07<br />e-mail:<a href="mailto:ph.godin@g-et-s.com">ph.godin@g-et-s.com</a></span></p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>49.182561 -0.367016</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Bretagne - Pays de Loire</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=2</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-2</guid>
+<pubDate>Tue, 25 Feb 2020 04:02:18 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<div align="center"><br /><br /><span style="color: #000099"><b><span style="font-size: small"><span style="font-size: x-large">GOUVERNANCE<br />&amp;<br />STRUCTURES</span></span></b></span><br /><br /><span style="color: #000099;font-size: small">SARL au capital de 10 000 €uros<br />Siret N° 442 065 116 000 18</span><br /><br /><b><span style="color: #000099;font-size: small">Siège Social<br /></span></b><span style="font-size: small">55 Avenue Marceau<br />75116 - PARIS</span><br /><br /><span style="font-size: small"><b><span style="color: #000099">Adresse postale<br /></span></b></span>2 allée des troènes<br />92330 Sceaux<br /><br /><strong><span style="color: #000099;font-size: medium">Guy Le Péchon</span></strong><br /><br /><img src="http://www.g-et-s.com/images/glp.jpg" width="166" height="214" /><br /><p style="text-align: center"><span style="font-size: small">Associé Gérant</span></p><br /><br /><div align="center"><br /><br />&nbsp;<br /><p style="text-align: center" align="left"><span style="font-size: small">Mb : 06 16 3 07 15</span></p><br />&nbsp;<br /><p style="text-align: center" align="left"><span style="font-size: small"><a href="mailto:guy.le-pechon@g-et-s.com">guy.le-pechon@g-et-s.com</a></span></p><br /><br /></div><br />&nbsp;<br /><br /></div>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>48.868600 2.299200</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Nord</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=3</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-3</guid>
+<pubDate>Tue, 25 Feb 2020 04:02:01 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<p style="text-align: center"><b><span style="color: #000099;font-size: small">Région Nord</span></b></p><br />&nbsp;<br /><p style="text-align: center"><span style="font-size: small">Contacts</span></p><br />&nbsp;<br /><p style="text-align: center"><span style="font-size: small">Guy Le Péchon</span></p><br />&nbsp;<br /><p style="text-align: center" align="left"><span style="font-size: small">Mob :06 09 92 94 98</span><span style="font-size: small"><br /><a href="mailto:philippe.brousse@g-et-s.com">guy.le-pechon@g-et-s.com</a></span></p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>50.205033 2.526855</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Champagne-Ardenne Lorraine</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=4</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-4</guid>
+<pubDate>Tue, 25 Feb 2020 04:02:33 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<p style="text-align: center">Région<br />Champagne-Ardenne<br />Lorraine</p><br /><p style="text-align: center"><img src="http://www.g-et-s.com/images/claudeleroy.jpg" width="199" height="252" align="top" /></p><br /><p style="text-align: center">Claude Leroy</p><br /><p style="text-align: center">Adresse postale<br />8, rue des Templiers<br />51100 REIMS</p><br /><p style="text-align: center">Mob: 06 87 44 09 52</p><br /><p style="text-align: center">e-mail : claude.leroy@g-et-s.com</p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>49.259700 4.039290</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Bretagne - Pays de Loire</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=5</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-5</guid>
+<pubDate>Tue, 25 Feb 2020 05:02:04 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<p style="text-align: center"><b><span style="color: #000099;font-size: small">Région Bretagne - Pays de Loire</span></b></p><br /><p style="text-align: center"><span style="font-size: small">Contacts</span></p><br /><p style="text-align: center"><span style="font-size: small">Guy Le Péchon</span></p><br /><p style="text-align: center"><span style="font-size: small">Mobile : 06 16 31 07 15<br />e-mail:<a href="mailto:guy.le-pechon@g-et-s.com">guy.le-pechon@g-et-s.com</a></span></p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>47.724545 -0.834961</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Sud-Est</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=6</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-6</guid>
+<pubDate>Tue, 25 Feb 2020 05:02:30 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<img class="aligncenter" src="http://www.g-et-s.com/images/dgaudry.jpg" width="180" height="225" /><br /><p style="text-align: center"><span style="font-size: small"><b>David Gaudry</b></span></p><br /><p style="text-align: center"><span style="font-size: small">18 boulevard Carnot</span><span style="color: #000000;font-size: small"><br /></span><span style="font-size: small">06130 GRASSE</span></p><br /><p style="text-align: center" align="left"><span style="font-size: small">Téléphone : </span><span style="font-size: small">04 93 36 06 68</span><span style="font-size: small"><br />Télécopie : .04 93 36 07 33<br />Mobile: .......</span><span style="font-size: small">06 79 65 32 85</span><span style="font-size: small"><br />e-mail:<a href="mailto:david.gaudry@g-et-s.com"> david.gaudry@g-et-s.com</a></span></p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>43.658000 6.925200</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+<item>
+<title>Région Bourgogne</title>
+<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=7</link>
+<guid isPermaLink="false">G-ET-S-layer-1-marker-7</guid>
+<pubDate>Tue, 25 Feb 2020 05:02:58 +0200</pubDate>
+<dc:creator>administre</dc:creator>
+<description><![CDATA[<p style="text-align: center"><b><span style="color: #000099;font-size: small">Région Bourgogne </span></b></p><br /><p style="text-align: center"><img src="http://www.g-et-s.com/images/bourg.jpg" width="261" height="306" align="top" /></p><br /><p style="text-align: center"><span style="font-size: small">Délégué Régional: François Pandolfi</span></p><br /><p style="text-align: center"><span style="font-size: small">17, rue Saint Germain<br />89113- GUERCHY</span></p><br /><p style="text-align: center"><span style="font-size: small">Téléphone: 03 86 73 81 15<br />e -mail: <a href="mailto:francois.pandolfi@g-et-s.com%20">francois.pandolfi@g-et-s.com</a></span></p>]]></description>
+<source url="https://g-et-s.com">https://g-et-s.com</source>
+<georss:where>
+<gml:Point>
+<gml:pos>47.569400 3.204580</gml:pos>
+</gml:Point>
+</georss:where>
+</item>
+</channel>
+</rss>
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+
+Served from: g-et-s.com @ 2025-08-21 20:11:55 by W3 Total Cache
+-->
