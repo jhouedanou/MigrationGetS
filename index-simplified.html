@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil - G-ET-S</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Accueil - G-ET-S"/>
+    <meta property="og:description" content="Gouvernance et structures"/>
+    <meta property="og:url" content="https://g-et-s.com/"/>
+    <meta property="og:site_name" content="G-ET-S"/>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="wp-content/uploads/2020/01/cropped-logo-gets-2-1-32x32.png" sizes="32x32"/>
+    <link rel="icon" href="wp-content/uploads/2020/01/cropped-logo-gets-2-1-192x192.png" sizes="192x192"/>
+    
+    <!-- Essential CSS -->
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, Times New Roman, Times, serif;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #3a3a3a;
+            background-color: #efefef;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .site-header {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-section {
+            flex: 0 0 33%;
+        }
+        
+        .logo-section img {
+            max-width: 250px;
+            height: auto;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            margin-right: 10px;
+            color: #1e73be;
+            text-decoration: none;
+        }
+        
+        .hero-image {
+            flex: 0 0 33%;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .language-search {
+            flex: 0 0 33%;
+            text-align: right;
+        }
+        
+        .language-flags {
+            margin-bottom: 15px;
+        }
+        
+        .language-flags a {
+            margin-left: 10px;
+        }
+        
+        .language-flags img {
+            width: 30px;
+            height: auto;
+        }
+        
+        .search-form {
+            margin-top: 15px;
+        }
+        
+        .search-form input[type="search"] {
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+        
+        .search-form input[type="submit"] {
+            padding: 8px 15px;
+            background-color: #1e73be;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* Navigation Styles */
+        .main-navigation {
+            background-color: #1e73be;
+        }
+        
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .main-nav li {
+            position: relative;
+        }
+        
+        .main-nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: none;
+        }
+        
+        .main-nav a:hover {
+            background-color: #035a9e;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #035a9e;
+            min-width: 250px;
+            display: none;
+        }
+        
+        .main-nav li:hover .sub-menu {
+            display: block;
+        }
+        
+        .main-nav .current-menu-item > a {
+            background-color: #035a9e;
+        }
+        
+        .sub-menu li a {
+            font-size: 14px;
+        }
+        
+        .sub-menu li:hover > a {
+            color: #bbd2e8;
+            background-color: #035a9e;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            background-color: #ffffff;
+            padding: 40px;
+            margin: 20px 0;
+        }
+        
+        .content-section {
+            margin-bottom: 40px;
+        }
+        
+        .news-highlight {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-left: 4px solid #1e73be;
+            margin-bottom: 30px;
+        }
+        
+        .news-highlight h1 {
+            color: #ff0000;
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+        
+        .news-highlight .main-title {
+            color: #3366ff;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        
+        /* Table Styles */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .content-table td,
+        .content-table th {
+            padding: 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        .content-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .content-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Link Styles */
+        a {
+            color: #1e73be;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: #000000;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 40px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 30px;
+            font-weight: 300;
+            margin: 30px 0 20px 0;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            font-size: inherit;
+            margin: 15px 0 10px 0;
+        }
+        
+        .small-text {
+            font-size: small;
+        }
+        
+        /* Footer Styles */
+        .site-footer {
+            background-color: #222222;
+            color: #ffffff;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        
+        .footer-links a:hover {
+            color: #606060;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-section,
+            .hero-image,
+            .language-search {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+            
+            .language-search {
+                text-align: center;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 30px;
+            }
+            
+            h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="screen-reader-text skip-link" href="#content" title="Aller au contenu">Aller au contenu</a>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="wp-content/uploads/2020/02/logo-gets-3C.png" alt="G-ET-S Logo" width="250" height="177">
+                    </a>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/GUYLP001" target="_blank" title="Twitter">Twitter</a>
+                        <a href="https://www.linkedin.com/in/guy-le-péchon-0b72a9/" target="_blank" title="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="hero-image">
+                    <img src="images/g-et-s-img-1024x376.jpg" alt="G-ET-S">
+                </div>
+                
+                <!-- Language and Search -->
+                <div class="language-search">
+                    <div class="language-flags">
+                        <a href="index.html" title="Version française">
+                            <img src="wp-content/uploads/elementor/thumbs/drapeau-fr-ol3pyz4uvdy1p3tpw4z2zvbrp5s0f6t7v3ho8zg7og.png" alt="Version française">
+                        </a>
+                        <a href="home/index.html" title="English version">
+                            <img src="wp-content/uploads/elementor/thumbs/english-flag-ol3pyy70ojwrdhv31mkgfdkb3rwn7hphiyu6rphluo.png" alt="English version">
+                        </a>
+                    </div>
+                    <form method="get" class="search-form" action="https://g-et-s.com/">
+                        <label>
+                            <span class="screen-reader-text">Rechercher :</span>
+                            <input type="search" class="search-field" placeholder="Recherche…" value="" name="s" title="Rechercher :">
+                        </label>
+                        <input type="submit" class="search-submit" value="Rechercher">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="main-nav">
+                <ul>
+                    <li class="current-menu-item"><a href="index.html">ACCUEIL</a></li>
+                    <li>
+                        <a href="#">MISSIONS</a>
+                        <ul class="sub-menu">
+                            <li><a href="missions/index.html">Missions généralités</a></li>
+                            <li><a href="missions/evaluation-diagnostic-dun-conseil-dadministration-ou-de-surveilance/index.html">Diagnostic de Conseil d'Administration</a></li>
+                            <li><a href="missions/recherche-de-mandataires-sociaux/index.html">Recherche mandataires sociaux</a></li>
+                            <li><a href="missions/enquetes-et-etudes/index.html">Enquêtes et études</a></li>
+                            <li><a href="missions/les-administrateurs-et-lomnipresence-du-numerique/index.html">Les administrateurs et l'omniprésence du numérique</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gouvernance-advisors/index.html">GOUVERNANCE ADVISORS</a></li>
+                    <li><a href="formations-dadministrateurs/index.html">FORMATIONS D'AMINISTRATEURS</a></li>
+                    <li><a href="candidats-mandataires-administratrices-administrateurs-7/index.html">CANDIDATS MANDATAIRES SOCIAUX</a></li>
+                    <li><a href="sites-interesssants-4/index.html">SITES INTÉRESSANTS</a></li>
+                    <li><a href="bibliographie-corporate-governance/index.html">BIBLIOGRAPHIES</a></li>
+                    <li><a href="la-presse-parle-de-gouvernance-structures/index.html">PRESSE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="content" class="main-content">
+        <div class="container">
+            <article class="content-section">
+                <header>
+                    <h1>Accueil</h1>
+                </header>
+                
+                <!-- News Highlight Section -->
+                <section class="news-highlight">
+                    <h1>NOUVEAU</h1>
+                    <div class="main-title">Suivi des Lois Copé-Zimmerman et Rixain pour les sociétés du CAC40 à fin juin 2024</div>
+                    <p>Pour obtenir la présentation ou le rapport détaillé de l'étude annuelle de G & S 2024 écrire à <a href="mailto:info@g-et-s.com">info@g-et-s.com</a></p>
+                    <p><a href="https://g-et-s.com/wp-admin/upload.php?item=1876">https://g-et-s.com/wp-admin/upload.php?item=1876</a></p>
+                </section>
+
+                <!-- Main Images -->
+                <img src="https://g-et-s.com/TAUX%20DE%20F%C3%89MINISATION%20Instances%20Dirigeantes%20des%20%25%20soci%C3%A9t%C3%A9s%20du%20CAC40%20En%20global%20%C3%A0%20fin%20juin%202024%20799%20Membres%2029,8%25%20de%20femmes%20Mais%20ATTENTION%20Ce%20taux%20n%E2%80%99est%20pas%20du%20tout%20significatif%20Les%20bons%20cachent%20Les%20mauvais%2025/10/2024%20Projet%20Copyright%20Gouvernance%20et%20Structures%205" alt="Taux de féminisation" class="content-image">
+                
+                <img src="../wp-content/uploads/2024/10/2024-10-24-V2-Taux-de-feminisation-des-Instances-de-Direction-des-societes-du-CAC40-Presentation-dextraits-du-rapport-G-S-2024--scaled.jpg" alt="Rapport G&S 2024" class="content-image">
+
+                <!-- European Directive Information -->
+                <div class="content-section">
+                    <p><span style="font-size: 18pt;">L'ordonnance pour la transposition à la France de la Directive Européenne dite « Women on Boards » a été publiée au <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050350382">journal officiel</a>, pour recueillir les remarques de G&S, écrire à <a href="mailto:info@g-et-s.com">info@g-et-s.com</a></span></p>
+                    
+                    <p style="text-align: center;">———</p>
+                    
+                    <p><span style="font-size: 18pt; color: #ff0000;">Un guide pour la promotion et la mise en place de l'égalité des genres et l'autonomisation des femmes</span></p>
+                    
+                    <h2><span style="color: #ff0000;">ISO 53800:2024 <a href="https://www.iso.org/standard/84591.html">Guidelines</a> for the promotion and implementation of gender equality and women's empowerment</span></h2>
+                    
+                    <p>Dans son numéro d'avril 2024, la revue des anciens élèves de l'École Polytechnique propose un court article écrit par Isabelle Tanchou, la responsable carrières de l'association et de Guy Le Péchon, sur la manière dont</p>
+                    <ul>
+                        <li>les dirigeants des sociétés concernées par la Loi Rixain devront la mettre en œuvre; G & S (contact@g-et-s.com) peut les y aider</li>
+                        <li>les cadres, femmes et hommes, en tenir compte dans leurs réflexions d'orientation de carrière.</li>
+                    </ul>
+                    <p>====================================================================================</p>
+                </div>
+
+                <!-- Book Presentation Section -->
+                <section class="content-section">
+                    <p style="text-align: center;"><strong>Le 25 novembre après-midi au Salon du livre des Polytechniciens, Mairie du 6ème de Paris, Guy Le Péchon (X) et Valérie Lejeune (UCO) ont dédicacé le livre collectif « Le Monde et la Gouvernance des ETI » dont ils sont co-auteurs</strong></p>
+                    
+                    <table class="content-table">
+                        <tr>
+                            <td style="width: 50%;">
+                                <img src="wp-content/uploads/2023/11/2023-12-25-Carton-dinvitation-salon-du-livre-X-300x269.jpg" alt="Carton d'invitation" style="max-width: 100%;">
+                            </td>
+                            <td style="width: 50%;">
+                                <img src="wp-content/uploads/2023/11/2023-11-06-Finale-Affiche-Monde-et-la-gouvernance-des-ETI-212x300.jpg" alt="Affiche livre" style="max-width: 100%;">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Rixain Law Section -->
+                <section class="content-section">
+                    <table class="content-table">
+                        <tr>
+                            <td colspan="2" style="text-align: center; color: #ff0000; font-weight: bold; font-size: 10pt;">LOI « RIXAIN »</td>
+                            <td style="text-align: center;"><h3><strong><span style="color: #ff0000; font-size: 10pt;">G & S PUBLIE DANS LA COLLECTION « AD VALOREM » DE L'HARMATTAN</span></strong></h3></td>
+                        </tr>
+                        <tr style="height: 200px;">
+                            <td colspan="2" style="vertical-align: top;">
+                                <p>Le décret explicitant les obligations de l'article 14 de la Loi a été publié le 26 avril 2022. <b>Attention urgence: les sociétés de plus de 1000 personnes ont devoir de publier avant septembre 2022 les écarts significatifs de représentation femmes/hommes notés à fin 2021</b></p>
+                                <p>Pour plus d'informations, envoyer un courriel à &lt;contact@g-et-s.com&gt;</p>
+                                <p>G & S considère que des améliorations à cette Loi eussent pu être introduites, voir <a href="https://g-et-s.com/wp-admin/upload.php?item=1202" target="_blank">les recommandations de G & S</a>.</p>
+                                <p>Le <a href="wp-content/uploads/2020/07/2020-07-04-Billet-GLP-sur-quotas-Comex-Codir-Mis-a%CC%80-jour.pdf">billet de G & S sur les Comex Codir</a>, explicite et justifie une formule plus adaptée aux Comex/Codir.</p>
+                                <p><strong>************************************************************************</strong></p>
+                                <p><strong>AUTRE THEME</strong></p>
+                                <p>Un billet de G & S</p>
+                                <p><a href="https://www.linkedin.com/pulse/quelles-personnes-physiques-ou-morales-devraient-donc-mouvement-ethic/?trackingId=+TIq0nwXINRM2HeH//Q7Hw=="><strong>Quelles personnes physiques ou morales devraient donc dire </strong></a></p>
+                                <p><strong><a href="https://jaimemaboite.com/">Anniversaire des 20 ans « J'aime ma boîte »</a> ?</strong></p>
+                                <p><strong>———</strong></p>
+                            </td>
+                            <td style="height: 200px;">
+                                <h4 style="text-align: center; font-size: 10pt;">Préface du livre</h4>
+                                <h4><span style="font-size: 10pt;"><a href="https://www.editions-harmattan.fr/livre-salaries_et_dirigeants_en_confiance_clef_de_reussite_et_reve_pour_l_entreprise_gerard_jandin-9782140292446-75163.html">« SALARIÉS ET DIRIGEANTS EN CONFIANCE, Clef de réussite et rêve pour l'entreprise »</a> de Gérard Jandin. En le lisant vous saurez ce qu'est une <strong>entreprise « Libérée »</strong></span></h4>
+                                <h4 style="text-align: center; font-size: 10pt;">Guy Le Péchon a participé à la table ronde sur le RSE du 9 novembre organisée par le Club des entrepreneurs du 92. Il présentera les actions à mener par les dirigeants quant au RSE suite en lien avec le chapitre RSE du livre présenté ci-dessous.</h4>
+                                <h4 style="text-align: center; font-size: 10pt;"><strong><a href="https://www.youtube.com/watch?v=tCVHIHwlDCo">La vidéo de 20 mn de l'intervention de Guy Le Péchon au Jeudigital</a> du groupe X-Digital sur « l'Omniprésence du numérique et la relation client » inspirée d'un des chapitres du livre présenté ci-dessous</strong></h4>
+                                <h4 style="text-align: center; font-size: 10pt;"><strong>« Le monde et la gouvernance des ETI <em>Création de Valeur des Conseils des ETI confrontées aux évolutions majeures du monde</em></strong></h4>
+                                <h4><span style="font-size: 10pt;"><a href="http://www.editions-harmattan.fr/index.asp?navig=catalogue&obj=livre&no=63001&razSqlClone=1">L'Harmattan, collection AdValorem</a></span></h4>
+                                <h4><span style="font-size: 10pt;">Livre collectif, élaboration coordonnée par Guy Le Péchon de G & et Valérie Lejeune, Directrice de la collection.</span></h4>
+                                <h4><span style="font-size: 10pt;">Vous pouvez écouter l'interview de Valérie Lejeune sur <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLmF1c2hhLmNvL2JQQXJZdHJ2MFZOQg/episode/ZTg5ZjE4MmNiNzFjZTFiYTBkYWMxOWI5YzY2MDc2OTdiY2YzMDg1NQ?sa=X&ved=0CAIQuIEEahcKEwjYh4aGsvr4AhUAAAAAHQAAAAAQAg" target="_blank">ETI Radio</a></span></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Main Information Table -->
+                <section class="content-section">
+                    <h2>INTERVENTIONS, RÉFLEXIONS, NOTES DE TRAVAIL RÉCENTES DE GOUVERNANCE & STRUCTURES</h2>
+                    <p style="text-align: center;"><strong>Pour les autres interventions passées de G & S voir le volet <a href="bibliographie-corporate-governance/index.html">Biblio/Publication</a></strong></p>
+                    
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>GÉNÉRALITÉS CORPORATE GOUVERNANCE</th>
+                                <th>WOMEN ON BOARDS - FÉMINISATION DES CONSEILS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p style="color: red; font-weight: 800;">Impliquer le Conseil d'Administration dans la transformation numérique de son entreprise. Pourquoi ? Comment ?</p>
+                                    <p><a href="https://www.youtube.com/watch?v=SDEhRSL2KWg">Une présentation vidéo de 15 mn par Guy Le Péchon</a> au Club Européen de la Gouvernance des Systèmes d'Information</p>
+                                </td>
+                                <td>
+                                    <strong>Sur la page <a href="#" style="color: red;">La place des femmes</a>, l'internaute trouvera des liens vers de nombreux articles, des rubriques d'actualités et des rapports sur ce thème.</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Master Class pour des étudiants en fin de Master 2 à l'<a href="#">INSEEC</a></strong></p>
+                                    <p>La gouvernance des entreprises françaises</p>
+                                </td>
+                                <td>
+                                    <strong>JUIN 2018</strong> <a href="wp-content/uploads/2020/01/fcac40j2018.pdf">Une note détaillée en français</a> quant aux administratrices des sociétés du CAC40; and <a href="wp-content/uploads/2020/01/2018caceng.pdf">report in English Women on Boards of the French Cac40 companies</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Billet : L'administrateur indépendant peut être <a href="wp-content/uploads/2020/01/vaccin.pdf">le vaccin</a> contre les maladies de la gouvernance d'un Conseil d'Administration
+                                </td>
+                                <td>
+                                    <strong>JUIN 2017 <a href="https://www.youtube.com/watch?v=LXYc8VmYGmc&feature=youtu.be">Une vidéo de 2 minutes</a>. La France en tête pour la parité dans les conseils, mais encore plus de 100 postes à féminiser au sein des Conseils des sociétés cotées sur Euronext Paris selon l'étude annuelle à fin juin 2017 de G & S.</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="content-section" style="text-align: center;">
+                    <p><em><strong>Pour des personnes expérimentées et qualifiées désirant devenir Mandataires Sociaux / Administrateurs,</strong></em></p>
+                    <p><em>G & S ouvre le dialogue avec elles, afin de les connaître et pouvoir les inclure comme candidats potentiels lors de recherche de mandataires sociaux / administrateurs.</em></p>
+                    <p><strong>Si vous êtes dans ce cas,</strong> n'hésitez pas à <a href="formulaire-pour-candidats/index.html"><em>cliquer ici</em></a></p>
+                </section>
+
+                <!-- Company Description -->
+                <section class="content-section">
+                    <p><strong><span style="color: #0000cc; font-size: small;">GOUVERNANCE & STRUCTURES</span></strong><span style="color: #000000; font-size: small;"> est un cabinet de Conseil spécialisé en « Corporate Gouvernance » : </span><span style="color: #000000; font-size: small;">Diagnostics du fonctionnement et de la composition de Conseils d'Administration ou de Surveillance, Recrutement de Dirigeants, Enquêtes pour des « Benchmarkings » et Interactions entre les Systèmes d'Information et la « Corporate Gouvernance ». </span><span style="color: #000000; font-size: small;">Pour plus de détails ouvrir les pages<strong> « <a href="missions/index.html">Missions</a> » ou « <a href="gouvernance-advisors/index.html">Gouvernance Advisors »</a>.</strong></span></p>
+                    
+                    <p><span style="color: #000000; font-size: small;"><strong>———</strong></span></p>
+                    
+                    <p><strong><span style="color: #0000cc; font-size: small;"><b>Aujourd'hui des Conseils d'Administration peuvent être amenés à rechercher des hommes ou des femmes qualifiés </b>pour les coopter en tant qu'administrateurs ou administratrices, G & S connaît déjà un certain nombre de candidat(e)s qualifié(e)s.<b> Leurs mini-CVs peuvent être consultés</b> sur la page <a href="candidats-mandataires-administratrices-administrateurs-7/index.html">Candidats Mandataires Sociaux<b>.</b></a></span></strong></p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="mentions-legales-confidentialite/index.html">Mentions légales – Confidentialité</a>
+                    <a href="plan-du-site/index.html">Plan du site</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:contact@g-et-s.com">Problèmes techniques ? Écrire au gestionnaire du site contact@g-et-s.com</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #444;">
+                <span>Création site internet <a href="https://e-digital.fr">e-digital.fr</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" style="position: fixed; bottom: 30px; right: 30px; background: rgba(0,0,0,0.6); color: white; padding: 10px; border-radius: 3px; text-decoration: none; display: none;">↑</a>
+
+    <script>
+        // Simple back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<atom:link href="https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-georss.php?layer=all" rel="self" type="application/rss+xml" />
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?layer=0</link>
+<atom:link href="../wp-content/plugins/leaflet-maps-marker/leaflet-georss.php?layer=all" rel="self" type="application/rss+xml" />
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?layer=0</link>
 <title>G-ET-S - cartes</title>
 <lastBuildDate>Tue, 25 Feb 2020 05:02:58 +0200</lastBuildDate>
 <generator>www.mapsmarker.com</generator>
 <description>GeoRSS-feed created with Maps Marker Pro (www.mapsmarker.com)</description>
 <item>
 <title>PARIS</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=1</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=1</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-1</guid>
 <pubDate>Tue, 25 Feb 2020 03:02:19 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -23,7 +23,7 @@
 </item>
 <item>
 <title>Région Bretagne - Pays de Loire</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=2</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=2</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-2</guid>
 <pubDate>Tue, 25 Feb 2020 04:02:18 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -37,7 +37,7 @@
 </item>
 <item>
 <title>Région Nord</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=3</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=3</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-3</guid>
 <pubDate>Tue, 25 Feb 2020 04:02:01 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -51,7 +51,7 @@
 </item>
 <item>
 <title>Région Champagne-Ardenne Lorraine</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=4</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=4</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-4</guid>
 <pubDate>Tue, 25 Feb 2020 04:02:33 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -65,7 +65,7 @@
 </item>
 <item>
 <title>Région Bretagne - Pays de Loire</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=5</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=5</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-5</guid>
 <pubDate>Tue, 25 Feb 2020 05:02:04 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -79,7 +79,7 @@
 </item>
 <item>
 <title>Région Sud-Est</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=6</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=6</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-6</guid>
 <pubDate>Tue, 25 Feb 2020 05:02:30 +0200</pubDate>
 <dc:creator>administre</dc:creator>
@@ -93,7 +93,7 @@
 </item>
 <item>
 <title>Région Bourgogne</title>
-<link>https://g-et-s.com/wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=7</link>
+<link>../wp-content/plugins/leaflet-maps-marker/leaflet-fullscreen.php?marker=7</link>
 <guid isPermaLink="false">G-ET-S-layer-1-marker-7</guid>
 <pubDate>Tue, 25 Feb 2020 05:02:58 +0200</pubDate>
 <dc:creator>administre</dc:creator>
