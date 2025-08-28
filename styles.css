@@ -127,6 +127,80 @@ body {
     background-color: #3f3f3f;
 }
 
+/* Google Custom Search Engine Styling */
+.gcse-search {
+    width: 100%;
+}
+
+/* Style pour la zone de recherche Google CSE */
+.gsc-control-cse {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.gsc-control-cse .gsc-input-box {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    background: white !important;
+}
+
+.gsc-control-cse .gsc-input-box .gsc-input {
+    font-size: 12px !important;
+    padding: 8px 12px !important;
+    color: #666666 !important;
+}
+
+.gsc-control-cse .gsc-search-button {
+    background-color: #666 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.gsc-control-cse .gsc-search-button:hover {
+    background-color: #3f3f3f !important;
+}
+
+.gsc-control-cse .gsc-search-button .gsc-search-button-v2 {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 12px !important;
+}
+
+/* Style pour les résultats de recherche */
+.gsc-results-wrapper-overlay {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.gsc-results .gsc-result {
+    border-bottom: 1px solid #eee !important;
+    padding: 10px 0 !important;
+}
+
+.gsc-results .gsc-result .gs-title {
+    color: #1e73be !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+}
+
+.gsc-results .gsc-result .gs-title:hover {
+    text-decoration: underline !important;
+}
+
+.gsc-results .gsc-result .gs-snippet {
+    color: #666666 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+}
+
 /* Navigation */
 .main-navigation {
     background-color: #1e73be;
