@@ -234,16 +234,6 @@ body {
     position: relative;
 }
 
-.main-nav > li > a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: none;
-    transition: background-color 0.3s ease;
-}
 
 .main-nav > li > a:hover,
 .main-nav > li.current-menu-item > a {
