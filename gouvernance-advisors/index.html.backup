@@ -739,9 +739,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script src="../wp-content/plugins/elementor/assets/js/preloaded-modules.min-ver=3.7.1.js" id="preloaded-modules-js"></script>
 <script src="../wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min-ver=3.7.0.js" id="e-sticky-js"></script>
 
-        <!-- Loading Bar Script -->
-        <script src="../js/loading.js"></script>
-        </body>
+</body>
 </html>
 
 <!--
