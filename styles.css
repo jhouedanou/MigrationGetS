@@ -552,38 +552,520 @@ a:hover {
     color: #000000;
 }
 
-/* Footer */
-.footer {
+/* Color Palette Variables */
+:root {
+    --battleship-gray: #8A8A8A;
+    --celestial-blue: #458FC8;
+    --carolina-blue: #87BADD;
+}
+
+/* Homepage Structure Styles */
+.homepage-content {
+    padding: 40px 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--battleship-gray) 0%, var(--celestial-blue) 50%, var(--carolina-blue) 100%);
+    border-radius: 12px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,0.05) 50%, 
+        rgba(255,255,255,0.1) 100%);
+    pointer-events: none;
+}
+
+.homepage-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.homepage-intro {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.homepage-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.homepage-section {
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.section-title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    line-height: 1.3;
+}
+
+.section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Tab Headers Section */
+.tab-headers-section {
+    margin-bottom: 30px;
+    padding: 30px 0;
+}
+
+.tab-header-block {
+    text-align: center;
+    padding: 20px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    margin: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-header-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific background colors for each header block */
+.generalites-header {
+    background: var(--celestial-blue);
+}
+
+.feminisation-header {
+    background: var(--carolina-blue);
+}
+
+.prestations-header {
+    background: var(--battleship-gray);
+}
+
+.tab-header-title {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.tab-header-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Navigation Tabs Section */
+.navigation-tabs-section {
+    background: white;
+    padding: 20px 0;
+}
+
+.navigation-column {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 25px;
+    height: 100%;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease;
+}
+
+.navigation-column:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.column-navigation {
+    height: 100%;
+}
+
+.nav-links-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link-item {
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+.nav-link-item:last-child {
+    margin-bottom: 0;
+}
+
+.nav-link-anchor {
+    display: block;
+    color: #1e73be;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-left: 3px solid transparent;
+}
+
+.nav-link-anchor:hover {
+    color: #035a9e;
+    background-color: #e3f2fd;
+    border-left-color: #1e73be;
+    text-decoration: none;
+    transform: translateX(3px);
+}
+
+/* Sub-sections styling */
+.nav-sub-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-sub-title {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #1e73be 0%, #035a9e 100%);
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.nav-sub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 15px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.nav-sub-list .nav-link-item {
+    margin-bottom: 8px;
+}
+
+.sub-link {
+    font-size: 0.85rem;
+    color: #666 !important;
+    padding: 6px 10px !important;
+    border-left-width: 2px !important;
+}
+
+.sub-link:hover {
+    color: #1e73be !important;
+    background-color: #f0f8ff;
+}
+
+/* Column-specific colors using new palette */
+.generalites-column .nav-link-anchor {
+    color: var(--celestial-blue);
+}
+
+.feminisation-column .nav-link-anchor {
+    color: var(--carolina-blue);
+}
+
+.prestations-column .nav-link-anchor {
+    color: var(--battleship-gray);
+}
+
+.generalites-column .nav-link-anchor:hover {
+    color: #2c6ba0;
+    border-left-color: var(--celestial-blue);
+    background-color: rgba(69, 143, 200, 0.1);
+}
+
+.feminisation-column .nav-link-anchor:hover {
+    color: #6a9bc2;
+    border-left-color: var(--carolina-blue);
+    background-color: rgba(135, 186, 221, 0.1);
+}
+
+.prestations-column .nav-link-anchor:hover {
+    color: #6a6a6a;
+    border-left-color: var(--battleship-gray);
+    background-color: rgba(138, 138, 138, 0.1);
+}
+
+/* Pinegrow Integration Styles */
+.pinegrow-editable {
+    position: relative;
+}
+
+.pinegrow-editable[data-pg-name]:hover::before {
+    content: attr(data-pg-name);
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: #1e73be;
+    color: white;
+    padding: 2px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+    z-index: 1000;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.loading-hidden {
+    display: none !important;
+}
+
+#loading-indicator.show {
+    display: block !important;
+}
+
+/* Section Candidats Mandataires Sociaux */
+.candidats-section {
+    margin-top: 50px;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, var(--carolina-blue) 0%, var(--celestial-blue) 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.candidats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,0.05) 50%, 
+        rgba(255,255,255,0.1) 100%);
+    pointer-events: none;
+}
+
+.candidats-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.candidats-text {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.candidats-action {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.candidats-link {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all 0.3s ease;
+}
+
+.candidats-link:hover {
+    color: #f0f8ff;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* Footer - Updated structure matching other pages */
+.site-footer {
     background-color: #222222;
     color: white;
-    padding: 30px 0;
     margin-top: 40px;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
+.footer-width-fixer {
+    width: 100%;
+}
+
+.footer-container {
+    width: 100%;
+}
+
+.footer-inner {
+    width: 100%;
+}
+
+.footer-section-wrap {
+    width: 100%;
+}
+
+/* Main footer section */
+.footer-main-section {
+    background-color: #222222;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.footer-content-container {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.footer-section h4 {
-    margin-bottom: 15px;
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-col-100 {
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.footer-col-50 {
+    width: 50%;
+    flex: 0 0 50%;
+}
+
+.footer-column-wrap {
+    padding: 0 15px;
+}
+
+/* Divider */
+.footer-divider-element {
+    margin-bottom: 20px;
+}
+
+.footer-divider {
+    border-top: 1px solid #444;
+    height: 1px;
+    margin: 0;
+}
+
+.footer-divider-separator {
+    display: block;
+    height: 1px;
+}
+
+/* Inner section */
+.footer-inner-section {
+    margin-bottom: 0;
+}
+
+.footer-inner-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-inner-row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Text content */
+.footer-text-editor {
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-legal-links {
+    margin: 0;
+    text-align: left;
+}
+
+.footer-contact-info {
+    margin: 0;
+    text-align: right;
+}
+
+.footer-link,
+.footer-contact-link {
     color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.footer-section p {
-    line-height: 1.4;
+.footer-link:hover,
+.footer-contact-link:hover {
+    color: #cccccc;
+    text-decoration: none;
 }
 
-.footer-section a {
+/* Credits section */
+.footer-credits-section {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.footer-credits {
+    margin: 0;
+    text-align: center;
     color: #ffffff;
+    font-size: 13px;
 }
 
-.footer-section a:hover {
-    color: #606060;
+.footer-credits-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credits-link:hover {
+    color: #cccccc;
+    text-decoration: none;
 }
 
 /* Responsive Design */
@@ -627,9 +1109,63 @@ a:hover {
         font-size: 30px;
     }
     
-    .footer-content {
+    .tab-header-title {
+        font-size: 1.1rem;
+    }
+    
+    .navigation-column {
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+    
+    .nav-link-anchor {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+    
+    .homepage-title {
+        font-size: 2rem;
+    }
+    
+    .tab-headers-section {
+        padding: 20px 0;
+    }
+    
+    .homepage-sections {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tab-header-block {
+        margin: 0 5px;
+    }
+    
+    .footer-col-50 {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+    
+    .footer-legal-links,
+    .footer-contact-info {
         text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .footer-contact-info {
+        margin-bottom: 0;
+    }
+    
+    .candidats-section {
+        margin-top: 40px;
+        padding: 30px 20px;
+    }
+    
+    .candidats-text {
+        font-size: 1rem;
+    }
+    
+    .candidats-action {
+        font-size: 0.95rem;
     }
 }
 
@@ -680,5 +1216,51 @@ a:hover {
     
     .law-section h3 {
         font-size: 12pt;
+    }
+    
+    .homepage-title {
+        font-size: 1.8rem;
+    }
+    
+    .tab-header-title {
+        font-size: 1rem;
+    }
+    
+    .navigation-column {
+        padding: 15px;
+    }
+    
+    .nav-sub-list {
+        padding-left: 10px;
+    }
+    
+    .homepage-content {
+        padding: 30px 20px;
+    }
+    
+    .homepage-section {
+        padding: 20px 15px;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .tab-header-block {
+        margin: 0;
+        padding: 15px 10px;
+    }
+    
+    .candidats-section {
+        padding: 25px 15px;
+    }
+    
+    .candidats-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .candidats-action {
+        font-size: 0.85rem;
     }
 }
