@@ -6,8 +6,100 @@ $(document).ready(function() {
         $('.nav-link-anchor').each(function() {
             const $link = $(this);
             const linkText = $link.text().toLowerCase();
-            $link.attr('data-search-keywords', linkText);
+            
+            // Generate keywords automatically from link text
+            const keywords = generateSearchKeywords(linkText);
+            $link.attr('data-search-keywords', keywords.join(' '));
         });
+    }
+    
+    // Generate search keywords from text
+    function generateSearchKeywords(text) {
+        const keywords = new Set();
+        
+        // Original text
+        keywords.add(text);
+        
+        // Remove common French articles and prepositions
+        const stopWords = ['le', 'la', 'les', 'de', 'du', 'des', 'et', 'ou', 'un', 'une', 'dans', 'pour', 'avec', 'sur', 'par', 'à', 'au', 'aux'];
+        
+        // Split into words and clean
+        const words = text.split(/[\s\-\(\)\"\']+/).filter(word => {
+            word = word.trim();
+            return word.length > 2 && !stopWords.includes(word.toLowerCase());
+        });
+        
+        // Add individual words
+        words.forEach(word => {
+            keywords.add(word.toLowerCase());
+            
+            // Add word without accents
+            const withoutAccents = removeAccents(word.toLowerCase());
+            if (withoutAccents !== word.toLowerCase()) {
+                keywords.add(withoutAccents);
+            }
+        });
+        
+        // Add acronyms (words in uppercase)
+        const acronyms = text.match(/\b[A-Z]{2,}\b/g);
+        if (acronyms) {
+            acronyms.forEach(acronym => {
+                keywords.add(acronym.toLowerCase());
+            });
+        }
+        
+        // Add partial matches for compound words
+        words.forEach(word => {
+            if (word.length > 6) {
+                // Add substrings of longer words
+                for (let i = 0; i <= word.length - 4; i++) {
+                    const substring = word.substring(i, i + 4);
+                    if (substring.length >= 4) {
+                        keywords.add(substring);
+                    }
+                }
+            }
+        });
+        
+        // Add specific domain keywords based on content
+        const domainKeywords = extractDomainKeywords(text);
+        domainKeywords.forEach(keyword => keywords.add(keyword));
+        
+        return Array.from(keywords);
+    }
+    
+    // Remove accents from text
+    function removeAccents(str) {
+        return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+    
+    // Extract domain-specific keywords
+    function extractDomainKeywords(text) {
+        const keywords = [];
+        const lowerText = text.toLowerCase();
+        
+        // Corporate governance keywords
+        const governanceTerms = {
+            'corporate governance': ['gouvernance', 'corporate', 'ca', 'conseil', 'administration'],
+            'administrateur': ['admin', 'mandataire', 'dirigeant'],
+            'conseil d\'administration': ['ca', 'conseil', 'board'],
+            'gouvernance': ['governance', 'corporate'],
+            'mandataire': ['administrateur', 'dirigeant', 'social'],
+            'formation': ['cours', 'certificat', 'enseignement'],
+            'diagnostic': ['evaluation', 'audit', 'analyse'],
+            'parite': ['feminisation', 'egalite', 'femme'],
+            'loi': ['reglementation', 'juridique', 'legal'],
+            'etude': ['enquete', 'recherche', 'analyse'],
+            'numerique': ['digital', 'informatique', 'tech']
+        };
+        
+        Object.entries(governanceTerms).forEach(([term, synonyms]) => {
+            if (lowerText.includes(term)) {
+                keywords.push(...synonyms);
+            }
+        });
+        
+        return keywords;
     }
     
     // Filter navigation links based on search term
@@ -90,14 +182,31 @@ $(document).ready(function() {
     
     // Navigate to homepage with AJAX
     function navigateToHomepage() {
-        // Check if we're already on homepage
-        if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-            return;
+        // Determine the correct path to index.html based on current location
+        const currentPath = window.location.pathname;
+        let indexPath = 'index.html';
+        
+        // If we're in a subdirectory, adjust the path
+        if (currentPath.includes('/pages/')) {
+            indexPath = '../index.html';
+        } else if (currentPath.includes('/missions/')) {
+            if (currentPath.includes('/missions/') && currentPath.split('/').length > 3) {
+                // We're in a subfolder of missions (like /missions/subfolder/)
+                indexPath = '../../index.html';
+            } else {
+                // We're directly in missions folder
+                indexPath = '../index.html';
+            }
+        } else if (currentPath.includes('/') && !currentPath.endsWith('/') && !currentPath.endsWith('index.html')) {
+            // We're in some other subdirectory
+            indexPath = '../index.html';
         }
+        
+        console.log('Navigating to homepage from:', currentPath, 'using path:', indexPath);
         
         // Use AJAX to load homepage content
         $.ajax({
-            url: 'index.html',
+            url: indexPath,
             type: 'GET',
             success: function(data) {
                 // Extract the main content from the response
@@ -105,9 +214,10 @@ $(document).ready(function() {
                 if ($newContent) {
                     $('main').html($newContent);
                     
-                    // Update URL without page reload
+                    // Update URL without page reload - always go to root index
                     if (history.pushState) {
-                        history.pushState(null, null, 'index.html');
+                        const rootPath = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/').replace(/\/[^\/]*$/, '') + '/index.html';
+                        history.pushState(null, null, rootPath);
                     }
                     
                     // Re-initialize search functionality for new content
@@ -129,8 +239,8 @@ $(document).ready(function() {
                 }
             },
             error: function() {
-                // Fallback to regular navigation
-                window.location.href = 'index.html';
+                // Fallback to regular navigation with correct path
+                window.location.href = indexPath;
             }
         });
     }
@@ -138,6 +248,11 @@ $(document).ready(function() {
     // Search input event handler
     $(document).on('input', '#nav-search-input', function() {
         const searchTerm = $(this).val();
+        
+        // Navigate to homepage when user starts typing
+        if (searchTerm.trim() && searchTerm.length === 1) {
+            navigateToHomepage();
+        }
         
         clearHighlights();
         filterNavigation(searchTerm);
@@ -150,17 +265,9 @@ $(document).ready(function() {
         }
     });
 
-    // Click handler for search input to navigate to homepage
-    $(document).on('click', '#nav-search-input', function() {
+    // Focus handler for search input to navigate to homepage
+    $(document).on('focus', '#nav-search-input', function() {
         navigateToHomepage();
-    });
-
-    // Click handler for search container to navigate to homepage
-    $(document).on('click', '.nav-search-container', function(e) {
-        // Only trigger if clicking on the container itself, not input or button
-        if (e.target === this) {
-            navigateToHomepage();
-        }
     });
     
     // Clear search button handler

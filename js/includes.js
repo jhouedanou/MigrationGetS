@@ -41,13 +41,19 @@ function loadIncludes() {
         $navRoot.off('click', '.menu-toggle').on('click', '.menu-toggle', function (e) {
             e.preventDefault();
             var $mainNav = $navRoot.find('.main-nav');
-            // Alternance d'affichage pour le mobile
-            if ($mainNav.is(':visible')) {
-                $mainNav.slideUp(150);
-                $(this).attr('aria-expanded', 'false');
-            } else {
+            var $navigation = $navRoot.closest('.main-navigation');
+            
+            // Toggle the navigation class
+            $navigation.toggleClass('toggled');
+            
+            if ($navigation.hasClass('toggled')) {
                 $mainNav.slideDown(150);
                 $(this).attr('aria-expanded', 'true');
+            } else {
+                $mainNav.slideUp(150);
+                $(this).attr('aria-expanded', 'false');
+                // Close all sub-menus when closing main menu
+                $navRoot.find('.sub-menu').slideUp(150);
             }
         });
 

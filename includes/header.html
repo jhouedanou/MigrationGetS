@@ -31,7 +31,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-8 m-0 p-0 d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md-8 m-0 p-0 d-flex align-items-center justify-content-center d-none d-md-flex">
                 <img
                     src="images/g-et-s-img-1024x376.jpg"
                     alt="G-ET-S Background"
@@ -66,18 +66,15 @@
                          onmouseout="this.style.backgroundColor='transparent'"
                          title="Cliquer pour retourner à l'accueil">
                         <input type="text" id="nav-search-input" 
-                               placeholder="🏠 Recherche" 
+                               placeholder="Recherche" 
                                class="form-control form-control-sm" 
-                               style="max-width: 300px; cursor: pointer;">
+                               style="max-width: 300px;">
                         <button type="button" id="clear-search" 
                                 class="btn btn-sm btn-outline-secondary mt-1"
                                 style="display: none; font-size: 0.8rem;">
-                            <i class="fas fa-times"></i> Effacer
+                            Effacer
                         </button>
                         <div id="search-results-count" class="small text-muted mt-1" style="display: none;"></div>
-                        <div class="small text-muted" style="font-size: 0.7rem; opacity: 0.7;">
-                            <i class="fas fa-home"></i> Cliquer pour accueil
-                        </div>
                     </div>
                     
                     <!-- Google Search -->
