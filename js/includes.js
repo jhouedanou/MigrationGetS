@@ -61,17 +61,10 @@ function loadIncludes() {
             console.log('Main nav found:', $mainNav.length);
             console.log('Navigation found:', $navigation.length);
             
-            // Toggle visibility without relying solely on CSS
-            if ($mainNav.is(':visible')) {
-                $mainNav.stop(true, true).hide();
-                $navigation.removeClass('toggled');
-                $(this).attr('aria-expanded', 'false');
-                $navigation.find('.sub-menu').hide();
-            } else {
-                $navigation.addClass('toggled');
-                $mainNav.stop(true, true).show();
-                $(this).attr('aria-expanded', 'true');
-            }
+            // Toggle with class only; CSS controls display
+            var isOpen = $navigation.hasClass('toggled');
+            $navigation.toggleClass('toggled', !isOpen);
+            $(this).attr('aria-expanded', String(!isOpen));
         });
 
         // Ouverture/fermeture des sous-menus au clic en mobile
@@ -100,18 +93,9 @@ function loadIncludes() {
             console.log('Global - Navigation found:', $navigation.length);
             console.log('Global - Main nav found:', $mainNav.length);
             
-            if ($mainNav.is(':visible')) {
-                console.log('Global - Closing menu');
-                $mainNav.stop(true, true).hide();
-                $navigation.removeClass('toggled');
-                $this.attr('aria-expanded', 'false');
-                $navigation.find('.sub-menu').hide();
-            } else {
-                console.log('Global - Opening menu');
-                $navigation.addClass('toggled');
-                $mainNav.stop(true, true).show();
-                $this.attr('aria-expanded', 'true');
-            }
+            var isOpen = $navigation.hasClass('toggled');
+            $navigation.toggleClass('toggled', !isOpen);
+            $this.attr('aria-expanded', String(!isOpen));
         });
     });
 
