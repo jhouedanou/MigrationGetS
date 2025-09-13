@@ -1,7 +1,23 @@
 // Fonction pour charger les includes
 function loadIncludes() {
     // Détecter le chemin de base selon la localisation de la page
-    var basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+    // Si on est dans un sous-dossier (pages/, missions/, contact/, etc.), il faut remonter d'un niveau
+    var currentPath = window.location.pathname;
+    var isInSubfolder = currentPath.split('/').length > 2 && !currentPath.endsWith('/index.html') || 
+                       currentPath.includes('/pages/') || currentPath.includes('/missions/') || 
+                       currentPath.includes('/contact/') || currentPath.includes('/author/') ||
+                       currentPath.includes('/category/') || currentPath.includes('/elementor-hf/') ||
+                       currentPath.match(/\/[^\/]+\/index\.html$/);
+    var basePath = isInSubfolder ? '../' : '';
+    
+    // Ajouter le lien vers styles.css si pas déjà présent
+    if (!document.querySelector('link[href*="styles.css"]')) {
+        var stylesLink = document.createElement('link');
+        stylesLink.rel = 'stylesheet';
+        stylesLink.type = 'text/css';
+        stylesLink.href = basePath + 'styles.css';
+        document.head.appendChild(stylesLink);
+    }
     
     // Charger le header
     $('#header-placeholder').load(basePath + 'includes/header.html', function() {
@@ -59,7 +75,23 @@ function fixImagePaths(container, basePath) {
 // Alternative avec JavaScript vanilla (sans jQuery)
 function loadIncludesVanilla() {
     // Détecter le chemin de base selon la localisation de la page
-    var basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+    // Si on est dans un sous-dossier (pages/, missions/, contact/, etc.), il faut remonter d'un niveau
+    var currentPath = window.location.pathname;
+    var isInSubfolder = currentPath.split('/').length > 2 && !currentPath.endsWith('/index.html') || 
+                       currentPath.includes('/pages/') || currentPath.includes('/missions/') || 
+                       currentPath.includes('/contact/') || currentPath.includes('/author/') ||
+                       currentPath.includes('/category/') || currentPath.includes('/elementor-hf/') ||
+                       currentPath.match(/\/[^\/]+\/index\.html$/);
+    var basePath = isInSubfolder ? '../' : '';
+    
+    // Ajouter le lien vers styles.css si pas déjà présent
+    if (!document.querySelector('link[href*="styles.css"]')) {
+        var stylesLink = document.createElement('link');
+        stylesLink.rel = 'stylesheet';
+        stylesLink.type = 'text/css';
+        stylesLink.href = basePath + 'styles.css';
+        document.head.appendChild(stylesLink);
+    }
     
     loadInclude('header-placeholder', basePath + 'includes/header.html', basePath);
     loadInclude('nav-placeholder', basePath + 'includes/nav.html', basePath);
