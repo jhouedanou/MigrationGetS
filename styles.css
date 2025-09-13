@@ -719,11 +719,11 @@ a:hover {
 
 .nav-link-anchor {
   display: block;
-  color: #1e73be;
+  color: #124a7a !important;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 14px !important;
   line-height: 1.4;
   border-left: 3px solid transparent;
 }
@@ -1653,7 +1653,7 @@ p {
   }
 }
 .elementor-widget-heading .elementor-heading-title {
-  color: var(--e-global-color-primary);
+  color:black;
   font-family: var(--e-global-typography-primary-font-family), Times-new-roman;
   font-weight: var(--e-global-typography-primary-font-weight);
 }
@@ -20107,7 +20107,25 @@ td.elementor-repeater-item-87660df {
 .page-id-312 thead.tafe-table-header {
   display: none;
 }
-
+.elementor-column.elementor-col-100.elementor-top-column.elementor-element.elementor-element-8ee3675 {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+#nav-placeholder{
+  margin-bottom:2em;
+}
 .page-id-322 thead.tafe-table-header {
   display: none;
-}/*# sourceMappingURL=styles.css.map */
+}
+.site-content{
+  max-width: 1140px;
+  margin: 0 auto;}
+
+
+  .elementor-element-8cf6fc4 .elementor-column.elementor-col-50{
+    border:1px solid black;
+  }
+  .elementor-element-8cf6fc4 .elementor-column.elementor-col-50 elementor-widget-text-editor *{
+    color:black;
+  }
+/*# sourceMappingURL=styles.css.map */
