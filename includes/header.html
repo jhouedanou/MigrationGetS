@@ -40,7 +40,10 @@
                 >
             </div>
             <div class="col-12 col-md-2 m-0 p-0 d-flex align-items-center">
-                <div id="velvet">
+
+<div class="row">   
+        
+                <div id="velvet" class="col-12">
                     <a href="index.html" title="Version française">
                         <img
                             src="images/elementor/thumbs/drapeau-fr-ol3pyz4uvdy1p3tpw4z2zvbrp5s0f6t7v3ho8zg7og.png"
@@ -56,7 +59,28 @@
                         >
                     </a>
                 </div>
-                <div id="search-container">
+                <div id="search-container"  class="col-12 mt-4">
+                    <!-- Navigation Search Filter -->
+                    <div class="nav-search-container mb-3" style="cursor: pointer; padding: 8px; border-radius: 8px; transition: background-color 0.2s;" 
+                         onmouseover="this.style.backgroundColor='#f8f9fa'" 
+                         onmouseout="this.style.backgroundColor='transparent'"
+                         title="Cliquer pour retourner à l'accueil">
+                        <input type="text" id="nav-search-input" 
+                               placeholder="🏠 Recherche" 
+                               class="form-control form-control-sm" 
+                               style="max-width: 300px; cursor: pointer;">
+                        <button type="button" id="clear-search" 
+                                class="btn btn-sm btn-outline-secondary mt-1"
+                                style="display: none; font-size: 0.8rem;">
+                            <i class="fas fa-times"></i> Effacer
+                        </button>
+                        <div id="search-results-count" class="small text-muted mt-1" style="display: none;"></div>
+                        <div class="small text-muted" style="font-size: 0.7rem; opacity: 0.7;">
+                            <i class="fas fa-home"></i> Cliquer pour accueil
+                        </div>
+                    </div>
+                    
+                    <!-- Google Search -->
                     <script>
                         window.__gcse = { 
                             parsetags: 'explicit'
@@ -65,6 +89,7 @@
                     <script async src="https://cse.google.com/cse.js?cx=5241dfaf922d443f2"></script>
                     <gcse:search></gcse:search>
                 </div>
+            </div>
             </div>
         </div>
     </div>

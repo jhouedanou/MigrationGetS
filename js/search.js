@@ -13,11 +13,13 @@ $(document).ready(function() {
     // Filter navigation links based on search term
     function filterNavigation(searchTerm) {
         const term = searchTerm.toLowerCase().trim();
+        let visibleCount = 0;
         
         if (!term) {
             // Show all links if search is empty
             $('.nav-link-item').show();
             $('.nav-sub-section').show();
+            $('#search-results-count').hide();
             return;
         }
         
@@ -30,6 +32,7 @@ $(document).ready(function() {
             // Check if the search term matches
             if (linkText.includes(term) || keywords.includes(term)) {
                 $item.show();
+                visibleCount++;
                 // Also show parent sub-section if this is a sub-item
                 $item.closest('.nav-sub-section').show();
             } else {
@@ -46,6 +49,12 @@ $(document).ready(function() {
                 $subSection.hide();
             }
         });
+        
+        // Update results count
+        const countText = visibleCount === 0 ? 'Aucun résultat trouvé' : 
+                         visibleCount === 1 ? '1 résultat trouvé' : 
+                         `${visibleCount} résultats trouvés`;
+        $('#search-results-count').text(countText).show();
     }
     
     // Highlight search results
@@ -76,31 +85,56 @@ $(document).ready(function() {
         });
     }
     
-    // Add search input to the page if it doesn't exist
-    function addSearchInput() {
-        if ($('#nav-search-input').length === 0) {
-            const searchHtml = `
-                <div class="nav-search-container" style="margin: 20px 0; text-align: center;">
-                    <input type="text" id="nav-search-input" 
-                           placeholder="Rechercher dans la navigation..." 
-                           class="form-control" 
-                           style="max-width: 400px; margin: 0 auto;">
-                    <button type="button" id="clear-search" 
-                            class="btn btn-sm btn-outline-secondary mt-2"
-                            style="display: none;">
-                        Effacer la recherche
-                    </button>
-                </div>
-            `;
-            
-            $('.navigation-tabs-section').prepend(searchHtml);
-        }
-    }
-    
     // Initialize search functionality
     initializeSearch();
-    addSearchInput();
     
+    // Navigate to homepage with AJAX
+    function navigateToHomepage() {
+        // Check if we're already on homepage
+        if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+            return;
+        }
+        
+        // Use AJAX to load homepage content
+        $.ajax({
+            url: 'index.html',
+            type: 'GET',
+            success: function(data) {
+                // Extract the main content from the response
+                const $newContent = $(data).find('main').html();
+                if ($newContent) {
+                    $('main').html($newContent);
+                    
+                    // Update URL without page reload
+                    if (history.pushState) {
+                        history.pushState(null, null, 'index.html');
+                    }
+                    
+                    // Re-initialize search functionality for new content
+                    setTimeout(function() {
+                        initializeSearch();
+                    }, 100);
+                    
+                    // Show success message
+                    const $toast = $('<div class="alert alert-success alert-dismissible fade show position-fixed" style="top: 20px; right: 20px; z-index: 9999;">' +
+                        '<i class="fas fa-home me-2"></i>Page d\'accueil chargée' +
+                        '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' +
+                        '</div>');
+                    $('body').append($toast);
+                    
+                    // Auto-hide toast after 3 seconds
+                    setTimeout(function() {
+                        $toast.alert('close');
+                    }, 3000);
+                }
+            },
+            error: function() {
+                // Fallback to regular navigation
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
     // Search input event handler
     $(document).on('input', '#nav-search-input', function() {
         const searchTerm = $(this).val();
@@ -115,6 +149,19 @@ $(document).ready(function() {
             $('#clear-search').hide();
         }
     });
+
+    // Click handler for search input to navigate to homepage
+    $(document).on('click', '#nav-search-input', function() {
+        navigateToHomepage();
+    });
+
+    // Click handler for search container to navigate to homepage
+    $(document).on('click', '.nav-search-container', function(e) {
+        // Only trigger if clicking on the container itself, not input or button
+        if (e.target === this) {
+            navigateToHomepage();
+        }
+    });
     
     // Clear search button handler
     $(document).on('click', '#clear-search', function() {
@@ -122,6 +169,7 @@ $(document).ready(function() {
         clearHighlights();
         filterNavigation('');
         $('#clear-search').hide();
+        $('#search-results-count').hide();
     });
     
     // Keyboard shortcuts
@@ -138,6 +186,7 @@ $(document).ready(function() {
             clearHighlights();
             filterNavigation('');
             $('#clear-search').hide();
+            $('#search-results-count').hide();
         }
     });
     
