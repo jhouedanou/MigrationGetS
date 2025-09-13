@@ -21,6 +21,13 @@
         <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
         <!-- Font Awesome CDN for icons -->
     </head>
+    <style>
+        /* Désactive les infobulles Pinegrow sur l'accueil */
+        .pinegrow-editable[data-pg-name]:hover::before {
+            content: none !important;
+            display: none !important;
+        }
+    </style>
     <body>
         <!-- Header include -->
         <div id="header-placeholder"></div>
@@ -173,7 +180,7 @@
                                             <span class="nav-sub-title pinegrow-editable" data-pg-name="Sub Title">Pour Mandataires sociaux</span>
                                             <ul class="nav-sub-list">
                                                 <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="formations-administrateurs.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Organismes de formation au Conseil d'administration</a>
+                                                    <a href="pages/formations-administrateurs.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Organismes de formation au Conseil d'administration</a>
                                                 </li>
                                                 <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
                                                     <a href="pages/certificat-centrale.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Certificat Centrale-Supelec Comex Codir</a>
@@ -187,7 +194,7 @@
                                             <span class="nav-sub-title pinegrow-editable" data-pg-name="Sub Title">Pour les sociétés</span>
                                             <ul class="nav-sub-list">
                                                 <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="candidats-mandataires.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Candidats mandataires sociaux disponibles</a>
+                                                    <a href="pages/candidats-mandataires.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Candidats mandataires sociaux disponibles</a>
                                                 </li>
                                                 <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
                                                     <a href="pages/catalogue-documents.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Catalogue des documents pour l'administrateur</a>
@@ -215,7 +222,7 @@
                             G &amp; S ouvre le dialogue avec elles, afin de les connaître et pouvoir les inclure comme candidats potentiels lors de recherche de mandataires sociaux / administrateurs.
                         </p>
                         <p class="candidats-action pinegrow-editable" data-pg-name="Candidats Action">
-                            Si vous êtes dans ce cas, n'hésitez pas à <a href="contact.html" class="candidats-link pinegrow-editable" data-pg-name="Contact Link">cliquer ici</a> - lien vers le formulaire de contact
+                            Si vous êtes dans ce cas, n'hésitez pas à <a href="contact.html" class="candidats-link pinegrow-editable" data-pg-name="Contact Link">cliquer ici</a>
                         </p>
                     </div>
                 </div>
