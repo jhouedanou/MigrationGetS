@@ -1,14 +1,10 @@
 // Fonction pour charger les includes
 function loadIncludes() {
-    // Détecter le chemin de base selon la localisation de la page
-    // Si on est dans un sous-dossier (pages/, missions/, contact/, etc.), il faut remonter d'un niveau
-    var currentPath = window.location.pathname;
-    var isInSubfolder = currentPath.split('/').length > 2 && !currentPath.endsWith('/index.html') || 
-                       currentPath.includes('/pages/') || currentPath.includes('/missions/') || 
-                       currentPath.includes('/contact/') || currentPath.includes('/author/') ||
-                       currentPath.includes('/category/') || currentPath.includes('/elementor-hf/') ||
-                       currentPath.match(/\/[^\/]+\/index\.html$/);
-    var basePath = isInSubfolder ? '../' : '';
+    // Déterminer dynamiquement la profondeur pour remonter au dossier racine
+    var path = window.location.pathname.replace(/^\/+/, '');
+    var segments = path.split('/').filter(function (p) { return p.length > 0; });
+    // Nombre de ../ = nb segments - 1 (ex: index.html => 0, pages/x.html => 1, missions/x/index.html => 2)
+    var basePath = segments.length > 1 ? Array(segments.length).join('../') : '';
     
     // Ajouter le lien vers styles.css si pas déjà présent
     if (!document.querySelector('link[href*="styles.css"]')) {
@@ -39,6 +35,30 @@ function loadIncludes() {
         if (basePath) {
             fixImagePaths('#nav-placeholder', basePath);
         }
+
+        // Activer le menu mobile (toggle)
+        var $navRoot = $('#nav-placeholder');
+        $navRoot.off('click', '.menu-toggle').on('click', '.menu-toggle', function (e) {
+            e.preventDefault();
+            var $mainNav = $navRoot.find('.main-nav');
+            // Alternance d'affichage pour le mobile
+            if ($mainNav.is(':visible')) {
+                $mainNav.slideUp(150);
+                $(this).attr('aria-expanded', 'false');
+            } else {
+                $mainNav.slideDown(150);
+                $(this).attr('aria-expanded', 'true');
+            }
+        });
+
+        // Ouverture/fermeture des sous-menus au clic en mobile
+        $navRoot.off('click', '.menu-item-has-children > a').on('click', '.menu-item-has-children > a', function (e) {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                e.preventDefault();
+                var $submenu = $(this).siblings('.sub-menu');
+                $submenu.slideToggle(150);
+            }
+        });
     });
 
     // Charger le footer

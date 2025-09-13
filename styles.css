@@ -574,23 +574,14 @@ a:hover {
 .homepage-content {
   padding: 40px 0;
   text-align: center;
-  background: linear-gradient(135deg, var(--battleship-gray) 0%, var(--celestial-blue) 50%, var(--carolina-blue) 100%);
+  background: var(--celestial-blue);
   border-radius: 12px;
   margin-bottom: 40px;
   position: relative;
   overflow: hidden;
 }
 
-.homepage-content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
-  pointer-events: none;
-}
+.homepage-content::before { content: none; }
 
 .homepage-title {
   color: white;
@@ -627,12 +618,12 @@ a:hover {
 }
 
 .section-title {
-  color: white;
+  color: #000000;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 10px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   line-height: 1.3;
+  padding: 6px 0;
 }
 
 .section-subtitle {
@@ -752,13 +743,12 @@ a:hover {
 
 .nav-sub-title {
   display: block;
-  color: #333;
+  color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 15px;
   padding: 10px 12px;
-  background: linear-gradient(135deg, #1e73be 0%, #035a9e 100%);
-  color: white;
+  background: #1e73be;
   border-radius: 4px;
   text-align: center;
 }
@@ -850,23 +840,14 @@ a:hover {
 .candidats-section {
   margin-top: 50px;
   padding: 40px 30px;
-  background: linear-gradient(135deg, var(--carolina-blue) 0%, var(--celestial-blue) 100%);
+  background: var(--celestial-blue);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
 
-.candidats-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
-  pointer-events: none;
-}
+.candidats-section::before { content: none; }
 
 .candidats-content {
   position: relative;
