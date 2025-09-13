@@ -15,7 +15,13 @@ body {
 
 body p,
 body li,
-body a,
+body a{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000000;
+}
+
 body b ,
 body strong {
     font-family: 'Times New Roman', Times, serif;
