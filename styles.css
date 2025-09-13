@@ -1367,4 +1367,8 @@ ul.menu-missions a {
   font-weight: 400;
   height: auto;
   line-height: 15.6px;
+}
+
+.site-content p {
+  font-size: 12px;
 }/*# sourceMappingURL=styles.css.map */
