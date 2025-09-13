@@ -21,8 +21,7 @@ body strong {
     font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
     line-height: 1.2;
-    color: #000000;
-    font-weight: bold;
+    color: #3a3a3a;
 }
 
 .container {
@@ -1262,11 +1261,9 @@ ul.menu-missions {
         list-style: none;
         list-style-type: none;
     }
-
-    padding: 0;
+padding:0;
     display: flex;
-    margin: 2em 0;
-
+margin:2em 0;
     a {
         -webkit-text-size-adjust: 100%;
         --lt-color-gray-100: #f8f9fc;
@@ -1400,4 +1397,7 @@ ul.menu-missions {
         text-decoration: none;
         color: rgb(15, 57, 94);
     }
+}
+
+charg {
 }
