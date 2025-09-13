@@ -19665,6 +19665,16 @@ a.generate-back-to-top:hover, a.generate-back-to-top:focus {
   .main-navigation.toggled .main-nav {
     display: block !important;
     width: 100% !important;
+    position: relative !important;
+    z-index: 999 !important;
+  }
+  
+  .main-navigation .main-nav {
+    display: none;
+  }
+  
+  .main-navigation.toggled .main-nav {
+    display: block !important;
   }
   
   .main-navigation.toggled #menu-main-menu {
@@ -19836,6 +19846,46 @@ a.generate-back-to-top:hover, a.generate-back-to-top:focus {
   /* Google search on mobile */
   gcse\\:search {
     display: none !important;
+  }
+  
+  /* Move column headers into columns on mobile */
+  .tab-headers-section {
+    display: none !important;
+  }
+  
+  .navigation-column {
+    position: relative;
+    padding-top: 64px; /* space for the injected header */
+  }
+  
+  .navigation-column::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  
+  /* Per-column header text and color */
+  .generalites-column::before {
+    content: 'Généralités Corporate Governance';
+    background: var(--celestial-blue);
+  }
+  .feminisation-column::before {
+    content: 'Féminisation des instances de gouvernance';
+    background: var(--carolina-blue);
+  }
+  .prestations-column::before {
+    content: 'Prestations G et S';
+    background: var(--battleship-gray);
   }
 }
 body {

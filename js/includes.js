@@ -38,22 +38,39 @@ function loadIncludes() {
 
         // Activer le menu mobile (toggle)
         var $navRoot = $('#nav-placeholder');
+        
+        // Debug: Check if elements exist
+        console.log('Nav root found:', $navRoot.length);
+        console.log('Menu toggle found:', $navRoot.find('.menu-toggle').length);
+        console.log('Main nav found:', $navRoot.find('.main-nav').length);
+        
         $navRoot.off('click', '.menu-toggle').on('click', '.menu-toggle', function (e) {
             e.preventDefault();
-            var $mainNav = $navRoot.find('.main-nav');
-            var $navigation = $navRoot.closest('.main-navigation');
+            console.log('Menu toggle clicked');
             
-            // Toggle the navigation class
-            $navigation.toggleClass('toggled');
+            // Always target the real navigation element by id
+            var $navigation = $('#site-navigation');
+            var $mainNav = $navigation.find('#menu-main-menu, .main-nav');
             
-            if ($navigation.hasClass('toggled')) {
-                $mainNav.slideDown(150);
-                $(this).attr('aria-expanded', 'true');
-            } else {
-                $mainNav.slideUp(150);
+            if ($mainNav.length === 0) {
+                // Fallback: search globally
+                $mainNav = $('.main-navigation').find('#menu-main-menu, .main-nav');
+                $navigation = $('.main-navigation');
+            }
+            
+            console.log('Main nav found:', $mainNav.length);
+            console.log('Navigation found:', $navigation.length);
+            
+            // Toggle visibility without relying solely on CSS
+            if ($mainNav.is(':visible')) {
+                $mainNav.stop(true, true).hide();
+                $navigation.removeClass('toggled');
                 $(this).attr('aria-expanded', 'false');
-                // Close all sub-menus when closing main menu
-                $navRoot.find('.sub-menu').slideUp(150);
+                $navigation.find('.sub-menu').hide();
+            } else {
+                $navigation.addClass('toggled');
+                $mainNav.stop(true, true).show();
+                $(this).attr('aria-expanded', 'true');
             }
         });
 
@@ -63,6 +80,37 @@ function loadIncludes() {
                 e.preventDefault();
                 var $submenu = $(this).siblings('.sub-menu');
                 $submenu.slideToggle(150);
+            }
+        });
+        
+        // Alternative menu toggle handler (global)
+        $(document).off('click.menuGlobal').on('click.menuGlobal', '.menu-toggle', function(e) {
+            e.preventDefault();
+            console.log('Global menu toggle clicked');
+            
+            var $this = $(this);
+            var $navigation = $('#site-navigation');
+            var $mainNav = $navigation.find('#menu-main-menu, .main-nav');
+            
+            if ($navigation.length === 0) {
+                $navigation = $('.main-navigation');
+                $mainNav = $navigation.find('#menu-main-menu, .main-nav');
+            }
+            
+            console.log('Global - Navigation found:', $navigation.length);
+            console.log('Global - Main nav found:', $mainNav.length);
+            
+            if ($mainNav.is(':visible')) {
+                console.log('Global - Closing menu');
+                $mainNav.stop(true, true).hide();
+                $navigation.removeClass('toggled');
+                $this.attr('aria-expanded', 'false');
+                $navigation.find('.sub-menu').hide();
+            } else {
+                console.log('Global - Opening menu');
+                $navigation.addClass('toggled');
+                $mainNav.stop(true, true).show();
+                $this.attr('aria-expanded', 'true');
             }
         });
     });
