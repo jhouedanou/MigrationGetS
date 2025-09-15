@@ -4555,15 +4555,15 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
 }
 
 .elementor-grid-4 .elementor-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .elementor-grid-5 .elementor-grid {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .elementor-grid-6 .elementor-grid {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .elementor-grid-7 .elementor-grid {
@@ -20356,5 +20356,8 @@ td.elementor-repeater-item-87660df {
   }
   .elementor-element-8cf6fc4 .elementor-column.elementor-col-50 elementor-widget-text-editor *{
     color:black;
+  }
+ #nav-placeholder{
+    display:none;
   }
 /*# sourceMappingURL=styles.css.map */

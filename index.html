@@ -37,14 +37,11 @@
         <main class="container-full pt-4 pb-4">
             <div class="container main-container bg-white">
                 <!-- Nouvelle navigation 7 colonnes et zone d'articles -->
-
                 <section class="home-navigation pt-3 pb-3">
                     <style>
                         /* Styles portés par la page d'accueil (scopés au main pour respecter la contrainte) */
                         .home-navigation .home-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-                        @media (max-width: 1400px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(5, 1fr); } }
-                        @media (max-width: 992px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(3, 1fr); } }
-                        @media (max-width: 576px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(1, 1fr); } }
+                        @media (max-width: 768px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(1, 1fr); } }
 
                         .home-navigation .nav-col { border: 1px solid #e6e6e6; border-radius: 8px; padding: 12px; background: #fafafa; min-height: 100%; }
                         .home-navigation .nav-col.filler { background: #fdfdfd; border-style: dashed; color: #bbb; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
@@ -64,6 +61,9 @@
                         .articles-section .articles-header { font-size: 1.05rem; color: #114a7b; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
                         .articles-section .grid-item { transition: opacity .18s ease; }
                         .articles-section .grid-item:hover { transform: none; }
+                        
+                        /* Smooth scroll behavior */
+                        html { scroll-behavior: smooth; }
                         .articles-section .card { height: 100%; }
                         .articles-section .card-img-top { object-fit: cover; height: 140px; }
                         .articles-section .card-title { font-size: 1rem; }
@@ -73,34 +73,32 @@
 
                     <div class="home-nav-grid">
                         <!-- Colonne 1 -->
-                        <div class="nav-col p-4">
-                            <div class="level1">G &amp; S contributeur pour une saine Corporate Governance</div>
-                            <div class="row">
-                                <div class="level2 col-6">Généralités "Corporate Governance"</div>
-                                <ul class="level3 row">
-                                    <li class="col-6"><button class="nav-action" data-target="generalites-contrib">Contributions de Guy Le Péchon</button></li>
-                                    <li class="col-6"><button class="nav-action" data-target="generalites-docs">Documents utiles</button></li>
-                                </ul>
-                                <div class="level2 col-6">Féminisation des Instances dirigeantes</div>
-                                <ul class="level3 row">
-                                    <li class="col-6"><button class="nav-action" data-target="feminisation-contrib">Contributions de Guy Le Péchon</button></li>
-                                    <li class="col-6"><button class="nav-action" data-target="feminisation-docs">Documents utiles</button></li>
-                                </ul>
-                            </div>
-                       
+                        <div class="nav-col ">
+                            <div class="level1 row p-4">G &amp; S contributeur pour une saine Corporate Governance</div>
+                                    <hr>
+                            <div class="level2 col-md-12">Généralités "Corporate Governance"</div>
+                            <ul class="level3 row">
+                                <li class="col-md-6 p-0 m-0 d-flex justify-center align-center"><button class="nav-action" data-target="generalites-contrib">Contributions de Guy Le Péchon</button></li>
+                                <li class="col-md-6 p-0 m-0 d-flex justify-center align-center"><button class="nav-action" data-target="generalites-docs">Documents utiles</button></li>
+                            </ul>
+                            <div class="level2 col-md-12">Féminisation des Instances dirigeantes</div>
+                            <ul class="level3 row">
+                                <li class="col-md-6 p-0 m-0 d-flex justify-center align-center"><button class="nav-action" data-target="feminisation-contrib">Contributions de Guy Le Péchon</button></li>
+                                <li class="col-md-6 p-0 m-0 d-flex justify-center align-center"><button class="nav-action" data-target="feminisation-docs">Documents utiles</button></li>
+                            </ul>
                         </div>
 
                         <!-- Colonne 2 -->
-                        <div class="nav-col p-4">
-                            <div class="level1"><button class="link-as-text nav-action" data-target="qui">Qui est G &amp; S</button></div>
-                        </div>
-
+                        <div class="nav-col">
+                            <div class="level1  p-4"><button class="link-as-text nav-action" data-target="qui">Qui est G &amp; S</button></div>
+                            </div>
+                          
                         <!-- Colonne 3 -->
-                        <div class="nav-col p-4">
-                            <div class="level1">Prestations de Gouvernance et Structures</div>
-                            <ul class="level3">
-                                <li><button class="nav-action" data-target="pour-mandataires">Pour mandataires</button></li>
-                                <li><button class="nav-action" data-target="pour-societes">Pour Sociétés</button></li>
+                        <div class="nav-col">
+                            <div class="level1 p-4">Prestations de Gouvernance et Structures</div>
+                            <ul class="level3 row p-4">
+                                <li class="col-md-6 p-0 m-0"><button class="nav-action" data-target="pour-mandataires">Pour mandataires</button></li>
+                                <li class="col-md-6 p-0 m-0"><button class="nav-action" data-target="pour-societes">Pour Sociétés</button></li>
                             </ul>
                         </div>
 
@@ -127,15 +125,15 @@
                                     <input id="search-input" type="text" class="form-control form-control-sm" placeholder="Rechercher dans les articles...">
                                     <button type="button" class="btn btn-sm btn-primary do-search">Rechercher</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary clear-search">Effacer</button>
-                                </div>
+                        </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="articles-section">
+                <section class="articles-section" id="articles-section">
                     <h3 class="articles-header">Articles</h3>
-                    <div id="articles-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 content-grid"                                                   >
+                    <div id="articles-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 content-grid">
                         <!-- Les cartes seront injectées ici -->
                     </div>
                 </section>
@@ -294,6 +292,16 @@
                                 const ev = new Event('change', { bubbles: true });
                                 select.dispatchEvent(ev);
                             }
+                            // Smooth scroll vers les articles
+                            setTimeout(function() {
+                                const articlesSection = document.getElementById('articles-section');
+                                if (articlesSection) {
+                                    articlesSection.scrollIntoView({ 
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }
+                            }, 50);
                             // Met à jour l'URL en hash
                             if (history.pushState) { history.pushState({ k: target }, '', '#' + target); }
                         });
@@ -323,8 +331,8 @@
         <script src="js/homepage.js"></script>
         <!-- Search functionality script -->
         <script src="js/search.js"></script>
-        <!-- Debug script (development only) -->
-        <script src="js/debug-keywords.js"></script>
+        Debug script (development only)
+        <!-- <script src="js/debug-keywords.js"></script> -->
         <script src="assets/js/popper.min.js"></script>
     </body>
 </html>

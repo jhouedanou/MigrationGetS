@@ -58,6 +58,7 @@ $(document).ready(function() {
     $('#category-filter').on('change', function() {
         currentCategoryFilter = this.value || '*';
         updateIsotopeFilter();
+        scrollToArticles();
     });
 
     // Search functionality
@@ -68,7 +69,19 @@ $(document).ready(function() {
     // Manual search trigger button
     $(document).on('click', '.do-search', function() {
         performSearch();
+        scrollToArticles();
     });
+
+    // Smooth scroll to articles section
+    function scrollToArticles() {
+        const articlesSection = document.getElementById('articles-section');
+        if (articlesSection) {
+            articlesSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
 
     // Debounce function to limit search frequency
     function debounce(func, wait) {
