@@ -36,203 +36,285 @@
         <!-- Main content goes here -->
         <main class="container-full pt-4 pb-4">
             <div class="container main-container bg-white">
-                <!-- Page d'accueil content - editable area -->
+                <!-- Nouvelle navigation 7 colonnes et zone d'articles -->
 
+                <section class="home-navigation pt-3 pb-3">
+                    <style>
+                        /* Styles portés par la page d'accueil (scopés au main pour respecter la contrainte) */
+                        .home-navigation .home-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+                        @media (max-width: 1400px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(5, 1fr); } }
+                        @media (max-width: 992px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(3, 1fr); } }
+                        @media (max-width: 576px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(1, 1fr); } }
 
-                <!-- Three Column Tab Headers (Non-clickable) -->
-                <div class="tab-headers-section">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="tab-header-block generalites-header pinegrow-editable" data-pg-name="Header Generalites">
-                                <h2 class="tab-header-title pinegrow-editable" data-pg-name="Header Title Generalites">Généralités Corporate Governance</h2>
-                                   <div class="badge-container">
-                                <div class="badge">Guy Le Péchon contributeur</div>
+                        .home-navigation .nav-col { border: 1px solid #e6e6e6; border-radius: 8px; padding: 12px; background: #fafafa; min-height: 100%; }
+                        .home-navigation .nav-col.filler { background: #fdfdfd; border-style: dashed; color: #bbb; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+
+                        .home-navigation .level1 { font-size: 1.05rem; font-weight: 700; color: #114a7b; margin-bottom: 6px; }
+                        .home-navigation .level2 { font-size: 0.95rem; font-weight: 600; color: #1e73be; margin-top: 10px; margin-bottom: 6px; }
+                        .home-navigation .level3 { list-style: none; padding-left: 0; margin: 0; }
+                        .home-navigation .level3 li { margin-bottom: 6px; }
+                        .home-navigation .nav-action { background: none; border: none; padding: 0; color: #0d6efd; cursor: pointer; text-align: left; font-size: 0.92rem; }
+                        .home-navigation .nav-action:hover, .home-navigation .link-as-text:hover { text-decoration: underline; }
+                        .home-navigation .link-as-text { background: none; border: none; color: #0d6efd; padding: 0; font: inherit; cursor: pointer; }
+
+                        .home-navigation .filters-toolbar { border: 1px solid #e6e6e6; border-radius: 8px; padding: 10px; background: #ffffff; margin-top: 12px; }
+                        .home-navigation .filters-toolbar .form-label { font-size: 0.8rem; color: #666; }
+
+                        .articles-section { margin-top: 18px; }
+                        .articles-section .articles-header { font-size: 1.05rem; color: #114a7b; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
+                        .articles-section .grid-item { transition: opacity .18s ease; }
+                        .articles-section .grid-item:hover { transform: none; }
+                        .articles-section .card { height: 100%; }
+                        .articles-section .card-img-top { object-fit: cover; height: 140px; }
+                        .articles-section .card-title { font-size: 1rem; }
+                        .articles-section .card-text { font-size: 0.9rem; color: #444; }
+                        .articles-section .grid-item.hidden { display: none !important; }
+                    </style>
+
+                    <div class="home-nav-grid">
+                        <!-- Colonne 1 -->
+                        <div class="nav-col p-4">
+                            <div class="level1">G &amp; S contributeur pour une saine Corporate Governance</div>
+                            <div class="row">
+                                <div class="level2 col-6">Généralités "Corporate Governance"</div>
+                                <ul class="level3 row">
+                                    <li class="col-6"><button class="nav-action" data-target="generalites-contrib">Contributions de Guy Le Péchon</button></li>
+                                    <li class="col-6"><button class="nav-action" data-target="generalites-docs">Documents utiles</button></li>
+                                </ul>
+                                <div class="level2 col-6">Féminisation des Instances dirigeantes</div>
+                                <ul class="level3 row">
+                                    <li class="col-6"><button class="nav-action" data-target="feminisation-contrib">Contributions de Guy Le Péchon</button></li>
+                                    <li class="col-6"><button class="nav-action" data-target="feminisation-docs">Documents utiles</button></li>
+                                </ul>
                             </div>
-                            </div>
-                         
+                       
                         </div>
-                        <div class="col-md-4">
-                            <div class="tab-header-block feminisation-header pinegrow-editable" data-pg-name="Header Feminisation">
-                                <h2 class="tab-header-title pinegrow-editable" data-pg-name="Header Title Feminisation">Féminisation des instances de gouvernance</h2>
-                                <div class="badge-container">
-                                    <div class="badge">Guy Le Péchon contributeur</div>
+
+                        <!-- Colonne 2 -->
+                        <div class="nav-col p-4">
+                            <div class="level1"><button class="link-as-text nav-action" data-target="qui">Qui est G &amp; S</button></div>
+                        </div>
+
+                        <!-- Colonne 3 -->
+                        <div class="nav-col p-4">
+                            <div class="level1">Prestations de Gouvernance et Structures</div>
+                            <ul class="level3">
+                                <li><button class="nav-action" data-target="pour-mandataires">Pour mandataires</button></li>
+                                <li><button class="nav-action" data-target="pour-societes">Pour Sociétés</button></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- Barre de filtre Isotope + recherche sous la grille -->
+                    <div class="filters-toolbar">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-sm-6 col-md-4">
+                                <label for="category-filter" class="form-label mb-1">Filtrer par catégorie</label>
+                                <select id="category-filter" class="form-select form-select-sm">
+                                    <option value="*">Toutes les catégories</option>
+                                    <option value=".generalites-contrib">Généralités – Contributions</option>
+                                    <option value=".generalites-docs">Généralités – Documents utiles</option>
+                                    <option value=".feminisation-contrib">Féminisation – Contributions</option>
+                                    <option value=".feminisation-docs">Féminisation – Documents utiles</option>
+                                    <option value=".qui">Qui est G &amp; S</option>
+                                    <option value=".pour-mandataires">Pour mandataires</option>
+                                    <option value=".pour-societes">Pour Sociétés</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label for="search-input" class="form-label mb-1">Recherche</label>
+                                <div class="d-flex gap-2">
+                                    <input id="search-input" type="text" class="form-control form-control-sm" placeholder="Rechercher dans les articles...">
+                                    <button type="button" class="btn btn-sm btn-primary do-search">Rechercher</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary clear-search">Effacer</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="tab-header-block prestations-header pinegrow-editable" data-pg-name="Header Prestations">
-                                <h2 class="tab-header-title pinegrow-editable" data-pg-name="Header Title Prestations">Prestations G et S</h2>
-                            </div>
-                          
-                        </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Three Column Navigation Links -->
-                <div class="navigation-tabs-section">
-                    <div class="row">
-                        <!-- Colonne 1: Généralités Corporate Governance -->
-                        <div class="col-md-4">
-                            <div class="navigation-column generalites-column pinegrow-editable" data-pg-name="Generalites Links">
-                                <nav class="column-navigation" aria-label="Généralités Corporate Governance">
-                                    <ul class="nav-links-list">
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/generalites-corporate-governance.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Généralités "Corporate Governance</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/livre-eti.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Livre ETI</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/couverture-harmattan.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Couverture L'Harmattan</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/video-glp-vl.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Video GLP VL</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/soiree-lancement.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Soirée de lancement</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/entreprise-liberee.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Entreprise libérée (Préface)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/ia-compliance.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">IA et la Compliance (Avant-Propos)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/intelligence-collective.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Intelligence collective (Webinar XMPC)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/monde-numerique.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Le monde numérique et la relation client (Vidéo)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/shadow-conseil.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Shadow Conseil d'Administration de jeunes (Article)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/cours-inseec.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Cours INSEEC Les Instances de Gouvernance</a>
-                                        </li>
-                                        <li class="nav-link-item nav-sub-section pinegrow-editable" data-pg-name="Nav Sub Section">
-                                            <span class="nav-sub-title pinegrow-editable" data-pg-name="Sub Title">Groupes de travail de l'IFA</span>
-                                            <ul class="nav-sub-list">
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/information-administrateurs.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">L'information des administrateurs</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/conseils-numerique.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Les conseils d'administration et le numérique</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-
-                        <!-- Colonne 2: Féminisation des instances de gouvernance -->
-                        <div class="col-md-4">
-                            <div class="navigation-column feminisation-column pinegrow-editable" data-pg-name="Feminisation Links">
-                                <nav class="column-navigation" aria-label="Féminisation des instances de gouvernance">
-                                    <ul class="nav-links-list">
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/etude-juin-2025.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Etude fin juin 2025</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/assises-parite.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Les assises de la Parité</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/loi-zimmerman.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">La loi Zimmerman Janvier 2011</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/loi-rixain.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">La Loi Rixain Décembre 2021</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/directive-europeenne.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Directive Européenne (Novembre 2024)</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/questionnaire-rixain.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Questionnaire Enquête Rixain</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="la-presse-parle-de-gouvernance-structures/index.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Articles de presse</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-
-                        <!-- Colonne 3: Prestations G et S -->
-                        <div class="col-md-4">
-                            <div class="navigation-column prestations-column pinegrow-editable" data-pg-name="Prestations Links">
-                                <nav class="column-navigation" aria-label="Prestations G et S">
-                                    <ul class="nav-links-list">
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/organisation-gs.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Organisation G &amp; S</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="gouvernance-advisors/index.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Gouvernance Advisors</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="sites-interesssants-4/index.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Sites amis</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="pages/historique.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Historique</a>
-                                        </li>
-                                        <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Item">
-                                            <a href="contact.html" class="nav-link-anchor pinegrow-editable" data-pg-name="Nav Link">Contact</a>
-                                        </li>
-                                        <li class="nav-link-item nav-sub-section pinegrow-editable" data-pg-name="Nav Sub Section">
-                                            <span class="nav-sub-title pinegrow-editable" data-pg-name="Sub Title">Pour Mandataires sociaux</span>
-                                            <ul class="nav-sub-list">
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/formations-administrateurs.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Organismes de formation au Conseil d'administration</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/certificat-centrale.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Certificat Centrale-Supelec Comex Codir</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/informatique.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Informatique</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-link-item nav-sub-section pinegrow-editable" data-pg-name="Nav Sub Section">
-                                            <span class="nav-sub-title pinegrow-editable" data-pg-name="Sub Title">Pour les sociétés</span>
-                                            <ul class="nav-sub-list">
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/candidats-mandataires.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Candidats mandataires sociaux disponibles</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/catalogue-documents.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Catalogue des documents pour l'administrateur</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/questionnaire-rixain-societes.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Questionnaire Enquête Rixain</a>
-                                                </li>
-                                                <li class="nav-link-item pinegrow-editable" data-pg-name="Nav Sub Item">
-                                                    <a href="pages/diagnostics-ca.html" class="nav-link-anchor sub-link pinegrow-editable" data-pg-name="Nav Sub Link">Diagnostics pour CA</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+                <section class="articles-section">
+                    <h3 class="articles-header">Articles</h3>
+                    <div id="articles-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 content-grid"                                                   >
+                        <!-- Les cartes seront injectées ici -->
                     </div>
-                </div>
+                </section>
 
-                <!-- Section candidats mandataires sociaux -->
-                <div class="candidats-section pinegrow-editable" data-pg-name="Candidats Section">
-                    <div class="candidats-content">
-                        <p class="candidats-text pinegrow-editable" data-pg-name="Candidats Text">
-                            Pour des personnes expérimentées et qualifiées désirant devenir Mandataires Sociaux / Administrateurs,
-                            G &amp; S ouvre le dialogue avec elles, afin de les connaître et pouvoir les inclure comme candidats potentiels lors de recherche de mandataires sociaux / administrateurs.
-                        </p>
-                        <p class="candidats-action pinegrow-editable" data-pg-name="Candidats Action">
-                            Si vous êtes dans ce cas, n'hésitez pas à <a href="contact.html" class="candidats-link pinegrow-editable" data-pg-name="Contact Link">cliquer ici</a>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Loading indicator for AJAX -->
+                <!-- Indicateur de chargement -->
                 <div id="loading-indicator" class="text-center mt-4 loading-hidden">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Chargement...</span>
                     </div>
                 </div>
+
+                <script>
+                    (function() {
+                        const defaultImg = 'images/2020/02/logo-gets-3C.png';
+
+                        const dataSets = {
+                            'generalites-contrib': [
+                                { title: 'Livre ETI', url: 'pages/livre-eti.html' },
+                                { title: "Couverture L'Harmattan", url: 'pages/couverture-harmattan.html' },
+                                { title: 'Vidéo GLP VL', url: 'pages/video-glp-vl.html' },
+                                { title: 'Soirée de lancement', url: 'pages/soiree-lancement.html' },
+                                { title: 'Entreprise libérée (Préface)', url: 'pages/entreprise-liberee.html' },
+                                { title: 'IA et la Compliance (Avant-Propos)', url: 'pages/ia-compliance.html' },
+                                { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html' },
+                                { title: 'Le monde numérique et la relation client (Vidéo)', url: 'pages/monde-numerique.html' },
+                                { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html' },
+                                { title: 'Cours INSEEC - Instances de Gouvernance', url: 'pages/cours-inseec.html' },
+                                { title: 'Ouvrage collectif CA', url: 'pages/ouvrage-collectif-ca.html' },
+                                { title: 'Articles de presse', url: 'pages/articles-presse.html' },
+                                { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true },
+                                { title: 'Boards et Comex', url: 'pages/boards-et-comex.html', construction: true },
+                                { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true },
+                                { title: "IFA et le numérique", url: 'pages/ifa-et-numerique.html', construction: true }
+                            ],
+                            'generalites-docs': [
+                                { title: 'Loi Zimmerman (2011)', url: 'pages/loi-zimmerman.html' },
+                                { title: 'Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
+                                { title: 'Loi Pacte', url: 'pages/loi-pacte.html', construction: true },
+                                { title: 'Formations administrateurs', url: 'pages/formations-administrateurs.html' },
+                                { title: 'Sites intéressants', url: 'sites-interesssants-4/index.html' },
+                                { title: "Information des administrateurs", url: 'pages/information-administrateurs.html' },
+                                { title: "Catalogue des documents pour l'administrateur", url: 'pages/catalogue-documents.html' }
+                            ],
+                            'feminisation-contrib': [
+                                { title: 'Étude fin juin 2025', url: 'pages/etude-juin-2025.html' },
+                                { title: 'Assises de la Parité', url: 'pages/assises-parite.html' },
+                                { title: 'Directive Européenne (2024)', url: 'pages/directive-europeenne.html' },
+                                { title: 'Observatoire des genres', url: 'pages/observatoire-genres.html' },
+                                { title: 'Articles de presse', url: 'la-presse-parle-de-gouvernance-structures/index.html' }
+                            ],
+                            'feminisation-docs': [
+                                { title: 'Loi Rixain - Questionnaire', url: 'pages/questionnaire-rixain.html' },
+                                { title: 'Loi Rixain - Sociétés (questionnaire)', url: 'pages/questionnaire-rixain-societes.html' }
+                            ],
+                            'qui': [
+                                { title: 'Introduction - Organisation G & S', url: 'pages/organisation-gs.html' },
+                                { title: 'Gouvernance Advisors', url: 'gouvernance-advisors/index.html' },
+                                { title: 'Sites amis', url: 'sites-interesssants-4/index.html' },
+                                { title: 'Historique', url: 'pages/historique.html' },
+                                { title: 'Contact', url: 'contact.html' }
+                            ],
+                            'pour-mandataires': [
+                                { title: 'Formation au digital', url: 'pages/informatique.html' },
+                                { title: "Formations au Conseil d'Administration", url: 'pages/formations-administrateurs.html' },
+                                { title: 'Institution aux Admins/Codir (Certificat Centrale-Supélec)', url: 'pages/certificat-centrale.html' },
+                                { title: 'Candidature comme mandataire', url: 'pages/candidats-mandataires.html' }
+                            ],
+                            'pour-societes': [
+                                { title: 'Questionnaire Loi Rixain (Sociétés)', url: 'pages/questionnaire-rixain-societes.html' },
+                                { title: 'Diagnostics pour CA', url: 'pages/diagnostics-ca.html' },
+                                { title: "Documents pour l'administrateur", url: 'pages/catalogue-documents.html' },
+                                { title: 'Glossaire des Prestations de conseil', url: 'pages/glossaire-prestations.html', construction: true },
+                                { title: 'Mandataires sociaux disponibles', url: 'pages/candidats-mandataires.html' }
+                            ]
+                        };
+
+                        function renderAllCards() {
+                            const grid = document.getElementById('articles-grid');
+                            if (!grid) return;
+                            grid.innerHTML = '';
+
+                            Object.keys(dataSets).forEach(function(key) {
+                                const items = dataSets[key] || [];
+                                items.forEach(function(item) {
+                                    const col = document.createElement('div');
+                                    col.className = 'col grid-item ' + key;
+                                    col.setAttribute('data-category', key);
+
+                                    col.innerHTML = `
+                                        <div class="card h-100">
+                                            <img src="${item.img || defaultImg}" class="card-img-top" alt="${item.title}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${item.title}</h5>
+                                                <p class="card-text">${item.description || ''}</p>
+                                                <a href="${item.url}" class="btn btn-sm btn-primary">Ouvrir</a>
+                                                ${item.construction ? '<span class="badge bg-warning text-dark ms-2">En construction</span>' : ''}
+                                            </div>
+                                        </div>
+                                    `;
+                                    grid.appendChild(col);
+                                });
+                            });
+
+                            if (typeof window.$ !== 'undefined' && typeof window.$.fn !== 'undefined') {
+                                const $grid = window.$('.content-grid');
+                                if ($grid.length) {
+                                    if ($grid.data('isotope')) {
+                                        $grid.isotope('reloadItems').isotope({ filter: '*' });
+                                    }
+                                }
+                            }
+                        }
+
+                        function renderCards(key) {
+                            const items = dataSets[key] || [];
+                            const grid = document.getElementById('articles-grid');
+                            if (!grid) return;
+                            grid.innerHTML = '';
+
+                            items.forEach(function(item) {
+                                const col = document.createElement('div');
+                                col.className = 'col grid-item ' + key;
+                                col.setAttribute('data-category', key);
+
+                                col.innerHTML = `
+                                    <div class="card h-100">
+                                        <img src="${item.img || defaultImg}" class="card-img-top" alt="${item.title}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${item.title}</h5>
+                                            <p class="card-text">${item.description || ''}</p>
+                                            <a href="${item.url}" class="btn btn-sm btn-primary">Ouvrir</a>
+                                            ${item.construction ? '<span class="badge bg-warning text-dark ms-2">En construction</span>' : ''}
+                                        </div>
+                                    </div>
+                                `;
+                                grid.appendChild(col);
+                            });
+
+                            // Déclenche un recalcul d'Isotope si présent
+                            if (typeof window.$ !== 'undefined' && typeof window.$.fn !== 'undefined' && window.$('.content-grid').data('isotope')) {
+                                window.$('.content-grid').isotope('reloadItems').isotope({ sortBy: 'name' });
+                            }
+                        }
+
+                        // Actions de navigation
+                        document.addEventListener('click', function(e) {
+                            const trigger = e.target.closest('.nav-action');
+                            if (!trigger) return;
+                            const target = trigger.getAttribute('data-target');
+                            if (!target) return;
+                            e.preventDefault();
+                            // Applique le filtre via la liste déroulante pour coopérer avec Isotope
+                            const select = document.getElementById('category-filter');
+                            if (select) {
+                                select.value = '.' + target;
+                                const ev = new Event('change', { bubbles: true });
+                                select.dispatchEvent(ev);
+                            }
+                            // Met à jour l'URL en hash
+                            if (history.pushState) { history.pushState({ k: target }, '', '#' + target); }
+                        });
+
+                        // Chargement initial selon hash
+                        // Afficher tout par défaut
+                        renderAllCards();
+
+                        (function initFromHash(){
+                            const key = (location.hash || '').replace('#','');
+                            if (key && dataSets[key]) {
+                                const select = document.getElementById('category-filter');
+                                if (select) {
+                                    select.value = '.' + key;
+                                    const ev = new Event('change', { bubbles: true });
+                                    setTimeout(function(){ select.dispatchEvent(ev); }, 300);
+                                }
+                            }
+                        })();
+                    })();
+                </script>
             </div>
         </main>
         <!-- Footer include -->

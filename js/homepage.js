@@ -2,6 +2,8 @@
 $(document).ready(function() {
     let $grid;
     let isIsotopeInitialized = false;
+    let currentCategoryFilter = '*';
+    let currentSearchTerm = '';
 
     // Initialize Isotope
     function initIsotope() {
@@ -14,7 +16,10 @@ $(document).ready(function() {
                 name: '.card-title',
                 category: '[data-category]'
             },
-            transitionDuration: '0.8s'
+            // Disable layout animations; we will use a simple fade for show/hide
+            transitionDuration: 0,
+            hiddenStyle: { opacity: 0 },
+            visibleStyle: { opacity: 1 }
         });
         
         isIsotopeInitialized = true;
@@ -23,21 +28,47 @@ $(document).ready(function() {
     // Initialize Isotope after a short delay to ensure DOM is ready
     setTimeout(initIsotope, 100);
 
+    function elementMatchesCategory(elem) {
+        if (currentCategoryFilter === '*' || !currentCategoryFilter) return true;
+        return $(elem).is(currentCategoryFilter);
+    }
+
+    function elementMatchesSearch(elem) {
+        if (!currentSearchTerm) return true;
+        const $elem = $(elem);
+        const title = ($elem.find('.card-title').text() || '').toLowerCase();
+        const content = ($elem.find('.card-text').text() || '').toLowerCase();
+        return title.includes(currentSearchTerm) || content.includes(currentSearchTerm);
+    }
+
+    function updateIsotopeFilter() {
+        if (!isIsotopeInitialized) {
+            initIsotope();
+        }
+        if ($grid) {
+            $grid.isotope({
+                filter: function() {
+                    return elementMatchesCategory(this) && elementMatchesSearch(this);
+                }
+            });
+        }
+    }
+
     // Category filter functionality
     $('#category-filter').on('change', function() {
-        const filterValue = this.value;
-        if ($grid && isIsotopeInitialized) {
-            $grid.isotope({ filter: filterValue });
-        }
-        
-        // Update search to work with filtered items
-        performSearch();
+        currentCategoryFilter = this.value || '*';
+        updateIsotopeFilter();
     });
 
     // Search functionality
     $('#search-input').on('keyup', debounce(function() {
         performSearch();
     }, 300));
+
+    // Manual search trigger button
+    $(document).on('click', '.do-search', function() {
+        performSearch();
+    });
 
     // Debounce function to limit search frequency
     function debounce(func, wait) {
@@ -54,42 +85,8 @@ $(document).ready(function() {
 
     // Perform search based on text content
     function performSearch() {
-        const searchTerm = $('#search-input').val().toLowerCase().trim();
-        const categoryFilter = $('#category-filter').val();
-        
-        if (!searchTerm) {
-            // If no search term, use only category filter
-            if ($grid && isIsotopeInitialized) {
-                $grid.isotope({ filter: categoryFilter });
-            }
-            return;
-        }
-
-        // Search through grid items
-        $('.grid-item').each(function() {
-            const $item = $(this);
-            const title = $item.find('.card-title').text().toLowerCase();
-            const content = $item.find('.card-text').text().toLowerCase();
-            const category = $item.data('category');
-            
-            // Check if item matches search term
-            const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
-            
-            // Check if item matches category filter
-            const matchesCategory = categoryFilter === '*' || $item.hasClass(categoryFilter.replace('.', ''));
-            
-            // Show/hide item based on both search and category
-            if (matchesSearch && matchesCategory) {
-                $item.removeClass('hidden');
-            } else {
-                $item.addClass('hidden');
-            }
-        });
-
-        // Update Isotope layout after search
-        if ($grid && isIsotopeInitialized) {
-            $grid.isotope('layout');
-        }
+        currentSearchTerm = ($('#search-input').val() || '').toLowerCase().trim();
+        updateIsotopeFilter();
     }
 
     // AJAX Navigation functionality
@@ -243,23 +240,24 @@ $(document).ready(function() {
         }
     }
 
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', function(e) {
-        if (e.state && e.state.page) {
-            loadPage(e.state.page);
-        } else {
-            location.reload(); // Return to homepage
-        }
-    });
+    // Handle browser back/forward buttons (disabled on new 7-col homepage)
+    if (!document.querySelector('.home-navigation')) {
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.page) {
+                loadPage(e.state.page);
+            } else {
+                location.reload(); // Return to homepage
+            }
+        });
+    }
 
     // Clear search functionality
     function clearSearch() {
         $('#search-input').val('');
         $('#category-filter').val('*');
-        $('.grid-item').removeClass('hidden');
-        if ($grid && isIsotopeInitialized) {
-            $grid.isotope({ filter: '*' });
-        }
+        currentCategoryFilter = '*';
+        currentSearchTerm = '';
+        updateIsotopeFilter();
     }
 
     // Add clear search button functionality if needed
@@ -267,11 +265,13 @@ $(document).ready(function() {
         clearSearch();
     });
 
-    // Handle initial page load with hash
-    const hash = window.location.hash.slice(1);
-    if (hash && hash !== '') {
-        setTimeout(() => {
-            loadPage(hash);
-        }, 500);
+    // Handle initial page load with hash (skip if new 7-col homepage is present)
+    if (!document.querySelector('.home-navigation')) {
+        const hash = window.location.hash.slice(1);
+        if (hash && hash !== '') {
+            setTimeout(() => {
+                loadPage(hash);
+            }, 500);
+        }
     }
 });
