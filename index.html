@@ -356,7 +356,7 @@
 
                     <style>
                         /* Layout tableau 7 colonnes (ajouté sans modifier le CSS existant) */
-                        .main-table-layout { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1rem; }
+                        .main-table-layout { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.15rem; }
                         .header-level-1, .header-level-2, .content-row { display: contents; }
                         .header-cell, .subheader-cell, .content-cell { padding: 1rem; border: 1px solid #ddd; }
                         .header-cell { font-weight: bold; text-align: center; background-color: var(--celestial-blue, #1e73be); color: #fff; }
@@ -369,6 +369,12 @@
                         @media (max-width: 1200px) {
                             .main-table-layout { grid-template-columns: repeat(3, 1fr); }
                             .header-cell, .subheader-cell, .content-cell { grid-column: auto !important; }
+                        }
+                        @media (max-width: 768px) {
+                            .main-table-layout { grid-template-columns: 1fr; }
+                            .header-cell, .subheader-cell, .content-cell { grid-column: 1 / -1 !important; }
+                            /* Masquer les en-têtes bleus en mobile */
+                            .header-cell, .subheader-cell { display: none !important; }
                         }
                         /* Sous-colonnes pour Généralités (2 colonnes) */
                         .content-cell .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
@@ -474,15 +480,12 @@
                                 { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html' },
                                 { title: 'Cours INSEEC - Instances de Gouvernance', url: 'pages/cours-inseec.html' },
                                 { title: 'Ouvrage collectif CA', url: 'pages/ouvrage-collectif-ca.html' },
-                                { title: 'Articles de presse', url: 'pages/articles-presse.html' },
                                 { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true },
                                 { title: 'Boards et Comex', url: 'pages/boards-et-comex.html', construction: true },
                                 { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true },
                                 { title: "IFA et le numérique", url: 'pages/ifa-et-numerique.html', construction: true }
                             ],
                             'generalites-docs': [
-                                { title: 'Loi Zimmerman (2011)', url: 'pages/loi-zimmerman.html' },
-                                { title: 'Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
                                 { title: 'Loi Pacte', url: 'pages/loi-pacte.html', construction: true },
                                 { title: 'Formations administrateurs', url: 'pages/formations-administrateurs.html' },
                                 { title: 'Sites intéressants', url: 'sites-interesssants-4/index.html' },
@@ -490,13 +493,15 @@
                                 { title: "Catalogue des documents pour l'administrateur", url: 'pages/catalogue-documents.html' }
                             ],
                             'feminisation-contrib': [
-                                { title: 'Étude fin juin 2025', url: 'pages/etude-juin-2025.html' },
+                                { title: 'Étude 2024', url: 'pages/etude-juin-2025.html' },
                                 { title: 'Assises de la Parité', url: 'pages/assises-parite.html' },
                                 { title: 'Directive Européenne (2024)', url: 'pages/directive-europeenne.html' },
-                                { title: 'Observatoire des genres', url: 'pages/observatoire-genres.html' },
-                                { title: 'Articles de presse', url: 'la-presse-parle-de-gouvernance-structures/index.html' }
+                                { title: 'Articles de presse', url: 'la-presse-parle-de-gouvernance-structures/index.html' },
+                                { title: 'Observatoire des genres', url: 'pages/observatoire-genres.html' }
                             ],
                             'feminisation-docs': [
+                                { title: 'Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
+                                { title: 'Loi Zimmerman (2011)', url: 'pages/loi-zimmerman.html' },
                                 { title: 'Loi Rixain - Questionnaire', url: 'pages/questionnaire-rixain.html' },
                                 { title: 'Loi Rixain - Sociétés (questionnaire)', url: 'pages/questionnaire-rixain-societes.html' }
                             ],
