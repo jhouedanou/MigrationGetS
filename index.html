@@ -33,14 +33,44 @@
         <div id="header-placeholder"></div>
         <!-- Navigation include -->
         <div id="nav-placeholder"></div>
+        <!-- Barre de filtres (déplacée sous la navigation) -->
+        <style>
+            .filters-toolbar { border: 1px solid #e6e6e6; border-radius: 8px; padding: 10px; background: #ffffff; margin: 12px auto; max-width: 1140px; }
+            .filters-toolbar .form-label { font-size: 0.8rem; color: #666; }
+        </style>
+        <div class="filters-toolbar">
+            <div class="row g-2 align-items-end">
+                <div class="col-sm-6 col-md-4">
+                    <label for="category-filter" class="form-label mb-1">Filtrer par catégorie</label>
+                    <select id="category-filter" class="form-select form-select-sm">
+                        <option value="*">Toutes les catégories</option>
+                        <option value=".generalites-contrib">Généralités – Contributions</option>
+                        <option value=".generalites-docs">Généralités – Documents utiles</option>
+                        <option value=".feminisation-contrib">Féminisation – Contributions</option>
+                        <option value=".feminisation-docs">Féminisation – Documents utiles</option>
+                        <option value=".qui">Qui est G &amp; S</option>
+                        <option value=".pour-mandataires">Pour mandataires</option>
+                        <option value=".pour-societes">Pour Sociétés</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <label for="search-input" class="form-label mb-1">Recherche</label>
+                    <div class="d-flex gap-2">
+                        <input id="search-input" type="text" class="form-control form-control-sm" placeholder="Rechercher dans les colonnes...">
+                        <button type="button" class="btn btn-sm btn-primary do-search">Rechercher</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary clear-search">Effacer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Main content goes here -->
-        <main class="container-full pt-4 pb-4">
-            <div class="container main-container bg-white">
+        <main class="container-full pt-4 pb-4 w-100 bg-white ">
+            <div id="drizllz" class="container main-container bg-white  w-90">
                 <!-- Nouvelle navigation 7 colonnes et zone d'articles -->
                 <section class="home-navigation pt-3 pb-3">
                     <style>
                         /* Styles portés par la page d'accueil (scopés au main pour respecter la contrainte) */
-                        .home-navigation .home-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+                        .home-navigation .home-nav-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; }
                         @media (max-width: 768px) { .home-navigation .home-nav-grid { grid-template-columns: repeat(1, 1fr); } }
 
                         .home-navigation .nav-col { 
@@ -48,6 +78,7 @@
                             border-radius: 16px; 
                             padding: 32px 24px; 
                             background: rgba(255, 255, 255, 0.95); 
+                            -webkit-backdrop-filter: blur(10px);
                             backdrop-filter: blur(10px);
                             min-height: 100%; 
                             box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04); 
@@ -219,6 +250,7 @@
                             border: none;
                             border-radius: 16px;
                             background: rgba(255, 255, 255, 0.95);
+                            -webkit-backdrop-filter: blur(10px);
                             backdrop-filter: blur(10px);
                             box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
                             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -322,74 +354,96 @@
                         .back-to-top.show { display: flex; }
                     </style>
 
+                    <style>
+                        /* Layout tableau 7 colonnes (ajouté sans modifier le CSS existant) */
+                        .main-table-layout { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1rem; }
+                        .header-level-1, .header-level-2, .content-row { display: contents; }
+                        .header-cell, .subheader-cell, .content-cell { padding: 1rem; border: 1px solid #ddd; }
+                        .header-cell { font-weight: bold; text-align: center; background-color: var(--celestial-blue, #1e73be); color: #fff; }
+                        .subheader-cell { font-weight: 600; background-color: var(--celestial-blue, #1e73be); color: #fff; text-align: center; }
+                        .content-cell .section-title { font-weight: 600; margin-bottom: .75rem; }
+                        .content-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+                        .item-link { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: .5rem; text-decoration: none; color: inherit; }
+                        .item-link .thumb { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; color: var(--celestial-blue, #1e73be); }
+                        .item-link:hover { text-decoration: underline; }
+                        @media (max-width: 1200px) {
+                            .main-table-layout { grid-template-columns: repeat(3, 1fr); }
+                            .header-cell, .subheader-cell, .content-cell { grid-column: auto !important; }
+                        }
+                        /* Sous-colonnes pour Généralités (2 colonnes) */
+                        .content-cell .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+                        @media (max-width: 992px) {
+                            .content-cell .two-col { grid-template-columns: 1fr; }
+                        }
+                    </style>
+
                     <div class="home-nav-grid">
-                        <!-- Colonne 1 -->
-                        <div class="nav-col d-flex justify-center align-content-center flex-column flex-wrap align-items-center">
-                            <div class="level1 row p-4">G &amp; S contributeur pour une saine Corporate Governance</div>
-                                    <hr>
-                            <div class="level2 col-md-12">Généralités "Corporate Governance"</div>
-                            <ul class="level3 row">
-                                <li class="p-0 m-0"><button class="nav-action" data-target="generalites-contrib">Contributions de Guy Le Péchon</button></li>
-                                <li class="p-0 m-0"><button class="nav-action" data-target="generalites-docs">Documents<br>utiles</button></li>
-                            </ul>
-                            <div class="level2 col-md-12">Féminisation des Instances dirigeantes</div>
-                            <ul class="level3 row">
-                                <li class="p-0 m-0"><button class="nav-action" data-target="feminisation-contrib">Contributions de Guy Le Péchon</button></li>
-                                <li class="p-0 m-0"><button class="nav-action" data-target="feminisation-docs">Documents<br>utiles</button></li>
-                            </ul>
-                        </div>
-
-                        <!-- Colonne 2 -->
-                        <div class="nav-col d-flex justify-center align-content-center flex-column flex-wrap align-items-center">
-                            <div class="level1 row p-4">Qui est G &amp; S</div>
-
-                            <div class="level1  p-4"><button class="link-as-text nav-action" data-target="qui">Découvrir</button></div>
+                        <div class="main-table-layout">
+                            <!-- En-tête niveau 1 -->
+                            <div class="header-level-1">
+                                <div class="header-cell" style="grid-column: 1 / 5;">G &amp; S contributeur pour une saine Corporate Governance</div>
+                                <div class="header-cell" style="grid-column: 5 / 6;">Qui est G &amp; S</div>
+                                <div class="header-cell" style="grid-column: 6 / 8;">Prestations de Gouvernance et Structures</div>
                             </div>
-                          
-                        <!-- Colonne 3 -->
-                        <div class="nav-col d-flex justify-center align-content-center flex-column flex-wrap align-items-center">
-                            <div class="level1 p-4">Prestations de Gouvernance et Structures</div>
-                            <ul class="level3 row p-4">
-                                <li class="p-0 m-0"><button class="nav-action" data-target="pour-mandataires">Pour mandataires</button></li>
-                                <li class="p-0 m-0"><button class="nav-action" data-target="pour-societes">Pour<br>Sociétés</button></li>
-                            </ul>
-                        </div>
 
-                    </div>
-                    <!-- Barre de filtre Isotope + recherche sous la grille -->
-                    <div class="filters-toolbar">
-                        <div class="row g-2 align-items-end">
-                            <div class="col-sm-6 col-md-4">
-                                <label for="category-filter" class="form-label mb-1">Filtrer par catégorie</label>
-                                <select id="category-filter" class="form-select form-select-sm">
-                                    <option value="*">Toutes les catégories</option>
-                                    <option value=".generalites-contrib">Généralités – Contributions</option>
-                                    <option value=".generalites-docs">Généralités – Documents utiles</option>
-                                    <option value=".feminisation-contrib">Féminisation – Contributions</option>
-                                    <option value=".feminisation-docs">Féminisation – Documents utiles</option>
-                                    <option value=".qui">Qui est G &amp; S</option>
-                                    <option value=".pour-mandataires">Pour mandataires</option>
-                                    <option value=".pour-societes">Pour Sociétés</option>
-                                </select>
+                            <!-- En-tête niveau 2 -->
+                            <div class="header-level-2">
+                                <div class="subheader-cell" style="grid-column: 1 / 3;">Généralités "Corporate Governance"</div>
+                                <div class="subheader-cell" style="grid-column: 3 / 5;">Féminisation des instances dirigeantes</div>
+                                <div style="grid-column: 5 / 6;"><!-- fusionné avec l'en-tête du dessus --></div>
+                                <div class="subheader-cell" style="grid-column: 6 / 7;">Pour mandataires</div>
+                                <div class="subheader-cell" style="grid-column: 7 / 8;">Pour Sociétés</div>
                             </div>
-                            <div class="col-sm-6 col-md-4">
-                                <label for="search-input" class="form-label mb-1">Recherche</label>
-                                <div class="d-flex gap-2">
-                                    <input id="search-input" type="text" class="form-control form-control-sm" placeholder="Rechercher dans les articles...">
-                                    <button type="button" class="btn btn-sm btn-primary do-search">Rechercher</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary clear-search">Effacer</button>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <section class="articles-section" id="articles-section">
-                    <h3 class="articles-header">Articles</h3>
-                    <div id="articles-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 content-grid">
-                        <!-- Les cartes seront injectées ici -->
+                            <!-- Contenu principal -->
+                            <div class="content-row">
+                                <!-- Colonnes 1-2 : Généralités -->
+                                <div class="content-cell" style="grid-column: 1 / 3;">
+                                    <div class="two-col">
+                                        <div>
+                                            <div class="section-title">Contributions de Guy Le Péchon</div>
+                                            <ul class="content-list" id="list-generalites-contrib"></ul>
+                                        </div>
+                                        <div>
+                                            <div class="section-title">Documents utiles</div>
+                                            <ul class="content-list" id="list-generalites-docs"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Colonnes 3-4 : Féminisation -->
+                                <div class="content-cell" style="grid-column: 3 / 5;">
+                                    <div class="two-col">
+                                        <div>
+                                            <div class="section-title">Contributions de Guy Le Péchon</div>
+                                            <ul class="content-list" id="list-feminisation-contrib"></ul>
+                                        </div>
+                                        <div>
+                                            <div class="section-title">Documents utiles</div>
+                                            <ul class="content-list" id="list-feminisation-docs"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Colonne 5 : Qui est G & S -->
+                                <div class="content-cell" style="grid-column: 5 / 6;">
+                                    <ul class="content-list" id="list-qui"></ul>
+                                </div>
+
+                                <!-- Colonne 6 : Pour mandataires -->
+                                <div class="content-cell" style="grid-column: 6 / 7;">
+                                    <ul class="content-list" id="list-pour-mandataires"></ul>
+                                </div>
+
+                                <!-- Colonne 7 : Pour Sociétés -->
+                                <div class="content-cell" style="grid-column: 7 / 8;">
+                                    <ul class="content-list" id="list-pour-societes"></ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
+
 
                 <!-- Indicateur de chargement -->
                 <div id="loading-indicator" class="text-center mt-4 loading-hidden">
@@ -505,6 +559,63 @@
                             }
                         }
 
+                        // Rendu exhaustif des listes dans les colonnes (synchronisé avec dataSets)
+                        function renderList(listId, dataKey) {
+                            const ul = document.getElementById(listId);
+                            if (!ul) return;
+                            ul.innerHTML = '';
+                            const items = dataSets[dataKey] || [];
+                            items.forEach(function(item) {
+                                const li = document.createElement('li');
+                                li.className = 'list-item ' + dataKey;
+                                li.innerHTML = `
+                                    <a class="item-link" href="${item.url}">
+                                        <span class="thumb"><i class="fas fa-file"></i></span>
+                                        <span>${item.title}</span>
+                                    </a>`;
+                                ul.appendChild(li);
+                            });
+                        }
+
+                        function renderAllColumnLists() {
+                            renderList('list-generalites-contrib', 'generalites-contrib');
+                            renderList('list-generalites-docs', 'generalites-docs');
+                            renderList('list-feminisation-contrib', 'feminisation-contrib');
+                            renderList('list-feminisation-docs', 'feminisation-docs');
+                            renderList('list-qui', 'qui');
+                            renderList('list-pour-mandataires', 'pour-mandataires');
+                            renderList('list-pour-societes', 'pour-societes');
+                            // Appliquer les filtres après rendu
+                            applyColumnFilters();
+                        }
+
+                        // Filtrage des listes de colonnes (catégorie + recherche texte)
+                        function applyColumnFilters() {
+                            const categorySelect = document.getElementById('category-filter');
+                            const searchInput = document.getElementById('search-input');
+                            const category = categorySelect ? (categorySelect.value || '*') : '*';
+                            const term = searchInput ? (searchInput.value || '').toLowerCase().trim() : '';
+
+                            // Parcourir tous les éléments de listes
+                            const allItems = document.querySelectorAll('.content-list li.list-item');
+                            allItems.forEach(function(li){
+                                const text = (li.textContent || '').toLowerCase();
+                                const matchCategory = (category === '*') || li.classList.contains(category.replace('.', ''));
+                                const matchSearch = !term || text.includes(term);
+                                li.style.display = (matchCategory && matchSearch) ? '' : 'none';
+                            });
+
+                            // Option: masquer les UL vides
+                            document.querySelectorAll('.content-list').forEach(function(ul){
+                                const hasVisible = Array.from(ul.querySelectorAll('li')).some(function(li){
+                                    return li.style.display !== 'none';
+                                });
+                                ul.style.display = hasVisible ? '' : 'none';
+                            });
+                        }
+                        // Expose pour d'autres scripts (ex: recherche du header)
+                        window.applyColumnFilters = applyColumnFilters;
+
                         function renderCards(key) {
                             const items = dataSets[key] || [];
                             const grid = document.getElementById('articles-grid');
@@ -566,9 +677,8 @@
                             if (history.pushState) { history.pushState({ k: target }, '', '#' + target); }
                         });
 
-                        // Chargement initial selon hash
-                        // Afficher tout par défaut
-                        renderAllCards();
+                        // Chargement initial: ne plus générer la grille d'articles
+                        renderAllColumnLists();
 
                         (function initFromHash(){
                             const key = (location.hash || '').replace('#','');
@@ -593,6 +703,30 @@
                             toggleBtn();
                             btn.addEventListener('click', function(){
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                            });
+                        })();
+
+                        // Écouteurs filtres en haut de page pour filtrer les colonnes
+                        (function initColumnFilters(){
+                            const categorySelect = document.getElementById('category-filter');
+                            const searchInput = document.getElementById('search-input');
+                            if (categorySelect) {
+                                categorySelect.addEventListener('change', applyColumnFilters);
+                            }
+                            if (searchInput) {
+                                searchInput.addEventListener('keyup', function(){
+                                    applyColumnFilters();
+                                });
+                            }
+                            document.querySelectorAll('.do-search').forEach(function(btn){
+                                btn.addEventListener('click', applyColumnFilters);
+                            });
+                            document.querySelectorAll('.clear-search').forEach(function(btn){
+                                btn.addEventListener('click', function(){
+                                    if (searchInput) searchInput.value = '';
+                                    if (categorySelect) categorySelect.value = '*';
+                                    applyColumnFilters();
+                                });
                             });
                         })();
                     })();

@@ -1,10 +1,34 @@
 // Fonction pour charger les includes
 function loadIncludes() {
-    // Déterminer dynamiquement la profondeur pour remonter au dossier racine
-    var path = window.location.pathname.replace(/^\/+/, '');
-    var segments = path.split('/').filter(function (p) { return p.length > 0; });
-    // Nombre de ../ = nb segments - 1 (ex: index.html => 0, pages/x.html => 1, missions/x/index.html => 2)
-    var basePath = segments.length > 1 ? Array(segments.length).join('../') : '';
+    // Déterminer dynamiquement la profondeur pour remonter au dossier racine du site
+    // en se basant sur l'URL du script courant (js/includes.js)
+    function computeBasePath() {
+        try {
+            var scriptEl = document.querySelector('script[src*="js/includes.js"]');
+            if (!scriptEl) return '';
+            var scriptPath = decodeURIComponent(new URL(scriptEl.src, document.baseURI).pathname);
+            // scriptPath se termine par /<siteRoot>/js/includes.js → extraire <siteRoot>/
+            var anchor = '/js/includes.js';
+            var idx = scriptPath.lastIndexOf(anchor);
+            if (idx < 0) return '';
+            var siteRootPath = scriptPath.substring(0, idx + 1); // inclut le slash final
+
+            var pagePath = decodeURIComponent(window.location.pathname);
+            // Si la page n'est pas sous le siteRootPath, ne pas préfixer
+            if (pagePath.indexOf(siteRootPath) !== 0) return '';
+            // Reste du chemin après le dossier racine du site
+            var remainder = pagePath.substring(siteRootPath.length);
+            // Exemple: 'index.html' → depth 0 ; 'pages/x.html' → depth 1 ; 'pages/dir/index.html' → depth 2
+            var parts = remainder.split('/').filter(function(p){ return p.length > 0; });
+            var depth = Math.max(0, parts.length - 1); // retirer le fichier
+            return depth > 0 ? Array(depth + 1).join('../') : '';
+        } catch (e) {
+            console.warn('computeBasePath fallback (""), cause:', e);
+            return '';
+        }
+    }
+
+    var basePath = computeBasePath();
     
     // Ajouter le lien vers styles.css si pas déjà présent
     if (!document.querySelector('link[href*="styles.css"]')) {

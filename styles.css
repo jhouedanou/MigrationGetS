@@ -619,7 +619,7 @@ a:hover {
 
 .section-title {
   color: #000000;
-  font-size: 1.4rem;
+  font-size: 13px;
   font-weight: 700;
   margin-bottom: 10px;
   line-height: 1.3;
@@ -20359,5 +20359,8 @@ td.elementor-repeater-item-87660df {
   }
  #nav-placeholder{
     display:none;
+  }
+  #drizllz{
+    max-width:100% !important;
   }
 /*# sourceMappingURL=styles.css.map */

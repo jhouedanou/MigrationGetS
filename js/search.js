@@ -102,7 +102,7 @@ $(document).ready(function() {
         return keywords;
     }
     
-    // Filter navigation links based on search term
+    // Filter navigation links based on search term (conserve pour d'autres pages)
     function filterNavigation(searchTerm) {
         const term = searchTerm.toLowerCase().trim();
         let visibleCount = 0;
@@ -245,29 +245,39 @@ $(document).ready(function() {
         });
     }
 
-    // Search input event handler
+    // Search input event handler — sur la page d'accueil, filtrer les colonnes
     $(document).on('input', '#nav-search-input', function() {
-        const searchTerm = $(this).val();
+        const searchTerm = $(this).val() || '';
+        const isHome = !!document.querySelector('.home-navigation');
         
-        // Navigate to homepage when user starts typing
-        if (searchTerm.trim() && searchTerm.length === 1) {
-            navigateToHomepage();
-        }
-        
-        clearHighlights();
-        filterNavigation(searchTerm);
-        
-        if (searchTerm.trim()) {
-            highlightSearchResults(searchTerm);
-            $('#clear-search').show();
+        if (isHome) {
+            // Alimenter le champ de recherche principal si présent
+            const mainSearch = document.getElementById('search-input');
+            if (mainSearch && mainSearch.value !== searchTerm) {
+                mainSearch.value = searchTerm;
+            }
+            if (typeof window.applyColumnFilters === 'function') {
+                window.applyColumnFilters();
+            }
         } else {
-            $('#clear-search').hide();
+            // Ancien comportement: filtrer la navigation
+            clearHighlights();
+            filterNavigation(searchTerm);
+            if (searchTerm.trim()) {
+                highlightSearchResults(searchTerm);
+                $('#clear-search').show();
+            } else {
+                $('#clear-search').hide();
+            }
         }
     });
 
-    // Focus handler for search input to navigate to homepage
+    // Focus handler: sur l'accueil, ne pas naviguer; ailleurs, charger l'accueil
     $(document).on('focus', '#nav-search-input', function() {
-        navigateToHomepage();
+        const isHome = !!document.querySelector('.home-navigation');
+        if (!isHome) {
+            navigateToHomepage();
+        }
     });
     
     // Clear search button handler
