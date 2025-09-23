@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Actualités de Gouvernance & Structures">
+        <title>Actualités - G &amp; S</title>
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/includes.js"></script>
+        <style>
+            body { background: linear-gradient(180deg, #eef2f8 0%, #ffffff 35%); }
+            .news-hero {
+                padding: 72px 0 48px;
+                text-align: center;
+                color: #0f172a;
+            }
+            .news-hero h1 {
+                font-weight: 800;
+                font-size: clamp(2.25rem, 2.8vw, 3rem);
+                letter-spacing: -0.02em;
+                margin-bottom: 12px;
+            }
+            .news-hero p {
+                font-size: 1.05rem;
+                max-width: 720px;
+                margin: 0 auto;
+                color: #334155;
+            }
+            .news-list {
+                max-width: 1080px;
+                margin: 0 auto 72px;
+                display: grid;
+                gap: 28px;
+            }
+            .news-card {
+                background: rgba(255, 255, 255, 0.96);
+                border-radius: 28px;
+                padding: 36px 42px;
+                box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+                border: 1px solid rgba(148, 163, 184, 0.18);
+                position: relative;
+                overflow: hidden;
+            }
+            .news-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 60%);
+                opacity: 0.75;
+                pointer-events: none;
+            }
+            .news-card h2 {
+                font-size: clamp(1.4rem, 2vw, 1.7rem);
+                color: #1f2937;
+                font-weight: 700;
+                margin-bottom: 18px;
+            }
+            .news-card p {
+                color: #475569;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            .news-date {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #1d4ed8;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                margin-bottom: 16px;
+            }
+            .news-date i { font-size: 1rem; }
+            .news-card a.news-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background: linear-gradient(135deg, #2563eb 0%, #4c1d95 100%);
+                color: #ffffff;
+                padding: 12px 22px;
+                border-radius: 14px;
+                text-decoration: none;
+                font-weight: 600;
+                margin-top: 22px;
+                position: relative;
+                z-index: 1;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .news-card a.news-link:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 16px 34px rgba(37, 99, 235, 0.35);
+            }
+            .news-placeholder {
+                border: 2px dashed rgba(148, 163, 184, 0.4);
+                background: rgba(255, 255, 255, 0.75);
+                color: #64748b;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 48px 32px;
+            }
+            .news-placeholder p { max-width: 420px; }
+            @media (max-width: 768px) {
+                .news-card { padding: 28px 24px; border-radius: 22px; }
+                .news-list { gap: 20px; }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header-placeholder"></div>
+        <div id="nav-placeholder"></div>
+        <main>
+            <section class="news-hero">
+                <div class="container">
+                    <h1>Actualités G &amp; S</h1>
+                    <p>Retrouvez ici les invitations, annonces et mises en avant des actions conduites par Gouvernance &amp; Structures. Ajoutez facilement de nouvelles actualités ou mettez à jour celles existantes.</p>
+                </div>
+            </section>
+            <section class="news-list">
+                <article class="news-card">
+                    <div class="news-date"><i class="fas fa-calendar-day"></i>14 octobre 2025</div>
+                    <h2>Soirée : Mixité des instances (COMEX/CODIR) et cadres dirigeant(e)s</h2>
+                    <p>
+                        G &amp; S, à l'origine de l'évènement proposé aux Comités Carrières des associations d'anciens de grandes écoles (G16+), poursuit la dynamique de la loi «&nbsp;Rixain&nbsp;». Après avoir contribué à la conception de la soirée en présentiel du 14 octobre 2025 en présence de Madame la Députée Marie-Pierre Rixain, nous avons le plaisir de partager l'invitation officielle.
+                    </p>
+                    <a class="news-link" href="https://www.emlyon-alumni.com/fr/event/conference-g16-carrieres-mixite-des-instances-dirigeantes-etat-des-lieux-actions-engagees-et-defis-persistants/2025/09/15/593" target="_blank" rel="noopener">
+                        Consulter l'invitation
+                        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </article>
+                <article class="news-card news-placeholder">
+                    <i class="fas fa-plus-circle fa-2x mb-3" aria-hidden="true"></i>
+                    <h2>Ajouter votre prochaine actualité</h2>
+                    <p>Dupliquez ce bloc pour mettre en avant vos événements, publications ou invitations. Vous pouvez insérer des images, des liens externes ou internes et ajuster les dates à votre convenance.</p>
+                </article>
+            </section>
+        </main>
+        <div id="footer-placeholder"></div>
+    </body>
+</html>

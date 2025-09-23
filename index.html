@@ -355,36 +355,111 @@
                     </style>
 
                     <style>
-                        /* Layout tableau 7 colonnes (ajouté sans modifier le CSS existant) */
-                        .main-table-layout { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.15rem; }
+                        /* Plateau d'accueil stylisé 7 colonnes */
+                        .nav-board {
+                            background: linear-gradient(135deg, #eef3fb 0%, #f8f9fc 45%, #ffffff 100%);
+                            border-radius: 28px;
+                            padding: 32px 32px 36px;
+                            border: 1px solid rgba(148, 163, 184, 0.2);
+                            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+                        }
+                        .main-table-layout {
+                            display: grid;
+                            grid-template-columns: repeat(7, minmax(0, 1fr));
+                            gap: 18px;
+                        }
                         .header-level-1, .header-level-2, .content-row { display: contents; }
-                        .header-cell, .subheader-cell, .content-cell { padding: 1rem; border: 1px solid #ddd; }
-                        .header-cell { font-weight: bold; text-align: center; background-color: var(--celestial-blue, #1e73be); color: #fff; }
-                        .subheader-cell { font-weight: 600; background-color: var(--celestial-blue, #1e73be); color: #fff; text-align: center; }
-                        .content-cell .section-title { font-weight: 600; margin-bottom: .75rem; }
-                        .content-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
-                        .item-link { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: .5rem; text-decoration: none; color: inherit; }
-                        .item-link .thumb { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; color: var(--celestial-blue, #1e73be); }
-                        .item-link:hover { text-decoration: underline; }
+                        .header-cell, .subheader-cell {
+                            padding: 18px 14px;
+                            border-radius: 18px;
+                            background: linear-gradient(135deg, #6da2d9 0%, #5f8cc4 100%);
+                            color: #ffffff;
+                            text-align: center;
+                            letter-spacing: 0.02em;
+                            border: none;
+                            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+                        }
+                        .header-cell { font-weight: 700; font-size: 1.05rem; }
+                        .subheader-cell { font-weight: 600; font-size: 0.95rem; }
+                        .content-cell {
+                            padding: 22px 18px 28px;
+                            border-radius: 22px;
+                            background: rgba(255, 255, 255, 0.96);
+                            border: 1px solid rgba(148, 163, 184, 0.18);
+                            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07);
+                            transition: transform 0.2s ease, box-shadow 0.2s ease;
+                        }
+                        .content-cell:hover {
+                            transform: translateY(-3px);
+                            box-shadow: 0 24px 54px rgba(15, 23, 42, 0.12);
+                        }
+                        .content-cell .section-title {
+                            font-weight: 700;
+                            margin-bottom: 1.1rem;
+                            font-size: 1.02rem;
+                            color: #1f2a44;
+                            text-align: center;
+                        }
+                        .content-list {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.55rem;
+                        }
+                        .item-link {
+                            display: grid;
+                            grid-template-columns: 32px 1fr;
+                            align-items: center;
+                            gap: 0.6rem;
+                            text-decoration: none;
+                            color: #1f2a44;
+                            padding: 10px 12px;
+                            border-radius: 12px;
+                            transition: background 0.2s ease, transform 0.2s ease;
+                            background: rgba(99, 102, 241, 0.06);
+                        }
+                        .item-link:hover {
+                            background: rgba(99, 102, 241, 0.15);
+                            transform: translateX(4px);
+                        }
+                        .item-link .thumb {
+                            width: 28px;
+                            height: 28px;
+                            border-radius: 50%;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #2563eb;
+                            background: rgba(37, 99, 235, 0.1);
+                            font-size: 0.95rem;
+                        }
                         @media (max-width: 1200px) {
+                            .nav-board { padding: 28px 24px; }
                             .main-table-layout { grid-template-columns: repeat(3, 1fr); }
                             .header-cell, .subheader-cell, .content-cell { grid-column: auto !important; }
                         }
                         @media (max-width: 768px) {
+                            .nav-board { padding: 24px 18px; }
                             .main-table-layout { grid-template-columns: 1fr; }
                             .header-cell, .subheader-cell, .content-cell { grid-column: 1 / -1 !important; }
-                            /* Masquer les en-têtes bleus en mobile */
                             .header-cell, .subheader-cell { display: none !important; }
                         }
-                        /* Sous-colonnes pour Généralités (2 colonnes) */
-                        .content-cell .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+                        .content-cell .two-col {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 1.2rem;
+                            align-items: start;
+                        }
                         @media (max-width: 992px) {
                             .content-cell .two-col { grid-template-columns: 1fr; }
                         }
                     </style>
 
                     <div class="home-nav-grid">
-                        <div class="main-table-layout">
+                        <div class="nav-board">
+                            <div class="main-table-layout">
                             <!-- En-tête niveau 1 -->
                             <div class="header-level-1">
                                 <div class="header-cell" style="grid-column: 1 / 5;">G &amp; S contributeur pour une saine Corporate Governance</div>
@@ -445,6 +520,7 @@
                                 <div class="content-cell" style="grid-column: 7 / 8;">
                                     <ul class="content-list" id="list-pour-societes"></ul>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>

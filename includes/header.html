@@ -1,34 +1,76 @@
 <header id="masthead" class="bg-light py-3">
+    <style>
+        .news-ribbon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 18px 18px 4px 4px;
+            background: linear-gradient(135deg, #f97373 0%, #dc2626 100%);
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 18px rgba(220, 38, 38, 0.28);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .news-ribbon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 26px rgba(220, 38, 38, 0.32);
+            color: #ffffff;
+        }
+        .news-ribbon i { margin-right: 8px; }
+        .logo-panel {
+            background: linear-gradient(180deg, rgba(236, 241, 249, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
+            border-radius: 26px;
+            padding: 18px 16px 24px;
+            width: 100%;
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
+        }
+        .logo-panel .navbar-brand img { max-width: 100%; height: auto; }
+        @media (max-width: 576px) {
+            .news-ribbon { margin-bottom: 14px; }
+            .logo-panel { padding: 16px 12px; border-radius: 20px; }
+        }
+    </style>
     <div class="container">
         <!-- Top row with logo, social links and language flags -->
         <div class="row">
             <!-- Logo Section -->
-            <div class="col-12 col-md-2 m-0 p-0 d-flex align-items-center" style="display: flex; flex-direction: column;">
-                <a href="index.html" class="navbar-brand">
-                    <img
-                        src="images/2020/02/logo-gets-3C.png"
-                        alt="G-ET-S Logo"
-                        class="img-fluid"
-                        style="height: 116px;"
-                    >
+            <div class="col-12 col-md-2 m-0 p-0 d-flex align-items-start flex-column gap-3">
+                <a class="news-ribbon" href="actualites.html" aria-label="Consulter les actualités de G &amp; S">
+                    <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                    Actualités
                 </a>
-                <div id="rube" class="d-flex mt-4 flex-row align-items-center justify-content-center w-100">
-                    <a
-                        href="https://twitter.com/GUYLP001"
-                        target="_blank"
-                        rel="noopener"
-                        class="d-flex justify-content-center align-items-center btn-outline-primary btn-sm"
-                    >
-                        <i class="fab fa-twitter"></i>
+                <div class="logo-panel d-flex flex-column align-items-center">
+                    <a href="index.html" class="navbar-brand mb-3">
+                        <img
+                            src="images/2020/02/logo-gets-3C.png"
+                            alt="G-ET-S Logo"
+                            class="img-fluid"
+                            style="height: 116px;"
+                        >
                     </a>
-                    <a
-                        href="https://www.linkedin.com/in/guy-le-p%C3%A9chon-0b72a9/"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-outline-primary btn-sm"
-                    >
-                        <i class="fab fa-linkedin" style="font-size: 33px; color: #ffffff;"></i>
-                    </a>
+                    <div id="rube" class="d-flex gap-2 flex-row align-items-center justify-content-center w-100">
+                        <a
+                            href="https://twitter.com/GUYLP001"
+                            target="_blank"
+                            rel="noopener"
+                            class="d-flex justify-content-center align-items-center btn-outline-primary btn-sm"
+                        >
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/guy-le-p%C3%A9chon-0b72a9/"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-outline-primary btn-sm"
+                        >
+                            <i class="fab fa-linkedin" style="font-size: 33px; color: #ffffff;"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-8 m-0 p-0 d-flex align-items-center justify-content-center d-none d-md-flex">
@@ -36,7 +78,7 @@
                     src="images/g-et-s-img-1024x376.jpg"
                     alt="G-ET-S Background"
                     class="img-fluid w-100"
-                    style="max-width: 612px"
+                    style="max-width: 612px; border-radius: 28px; box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18); object-fit: cover;"
                 >
             </div>
             <div class="col-12 col-md-2 m-0 p-0 d-flex align-items-center">
