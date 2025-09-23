@@ -34,6 +34,39 @@
             .news-ribbon { margin-bottom: 14px; }
             .logo-panel { padding: 16px 12px; border-radius: 20px; }
         }
+
+        /* Home and Menu Button */
+        .home-menu-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #dc3545;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #dc3545;
+        }
+        .home-menu-btn:hover {
+            background: #bb2d3b;
+            border-color: #bb2d3b;
+            color: #ffffff;
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+        }
+        .home-menu-btn i {
+            font-size: 1rem;
+        }
+
+        /* Hide on home page */
+        body.home-page #home-menu-container {
+            display: none;
+        }
     </style>
     <div class="container">
         <!-- Top row with logo, social links and language flags -->
@@ -127,6 +160,38 @@
                     </script>
                     <script async src="https://cse.google.com/cse.js?cx=5241dfaf922d443f2"></script>
                     <gcse:search></gcse:search>
+
+                    <!-- Home and Menu Button (visible on all pages except home) -->
+                    <div id="home-menu-container" class="mt-3">
+                        <a href="#" id="home-menu-link" class="home-menu-btn" aria-label="Page d'accueil et menu">
+                            <i class="fas fa-home"></i>
+                            <span>Page d'accueil et menu</span>
+                        </a>
+                    </div>
+
+                    <script>
+                        // Set correct home link based on current page location
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const homeLink = document.getElementById('home-menu-link');
+                            if (homeLink) {
+                                // Determine correct path to home
+                                const currentPath = window.location.pathname;
+                                let homePath;
+
+                                if (currentPath.includes('/pages/')) {
+                                    homePath = '../index.html';
+                                } else if (currentPath.includes('/') && !currentPath.endsWith('index.html')) {
+                                    // For subdirectories
+                                    const depth = (currentPath.match(/\//g) || []).length - 1;
+                                    homePath = '../'.repeat(depth) + 'index.html';
+                                } else {
+                                    homePath = 'index.html';
+                                }
+
+                                homeLink.href = homePath;
+                            }
+                        });
+                    </script>
                 </div>
             </div>
             </div>

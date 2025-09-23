@@ -146,6 +146,51 @@
             border-left: 4px solid #1e73be;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
+
+        .quick-links-section {
+            margin: 30px 0 40px 0;
+        }
+
+        .quick-links-container {
+            background: #f8fbff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1e73be;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 115, 190, 0.1);
+        }
+
+        .quick-link:hover {
+            background: #1e73be;
+            color: white;
+            text-decoration: none;
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(30, 115, 190, 0.3);
+        }
+
+        .quick-link i {
+            color: inherit;
+        }
         
         @media (max-width: 768px) {
             .page-title {
@@ -190,6 +235,20 @@
             
             <h1 class="page-title">Le monde et la gouvernance des ETI</h1>
             <p class="page-subtitle">Création de Valeur des Conseils des ETI confrontées aux évolutions majeures du monde</p>
+
+            <div class="quick-links-section">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="quick-links-container">
+                            <ul class="quick-links-list">
+                                <li><a href="../pages/couverture-harmattan.html" class="quick-link"><i class="fas fa-image me-2"></i>Couverture L'Harmattan</a></li>
+                                <li><a href="../pages/video-glp-vl.html" class="quick-link"><i class="fas fa-video me-2"></i>Vidéo de présentation</a></li>
+                                <li><a href="../pages/soiree-lancement.html" class="quick-link"><i class="fas fa-champagne-glasses me-2"></i>Soirée de lancement</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="book-cover-section">
                 <div class="row align-items-center">
