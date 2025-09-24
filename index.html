@@ -408,6 +408,28 @@
                             display: flex;
                             flex-direction: column;
                             gap: 0.55rem;
+                            max-height: 400px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            /* Style de scrollbar macOS */
+                            scrollbar-width: thin;
+                            scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+                        }
+                        .content-list::-webkit-scrollbar {
+                            width: 8px;
+                        }
+                        .content-list::-webkit-scrollbar-track {
+                            background: transparent;
+                        }
+                        .content-list::-webkit-scrollbar-thumb {
+                            background: rgba(155, 155, 155, 0.5);
+                            border-radius: 10px;
+                            border: 2px solid transparent;
+                            background-clip: content-box;
+                        }
+                        .content-list::-webkit-scrollbar-thumb:hover {
+                            background: rgba(155, 155, 155, 0.8);
+                            background-clip: content-box;
                         }
                         .item-link {
                             display: grid;
@@ -547,20 +569,30 @@
 
                         const dataSets = {
                             'generalites-contrib': [
-                                { title: 'Le monde et la gouvernance des ETI', url: 'pages/livre-eti.html' },
-                                { title: "Couverture L'Harmattan", url: 'pages/couverture-harmattan.html' },
-                                { title: 'Vidéo GLP VL', url: 'pages/video-glp-vl.html' },
-                                { title: 'Soirée de lancement', url: 'pages/soiree-lancement.html' },
-                                { title: 'Entreprise libérée (Préface)', url: 'pages/entreprise-liberee.html' },
-                                { title: 'IA et la Compliance (Avant-Propos)', url: 'pages/ia-compliance.html' },
-                                { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html' },
-                                { title: 'Le monde numérique et la relation client (Vidéo)', url: 'pages/monde-numerique.html' },
-                                { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html' },
-                                { title: 'Cours INSEEC - Instances de Gouvernance', url: 'pages/cours-inseec.html' },
-                                { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true },
-                                { title: 'Boards et Comex', url: 'pages/boards-et-comex.html', construction: true },
-                                { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true },
-                                { title: "IFA et le numérique", url: 'pages/ifa-et-numerique.html', construction: true }
+                                // Articles créés le 24 septembre 2025 (du plus récent au plus ancien)
+                                { title: 'Facilities Management, Les normes Européennes', url: 'pages/facilities-management-normes-europeennes.html', dateCreation: '2025-09-24-4' },
+                               // { title: 'Comment les DSI peuvent impliquer les Conseils d\'Administration', url: 'pages/dsi-conseils-administration.html', dateCreation: '2025-09-24-3' },
+                               // { title: 'Le monde numérique et la relation client', url: 'pages/monde-numerique-relation-client.html', dateCreation: '2025-09-24-2' },
+                              //  { title: 'Apports de l\'Intelligence artificielle à la Compliance', url: 'pages/apports-ia-compliance.html', dateCreation: '2025-09-24-1' },
+                               // { title: 'Salarié et Dirigeants en Confiance', url: 'pages/salarie-dirigeants-confiance.html', dateCreation: '2025-09-24-0' },
+
+                                // Articles existants (dates antérieures approximatives)
+                                { title: 'Le monde et la gouvernance des ETI', url: 'pages/livre-eti.html', dateCreation: '2025-09-20' },
+                                { title: "Couverture L'Harmattan", url: 'pages/couverture-harmattan.html', dateCreation: '2025-09-19' },
+                                { title: 'Vidéo GLP VL', url: 'pages/video-glp-vl.html', dateCreation: '2025-09-18' },
+                                { title: 'Soirée de lancement', url: 'pages/soiree-lancement.html', dateCreation: '2025-09-17' },
+                                { title: 'Entreprise libérée (Préface)', url: 'pages/entreprise-liberee.html', dateCreation: '2025-09-16' },
+                                { title: 'IA et la Compliance (Avant-Propos)', url: 'pages/ia-compliance.html', dateCreation: '2025-09-15' },
+                                { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html', dateCreation: '2025-09-14' },
+                                { title: 'Le monde numérique et la relation client (Vidéo)', url: 'pages/monde-numerique.html', dateCreation: '2025-09-13' },
+                                { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html', dateCreation: '2025-09-12' },
+                                { title: 'Cours INSEEC - Instances de Gouvernance', url: 'pages/cours-inseec.html', dateCreation: '2025-09-11' },
+
+                                // Articles en construction
+                                { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true, dateCreation: '2025-09-10' },
+                                { title: 'Boards et Comex', url: 'pages/boards-et-comex.html', construction: true, dateCreation: '2025-09-09' },
+                                { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true, dateCreation: '2025-09-08' },
+                                { title: "IFA et le numérique", url: 'pages/ifa-et-numerique.html', construction: true, dateCreation: '2025-09-07' }
                             ],
                             'generalites-docs': [
                                 { title: 'Loi Pacte', url: 'pages/loi-pacte.html', construction: true },
@@ -598,7 +630,7 @@
                                 { title: 'Diagnostics', url: 'pages/diagnostics-ca.html' },
                                 { title: "Documents pour l'administrateur", url: 'pages/catalogue-documents.html' },
                                 { title: 'Glossaire des Prestations de conseil', url: 'pages/glossaire-prestations.html', construction: true },
-                                { title: 'Mandataires sociaux disponibles', url: 'pages/candidats-mandataires.html' }
+                                { title: 'Candidats mandataires sociaux', url: 'pages/candidats-mandataires-sociaux.html' }
                             ]
                         };
 
@@ -645,6 +677,7 @@
                             if (!ul) return;
                             ul.innerHTML = '';
                             const items = dataSets[dataKey] || [];
+                            // Afficher tous les articles (défilement continu)
                             items.forEach(function(item) {
                                 const li = document.createElement('li');
                                 li.className = 'list-item ' + dataKey;
