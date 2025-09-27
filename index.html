@@ -461,7 +461,7 @@
                         @media (max-width: 1200px) {
                             .nav-board { padding: 28px 24px; }
                             .main-table-layout { grid-template-columns: repeat(3, 1fr); }
-                            .header-cell, .subheader-cell, .content-cell { grid-column: auto !important; }
+                            .header-cell, .subheader-cell, .content-cell { grid-column: 1 / 5; }
                         }
                         @media (max-width: 768px) {
                             .nav-board { padding: 24px 18px; }
@@ -474,6 +474,14 @@
                             grid-template-columns: 1fr 1fr;
                             gap: 1.2rem;
                             align-items: start;
+                        }
+                        @media (max-width: 1200px) {
+                            .content-cell .two-col {
+                                display: flex;
+                                gap: 1.2rem;
+                                align-items: start;
+                                flex-flow: column;
+                            }
                         }
                         @media (max-width: 992px) {
                             .content-cell .two-col { grid-template-columns: 1fr; }
@@ -571,10 +579,10 @@
                             'generalites-contrib': [
                                 // Articles créés le 24 septembre 2025 (du plus récent au plus ancien)
                                 { title: 'Facilities Management, Les normes Européennes', url: 'pages/facilities-management-normes-europeennes.html', dateCreation: '2025-09-24-4' },
-                               // { title: 'Comment les DSI peuvent impliquer les Conseils d\'Administration', url: 'pages/dsi-conseils-administration.html', dateCreation: '2025-09-24-3' },
-                               // { title: 'Le monde numérique et la relation client', url: 'pages/monde-numerique-relation-client.html', dateCreation: '2025-09-24-2' },
-                              //  { title: 'Apports de l\'Intelligence artificielle à la Compliance', url: 'pages/apports-ia-compliance.html', dateCreation: '2025-09-24-1' },
-                               // { title: 'Salarié et Dirigeants en Confiance', url: 'pages/salarie-dirigeants-confiance.html', dateCreation: '2025-09-24-0' },
+                                { title: 'Comment les DSI peuvent impliquer les Conseils d\'Administration', url: 'pages/dsi-conseils-administration.html', dateCreation: '2025-09-24-3' },
+                                { title: 'Le monde numérique et la relation client', url: 'pages/monde-numerique-relation-client.html', dateCreation: '2025-09-24-2' },
+                                { title: 'Apports de l\'Intelligence artificielle à la Compliance', url: 'pages/apports-ia-compliance.html', dateCreation: '2025-09-24-1' },
+                                { title: 'Salarié et Dirigeants en Confiance', url: 'pages/salarie-dirigeants-confiance.html', dateCreation: '2025-09-24-0' },
 
                                 // Articles existants (dates antérieures approximatives)
                                 { title: 'Le monde et la gouvernance des ETI', url: 'pages/livre-eti.html', dateCreation: '2025-09-20' },
@@ -683,7 +691,6 @@
                                 li.className = 'list-item ' + dataKey;
                                 li.innerHTML = `
                                     <a class="item-link" href="${item.url}">
-                                        <span class="thumb"><i class="fas fa-file"></i></span>
                                         <span>${item.title}</span>
                                     </a>`;
                                 ul.appendChild(li);
