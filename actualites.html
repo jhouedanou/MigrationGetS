@@ -31,6 +31,33 @@
                 margin: 0 auto;
                 color: #334155;
             }
+            .hero-content {
+                margin-bottom: 12px;
+            }
+            .hiteam-logo {
+                max-height: 80px;
+                width: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+            }
+            .hiteam-logo:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+            @media (max-width: 768px) {
+                .hero-content {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .hero-content h1 {
+                    margin-right: 0 !important;
+                    margin-bottom: 16px;
+                }
+                .hiteam-logo {
+                    max-height: 60px;
+                }
+            }
             .news-list {
                 max-width: 1080px;
                 margin: 0 auto 72px;
@@ -120,12 +147,28 @@
         <main>
             <section class="news-hero">
                 <div class="container">
-                    <h1>Actualités G &amp; S</h1>
+                    <div class="hero-content d-flex align-items-center justify-content-center flex-wrap">
+                        <h1 class="me-4 mb-3">Actualités G &amp; S</h1>
+                        <a href="https://t.ly/4o3Tq" target="_blank" rel="noopener" class="hiteam-logo-link">
+                            <img src="includes/hiteam.jpg" alt="Hi-Team Logo" class="hiteam-logo" onerror="this.style.display='none'">
+                        </a>
+                    </div>
                     <p>Retrouvez ici les informations récentes passées ou à venir illustrant les actions de Gouvernance &amp; Structures</p>
                 </div>
             </section>
             <section class="news-list">
-               
+                <article class="news-card">
+                    <div class="news-date"><i class="fas fa-calendar-day"></i>15 novembre 2025</div>
+                    <h2>Salon du livre des polytechniciens</h2>
+                    <p>
+                        Présentation et dédicace de livres en particulier « Le Monde et la gouvernance des ETI ».
+                    </p>
+                    <a class="news-link" href="pages/livre-eti.html">
+                        Voir l'article sur le monde et la gouvernance des ETI
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+
                 <article class="news-card">
                     <div class="news-date"><i class="fas fa-calendar-day"></i>6 novembre 2024</div>
                     <h2>Première journée du nouveau Certificat de formation « Comex Codir, Gouvernance 5.0 »</h2>
