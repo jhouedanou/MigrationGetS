@@ -3,39 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boards et Comex - En construction - G-ET-S</title>
+    <meta name="description" content="Boards et Comex - En construction - Gouvernance & Structures">
+    <title>Boards et Comex - En construction - G & S</title>
     <link href="../css/theme.css" rel="stylesheet" type="text/css">
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/includes.js"></script>
+
     <style>
-        body { background-color: #efefef; }
-        .construction-container { text-align: center; padding: 50px 20px; max-width: 900px; margin: 0 auto; }
-        .logo { max-width: 260px; height: auto; margin-bottom: 24px; }
-        .construction-title { color: #1e73be; font-size: 2rem; margin-bottom: 12px; }
-        .construction-message { font-size: 1.05rem; color: #444; margin-bottom: 22px; }
-        .back-link { display: inline-block; margin-top: 16px; padding: 10px 16px; background: #1e73be; color: #fff; text-decoration: none; border-radius: 6px; }
-        .back-link:hover { background: #035a9e; }
+        body {
+            background: linear-gradient(180deg, #eef2f8 0%, #ffffff 35%);
+            min-height: 100vh;
+        }
+
+        .article-hero {
+            padding: 72px 0 48px;
+            text-align: center;
+            color: #0f172a;
+        }
+
+        .article-hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.25rem, 2.8vw, 3rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #1e73be;
+        }
+
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            padding: 48px;
+            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+        }
+
+        .content-text {
+            color: #475569;
+            font-size: 1.125rem;
+            line-height: 2;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 32px 24px;
+                border-radius: 20px;
+                margin: 0 16px 48px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
 
-    <main class="container pt-4 pb-5">
-        <div class="construction-container bg-white rounded shadow-sm p-4">
-            <img src="../images/2020/02/logo-gets-3C.png" alt="Logo G-ET-S" class="logo">
-            <h1 class="construction-title">Boards et Comex</h1>
-            <p class="construction-message">Cette page est en cours de construction. Le contenu sera disponible prochainement.</p>
-            <a class="back-link" href="../index.html">← Retour à l'accueil</a>
-        </div>
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <h1>Boards et Comex - En construction</h1>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="article-content">
+                <p class="content-text">
+                    <i class="fas fa-info-circle text-info me-2"></i> Cette page est actuellement en cours de construction.
+                </p>
+                <p class="content-text">
+                    Notre équipe travaille activement sur ce contenu pour vous offrir la meilleure expérience possible.
+                </p>
+                <p class="content-text">
+                    <strong>Contenu à venir :</strong> Informations détaillées, ressources et outils relatifs à ce sujet.
+                </p>
+
+                <div class="text-center mt-4">
+                    <a href="../index.html" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        Retour à l'accueil
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="../js/search.js"></script>
 </body>
 </html>
-
-

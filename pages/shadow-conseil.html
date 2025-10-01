@@ -3,254 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gouvernance & Structures">
-    <title>Shadow Conseil d'Administration de jeunes (Article) - G-ET-S</title>
-    
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
-    <!-- Font Awesome CDN for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Custom theme CSS -->
+    <meta name="description" content="« Shadow » Conseil d'Administration de jeunes - Gouvernance & Structures">
+    <title>« Shadow » Conseil d'Administration de jeunes - G &amp; S</title>
     <link href="../css/theme.css" rel="stylesheet" type="text/css">
-    
-    <!-- jQuery for includes -->
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
-    <!-- Custom includes script -->
     <script src="../js/includes.js"></script>
-    
+
     <style>
         body {
-            background-color: #efefef;
+            background: linear-gradient(180deg, #eef2f8 0%, #ffffff 35%);
             min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        .construction-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-            margin-bottom: 50px;
-            padding: 50px 30px;
+
+        .article-hero {
+            padding: 72px 0 48px;
+            text-align: center;
+            color: #0f172a;
+        }
+
+        .article-hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.25rem, 2.8vw, 3rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #1e73be;
+        }
+
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            padding: 48px;
+            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+        }
+
+        .section-title {
+            color: #1e73be;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .sub-title {
+            color: #495057;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+        }
+
+        .sub-title-small {
+            font-size: 1.1rem;
+            color: #1e73be;
+        }
+
+        .content-text {
+            color: #475569;
+            font-size: 1.125rem;
+            line-height: 2;
+            margin-bottom: 18px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #1e73be;
+        }
+
+        .closing-question {
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.15em;
+            color: #1e73be;
             text-align: center;
         }
-        
-        .logo-section {
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            max-width: 300px;
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-        }
-        
-        .construction-title {
-            color: #1e73be;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .construction-subtitle {
-            color: #6c757d;
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-        
-        .construction-description {
-            color: #495057;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .spinner-container {
-            margin: 30px 0;
-        }
-        
-        .construction-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #1e73be;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .btn-primary-custom {
-            background-color: #efefef;
-            border: none;
-            padding: 12px 30px;
-            font-weight: 500;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            color: white;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-        }
-        
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(30, 115, 190, 0.3);
-            color: white;
-            text-decoration: none;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            border-left: 4px solid #1e73be;
-        }
-        
+
         @media (max-width: 768px) {
-            .construction-title {
-                font-size: 2em;
-            }
-            .construction-container {
-                margin: 20px 10px;
-                padding: 30px 20px;
+            .article-content {
+                padding: 32px 24px;
+                border-radius: 20px;
+                margin: 0 16px 48px;
             }
         }
     </style>
-	<link href="../css/theme.css" rel="stylesheet" type="text/css">
-		<link href="../styles.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-		<!-- Font Awesome CDN for icons -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-		<script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-		<!-- jQuery for includes -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<!-- Custom includes script -->
-		<script src="../js/includes.js"></script>
-		<!-- Isotope JS for filtering -->
-		<script src="https://unpkg.com/isotope-layout/dist/isotope.pkgd.js"></script>
-		<style>
-	/* unified-construction-style */
-	body { background-color: #efefef !important; }
-	.spinner-container, .construction-spinner { display: none !important; }
-	.back-link { background-color: #1e73be !important; }
-	.btn-primary-custom { background-color: #1e73be !important; background-image: none !important; }
-	</style>
 </head>
+
 <body>
-    <!-- Header include -->
     <div id="header-placeholder"></div>
-    
-    <!-- Navigation include -->
     <div id="nav-placeholder"></div>
-    
-    <!-- Main content -->
-    <main class="container-fluid">
-        <div class="container">
-            <div class="container main-container bg-white shadow-sm rounded mt-4 mb-4 p-4">
-                <div class="logo-section">
-                    <img src="../images/logo-gs.png" alt="Logo G-ET-S" class="logo" onerror="this.style.display='none'">
-                </div>
-                
-                <h1 class="construction-title">
-                    « Shadow » Conseil d'Administration de jeunes
-                </h1>
 
-                <div class="construction-description text-left">
-                    <p>Le rajeunissement des membres des Conseils d'Administration est un sujet largement débattu au sein de la communauté des personnes s'intéressant aux Instances de Gouvernance des sociétés.</p>
-                    <p>L'originale proposition faite par G &amp; S a fait l'objet de l'article ci-dessous publié dans le CERCLE DES ECHOS 25 05 2014.</p>
-                    <p><strong>G &amp; S recherche une entreprise, en fait son Président de son conseil d'administration accompagné de son responsable des relations humaines et le Secrétaire du Conseil pour mener une expérience dans ce sens.</strong></p>
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <h1>« Shadow » Conseil d'Administration de jeunes</h1>
+            </div>
+        </section>
 
-                    <h3><strong>PLUS DE JEUNES DANS LES CONSEILS D'ADMINISTRATION ?</strong></h3>
-                    <h4><strong>Pourquoi ? Est-ce possible ? Comment ?</strong></h4>
-                    <h5><strong>Une approche innovante : Le Conseil d'Administration de jeunes</strong></h5>
+        <section class="container mb-5">
+            <div class="article-content">
+                <p class="content-text">
+                    Le rajeunissement des membres des Conseils d'Administration est un sujet largement débattu au sein de la communauté des personnes s'intéressant aux Instances de Gouvernance des sociétés.
+                </p>
 
-                    <p>En ces temps d'Assemblées Générales, et de nominations de nouveaux membres des Conseils d'administration ou de Surveillance, le rajeunissement des membres des Conseils d'Administration est légitimement examiné.</p>
+                <p class="content-text">
+                    L'originale proposition faite par G &amp; S a fait l'objet de l'article ci-dessous publié dans le CERCLE DES ECHOS 25 05 2014.
+                </p>
 
-                    <p>Par manque de connaissance de la réalité, pour le grand public un Conseil d'Administration est souvent encore imaginé un ensemble de personnes d'un âge certain.</p>
+                <p class="content-text highlight-text">
+                    G &amp; S recherche une entreprise, en fait son Président de son conseil d'administration accompagné de son responsable des relations humaines et le Secrétaire du Conseil pour mener une expérience dans ce sens.
+                </p>
 
-                    <p>Ce n'est pas tout à fait vrai, mais il n'empêche que même par simple bon sens, l'apport d'idées nouvelles issues des jeunes générations serait sûrement un atout.</p>
+                <h2 class="section-title">
+                    PLUS DE JEUNES DANS LES CONSEILS D'ADMINISTRATION ?
+                </h2>
 
-                    <p>La diversité d'âges des membres d'un Conseil est certes indiscutablement souhaitable, mais un ou deux administrateurs plus jeunes suffiront-ils ?</p>
+                <h3 class="sub-title">
+                    Pourquoi ? Est-ce possible ? Comment ?
+                </h3>
 
-                    <p>Le seront-ils d'ailleurs vraiment et pourront-il être recrutés ?</p>
+                <h4 class="sub-title sub-title-small">
+                    Une approche innovante : Le Conseil d'Administration de jeunes
+                </h4>
 
-                    <p>Sans doute pas vraiment en effet, sauf cas tout à fait exceptionnels, essentiellement dans le domaine des technologies nouvelles, vu l'expérience requise pour être un administrateur qualifié, ces jeunes membres d'un Conseil auront au moins 35 ans et ne seront donc déjà plus de vrais jeunes.</p>
+                <p class="content-text">
+                    En ces temps d'Assemblées Générales, et de nominations de nouveaux membres des Conseils d'administration ou de Surveillance, le rajeunissement des membres des Conseils d'Administration est légitimement examiné.
+                </p>
 
-                    <p>Ens uite, dans la tranche de moins 60 ans les candidats qualifiés ont souvent une activité professionnelle classique intense, par exemple comme Directeur salarié à plein de leur entreprise.</p>
+                <p class="content-text">
+                    Par manque de connaissance de la réalité, pour le grand public un Conseil d'Administration est souvent encore imaginé un ensemble de personnes d'un âge certain.
+                </p>
 
-                    <p>Etre en parallèle membre d'un conseil devrait se développer, mais pose cependant des problèmes concrets de disponibilité, d'accord de l'employeur, d'éventuel conflit d'intérêt, etc…</p>
+                <p class="content-text">
+                    Ce n'est pas tout à fait vrai, mais il n'empêche que même par simple bon sens, l'apport d'idées nouvelles issues des jeunes générations serait sûrement un atout.
+                </p>
 
-                    <p><strong>En résumé, dans les recrutements le critère « âge » doit être pris en compte, mais ce ne sera pas la véritable solution pour assurer cet apport potentiel et confrontation positive d'idées de jeunes avec les membres du Conseil.</strong></p>
+                <p class="content-text">
+                    La diversité d'âges des membres d'un Conseil est certes indiscutablement souhaitable, mais un ou deux administrateurs plus jeunes suffiront-ils ?
+                </p>
 
-                    <h3><strong>Alors, comment procéder ?</strong></h2>
+                <p class="content-text">
+                    Le seront-ils d'ailleurs vraiment et pourront-il être recrutés ?
+                </p>
 
-                    <p>L'approche suggérée par ce billet par Gouvernance &amp; Structures est, sous la houlette du Conseil d'Administration, de créer un Conseil de jeunes. Avec des objectifs un peu différents, certaines Municipalités utilisent cette approche.</p>
+                <p class="content-text">
+                    Sans doute pas vraiment en effet, sauf cas tout à fait exceptionnels, essentiellement dans le domaine des technologies nouvelles, vu l'expérience requise pour être un administrateur qualifié, ces jeunes membres d'un Conseil auront au moins 35 ans et ne seront donc déjà plus de vrais jeunes.
+                </p>
 
-                    <p>Ce Conseil de jeunes serait composé d'une dizaine bénévoles de 18 à 25 ans défrayés des frais éventuels. Ils seraient recrutés par annonces « internet » pour 3 ans (avec renouvellement d'un tiers d'entre eux chaque années) en visant la parité femmes/hommes et une large diversité de milieu d'origine.</p>
+                <p class="content-text">
+                    Ensuite, dans la tranche de moins 60 ans les candidats qualifiés ont souvent une activité professionnelle classique intense, par exemple comme Directeur salarié à plein de leur entreprise.
+                </p>
 
-                    <p>Ils seraient pilotés par le Secrétaire du Conseil d'Administration aidé par un responsable RH.</p>
+                <p class="content-text">
+                    Etre en parallèle membre d'un conseil devrait se développer, mais pose cependant des problèmes concrets de disponibilité, d'accord de l'employeur, d'éventuel conflit d'intérêt, etc…
+                </p>
 
-                    <p>Le Conseil, en leur fournissant la documentation nécessaire, leur demanderait, disons trois fois par an, de réfléchir à un thème examiné à un prochain Conseil et de faire des propositions. On peut penser aux questions sur lesquelles les jeunes peuvent être sensibilisés; technologies nouvelles dont réseaux sociaux et protection des données, écologie, éthique, international…</p>
+                <p class="content-text">
+                    En résumé, dans les recrutements le critère « âge » doit être pris en compte, mais ce ne sera pas la véritable solution pour assurer cet apport potentiel et confrontation positive d'idées de jeunes avec les membres du Conseil.
+                </p>
 
-                    <p>Une fois par an, sur un de ces thèmes serait organisé une demi-journée d'échange direct avec présence physique des membres du Conseil d'Administration à l'occasion d'une de ses réunions.</p>
+                <h3 class="sub-title">
+                    Alors, comment procéder ?
+                </h3>
 
-                    <p>La formule serait légère et n'entraînerait pas de dépenses importantes, elle permettrait aux membres du Conseil d'Administration dans un cadre souple et convivial d'être positivement et concrètement confrontés aux idées de jeunes et pourquoi pas d'en retenir certaines pour mise en application.</p>
+                <p class="content-text">
+                    L'approche suggérée par ce billet par Gouvernance &amp; Structures est, sous la houlette du Conseil d'Administration, de créer un Conseil de jeunes. Avec des objectifs un peu différents, certaines Municipalités utilisent cette approche.
+                </p>
 
-                    <p>Les jeunes en tireraient sûrement un profit personnel et indirectement leurs proches.</p>
+                <p class="content-text">
+                    Ce Conseil de jeunes serait composé d'une dizaine bénévoles de 18 à 25 ans défrayés des frais éventuels. Ils seraient recrutés par annonces « internet » pour 3 ans (avec renouvellement d'un tiers d'entre eux chaque années) en visant la parité femmes/hommes et une large diversité de milieu d'origine.
+                </p>
 
-                    <p>En effet, ils bénéficieraient ainsi une ouverture sur la « Corporate Gouvernance » des entreprises et leurs hauts dirigeants.</p>
+                <p class="content-text">
+                    Ils seraient pilotés par le Secrétaire du Conseil d'Administration aidé par un responsable RH.
+                </p>
 
-                    <p>L'entreprise pourrait incidemment dans ce cadre repérer des jeunes talents à embaucher plus tard.</p>
+                <p class="content-text">
+                    Le Conseil, en leur fournissant la documentation nécessaire, leur demanderait, disons trois fois par an, de réfléchir à un thème examiné à un prochain Conseil et de faire des propositions. On peut penser aux questions sur lesquelles les jeunes peuvent être sensibilisés; technologies nouvelles dont réseaux sociaux et protection des données, écologie, éthique, international…
+                </p>
 
-                    <p>La société pourrait utiliser de cette approche pour améliorer son image de marque, en particulier auprès de jeunes.</p>
+                <p class="content-text">
+                    Une fois par an, sur un de ces thèmes serait organisé une demi-journée d'échange direct avec présence physique des membres du Conseil d'Administration à l'occasion d'une de ses réunions.
+                </p>
 
-                    <p>Bien des discours et écrits prônent l'innovation, et comme on commence à le savoir, l'innovation n'est pas seulement technologique, elle peut être aussi organisationnelle et sociale.</p>
+                <p class="content-text">
+                    La formule serait légère et n'entraînerait pas de dépenses importantes, elle permettrait aux membres du Conseil d'Administration dans un cadre souple et convivial d'être positivement et concrètement confrontés aux idées de jeunes et pourquoi pas d'en retenir certaines pour mise en application.
+                </p>
 
-                    <p>Voici un exemple concret de ce type d'innovation.</p>
+                <p class="content-text">
+                    Les jeunes en tireraient sûrement un profit personnel et indirectement leurs proches.
+                </p>
 
-                    <p class="closing-question">Quelle société sera la première à la tenter ?</p>
-                </div>
-                
-                <div class="contact-info">
-                    <h4><i class="fas fa-envelope text-primary me-2"></i>Nous contacter</h4>
-                    <p class="mb-2">Pour plus d'informations sur ce sujet, n'hésitez pas à nous contacter :</p>
-                    <p class="mb-0">
-                        <i class="fas fa-at text-primary me-2"></i>
-                        <strong>Email :</strong> contact@g-et-s.com
-                    </p>
-                </div>
-                
-                <div class="mt-4">
-                    <a href="../index.html" class="btn-primary-custom">
-                        <i class="fas fa-home me-2"></i>
+                <p class="content-text">
+                    En effet, ils bénéficieraient ainsi une ouverture sur la « Corporate Gouvernance » des entreprises et leurs hauts dirigeants.
+                </p>
+
+                <p class="content-text">
+                    L'entreprise pourrait incidemment dans ce cadre repérer des jeunes talents à embaucher plus tard.
+                </p>
+
+                <p class="content-text">
+                    La société pourrait utiliser de cette approche pour améliorer son image de marque, en particulier auprès de jeunes.
+                </p>
+
+                <p class="content-text">
+                    Bien des discours et écrits prônent l'innovation, et comme on commence à le savoir, l'innovation n'est pas seulement technologique, elle peut être aussi organisationnelle et sociale.
+                </p>
+
+                <p class="content-text">
+                    Voici un exemple concret de ce type d'innovation.
+                </p>
+
+                <p class="closing-question">
+                    Quelle société sera la première à la tenter ?
+                </p>
+
+                <div class="text-center mt-5">
+                    <a href="../index.html" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>
                         Retour à l'accueil
-                    </a>
-                    <a href="../contact/index.html" class="btn-primary-custom">
-                        <i class="fas fa-envelope me-2"></i>
-                        Nous contacter
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
-    
-    <!-- Footer include -->
-    <div id="footer-placeholder"></div>
 
-<!-- Search functionality script -->
-<script src="../js/search.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="../js/search.js"></script>
 </body>
 </html>
