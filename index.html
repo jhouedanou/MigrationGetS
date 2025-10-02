@@ -619,7 +619,7 @@
                             ],
                             'feminisation-docs': [
                                 { title: 'Directive Européenne (2024)', url: 'pages/directive-europeenne.html' },
-                                { title: 'Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
+                                { title: 'Article 14 Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
                                 { title: 'Loi Zimmerman (2011)', url: 'pages/loi-zimmerman.html' }
                             ],
                             'qui': [
@@ -711,19 +711,29 @@
                             applyColumnFilters();
                         }
 
+                        // Helper function to normalize text (remove accents)
+                        function normalizeText(text) {
+                            return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+                        }
+
                         // Filtrage des listes de colonnes (catégorie + recherche texte)
                         function applyColumnFilters() {
                             const categorySelect = document.getElementById('category-filter');
                             const searchInput = document.getElementById('search-input');
                             const category = categorySelect ? (categorySelect.value || '*') : '*';
                             const term = searchInput ? (searchInput.value || '').toLowerCase().trim() : '';
+                            const normalizedTerm = normalizeText(term);
 
                             // Parcourir tous les éléments de listes
                             const allItems = document.querySelectorAll('.content-list li.list-item');
                             allItems.forEach(function(li){
                                 const text = (li.textContent || '').toLowerCase();
+                                const normalizedText = normalizeText(text);
                                 const matchCategory = (category === '*') || li.classList.contains(category.replace('.', ''));
-                                const matchSearch = !term || text.includes(term);
+
+                                // Fuzzy search: match both with and without accents
+                                const matchSearch = !term || text.includes(term) || normalizedText.includes(normalizedTerm);
+
                                 li.style.display = (matchCategory && matchSearch) ? '' : 'none';
                             });
 

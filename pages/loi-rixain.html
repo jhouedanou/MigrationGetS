@@ -3,329 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gouvernance & Structures">
-    <title>La Loi Rixain Décembre 2021 - G-ET-S</title>
-    
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
-    <!-- Font Awesome CDN for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Custom theme CSS -->
+    <meta name="description" content="Article 14 de la loi Rixain - Gouvernance & Structures">
+    <title>Article 14 de la loi Rixain - G &amp; S</title>
     <link href="../css/theme.css" rel="stylesheet" type="text/css">
-    
-    <!-- jQuery for includes -->
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
-    <!-- Custom includes script -->
     <script src="../js/includes.js"></script>
-    
+
     <style>
         body {
+            background: linear-gradient(180deg, #eef2f8 0%, #ffffff 35%);
+            min-height: 100vh;
+        }
+
+        .article-hero {
+            padding: 72px 0 48px;
+            text-align: center;
+            color: #0f172a;
+        }
+
+        .article-hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.25rem, 2.8vw, 3rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #1e73be;
+        }
+
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            padding: 48px;
+            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+        }
+
+        .content-text {
+            color: #475569;
+            font-size: 1.125rem;
+            line-height: 2;
+            margin-bottom: 1em;
+        }
+
+        .rixain-image {
+            max-width: 150px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        .info-table {
+            background-color: #00b0f0;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .data-table {
             background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
-        
-        .main-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 40px;
-        }
-        
-        .page-title {
-            color: #1e73be;
-            font-size: 2.8em;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .law-header {
-            background-color: #efefef;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            border-left: 5px solid #1e73be;
-        }
-        
-        .section-title {
-            color: #1e73be;
-            border-bottom: 2px solid #1e73be;
-            padding-bottom: 10px;
-            margin-top: 35px;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-        
-        .highlight-box {
-            background-color: #efefef;
-            border-left: 4px solid #ffc107;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .key-measure {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 4px solid #28a745;
-            transition: transform 0.2s ease;
-        }
-        
-        .key-measure:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-item {
-            border-left: 3px solid #1e73be;
-            padding-left: 20px;
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background-color: #1e73be;
-        }
-        
-        .btn-primary-custom {
-            background-color: #1e73be;
-            border-color: #1e73be;
-            padding: 12px 30px;
-            font-weight: 500;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .btn-primary-custom:hover {
-            background-color: #155a8a;
-            border-color: #155a8a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(30, 115, 190, 0.3);
-            color: white;
-            text-decoration: none;
-        }
-        
-        .back-to-home {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        .stats-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #1e73be;
-        }
-        
-        .stats-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #1e73be;
-            margin-bottom: 10px;
-        }
-        
+
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.2em;
-            }
-            .main-container {
-                padding: 25px;
-                margin: 10px;
+            .article-content {
+                padding: 32px 24px;
+                border-radius: 20px;
+                margin: 0 16px 48px;
             }
         }
     </style>
-	<link href="../css/theme.css" rel="stylesheet" type="text/css">
-		<link href="../styles.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-		<!-- Font Awesome CDN for icons -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-		<script src="../bootstrap/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-		<!-- jQuery for includes -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<!-- Custom includes script -->
-		<script src="../js/includes.js"></script>
-		<!-- Isotope JS for filtering -->
-		<script src="https://unpkg.com/isotope-layout/dist/isotope.pkgd.js"></script>
-		<style>
-	/* unified-construction-style */
-	body { background-color: #efefef !important; }
-	.spinner-container, .construction-spinner { display: none !important; }
-	.back-link { background-color: #1e73be !important; }
-	.btn-primary-custom { background-color: #1e73be !important; background-image: none !important; }
-	</style>
 </head>
 <body>
-    <!-- Header include -->
     <div id="header-placeholder"></div>
-    
-    <!-- Navigation include -->
     <div id="nav-placeholder"></div>
-    
-    <!-- Main content -->
-    <main class="container-fluid pt-4 pb-4">
-        <div class="container main-container">
-            
-            <h1 class="page-title">La Loi Rixain Décembre 2021</h1>
-            
-            <div class="law-header">
-                <h2 class="mb-3"><i class="fas fa-gavel text-primary me-2"></i>Présentation de la loi</h2>
-                <p class="mb-2"><strong>Nom officiel :</strong> Loi n° 2021-1774 du 24 décembre 2021 visant à accélérer l'égalité économique et professionnelle</p>
-                <p class="mb-2"><strong>Date d'adoption :</strong> 24 décembre 2021</p>
-                <p class="mb-0"><strong>Objectif :</strong> Renforcer la parité et l'égalité professionnelle dans les entreprises</p>
-            </div>
 
-            <div class="row mb-4">
-                <div class="col-md-4">
-                    <div class="stats-card">
-                        <div class="stats-number">40%</div>
-                        <p class="mb-0">Quota minimum de femmes dans les instances dirigeantes</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stats-card">
-                        <div class="stats-number">1000+</div>
-                        <p class="mb-0">Entreprises concernées par les nouvelles obligations</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stats-card">
-                        <div class="stats-number">2026</div>
-                        <p class="mb-0">Échéance pour la mise en conformité</p>
-                    </div>
-                </div>
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <h1>Article 14 de la loi Rixain</h1>
             </div>
+        </section>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2 class="section-title"><i class="fas fa-bullseye text-primary me-2"></i>Mesures clés de la loi</h2>
-                    
-                    <div class="key-measure">
-                        <h4><i class="fas fa-users text-success me-2"></i>Parité dans les instances dirigeantes</h4>
-                        <p class="mb-0">Obligation d'atteindre 40% de femmes dans les comités exécutifs et comités de direction des grandes entreprises.</p>
-                    </div>
-                    
-                    <div class="key-measure">
-                        <h4><i class="fas fa-chart-line text-success me-2"></i>Transparence salariale</h4>
-                        <p class="mb-0">Publication obligatoire des écarts de rémunération et des mesures correctives mises en place.</p>
-                    </div>
-                    
-                    <div class="key-measure">
-                        <h4><i class="fas fa-balance-scale text-success me-2"></i>Équilibre vie professionnelle</h4>
-                        <p class="mb-0">Renforcement du droit à la déconnexion et des dispositifs de conciliation vie pro/vie privée.</p>
-                    </div>
-                    
-                    <div class="key-measure">
-                        <h4><i class="fas fa-graduation-cap text-success me-2"></i>Formation et sensibilisation</h4>
-                        <p class="mb-0">Mise en place de programmes de formation sur l'égalité professionnelle.</p>
-                    </div>
+        <section class="container mb-5">
+            <div class="article-content">
+                <div class="text-center">
+                    <img src="../images/rixain.jpg" alt="Marie-Pierre Rixain" class="rixain-image">
                 </div>
-                
-                <div class="col-lg-4">
-                    <h2 class="section-title"><i class="fas fa-calendar-alt text-primary me-2"></i>Calendrier d'application</h2>
-                    
-                    <div class="timeline-item">
-                        <h5>2022</h5>
-                        <p>Entrée en vigueur des premières dispositions</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>2024</h5>
-                        <p>Obligations de reporting renforcées</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>2026</h5>
-                        <p>Échéance finale pour la parité dans les instances dirigeantes</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>2027</h5>
-                        <p>Évaluation des résultats et sanctions</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="highlight-box">
-                <h3><i class="fas fa-lightbulb text-warning me-2"></i>Impact sur la gouvernance d'entreprise</h3>
-                <p class="mb-3">Cette loi marque une évolution majeure dans la gouvernance des entreprises françaises :</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-arrow-right text-primary me-2"></i>Diversification des profils dirigeants</li>
-                            <li><i class="fas fa-arrow-right text-primary me-2"></i>Amélioration de la prise de décision</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-arrow-right text-primary me-2"></i>Renforcement de la performance économique</li>
-                            <li><i class="fas fa-arrow-right text-primary me-2"></i>Meilleure représentativité sociétale</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                <p class="content-text">
+                    <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000044559192" target="_blank"><strong>LOI n° 2021-1774</strong></a> du 24 décembre 2021 visant à accélérer l'égalité économique et professionnelle
+                </p>
 
-            <h2 class="section-title"><i class="fas fa-hands-helping text-primary me-2"></i>Accompagnement G-ET-S</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="highlight-box" style="background-color: #efefef; border-left-color: #28a745;">
-                        <h4><i class="fas fa-search text-success me-2"></i>Diagnostic de conformité</h4>
-                        <p class="mb-0">Évaluation de votre situation actuelle au regard des exigences de la loi Rixain.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="highlight-box" style="background-color: #efefef; border-left-color: #2196f3;">
-                        <h4><i class="fas fa-route text-primary me-2"></i>Plan d'action personnalisé</h4>
-                        <p class="mb-0">Élaboration d'une stratégie sur mesure pour atteindre les objectifs de parité.</p>
-                    </div>
-                </div>
-            </div>
+                <p class="content-text">
+                    L'article 14 de la loi Rixain, induisant des modifications au Code du commerce, exige des sociétés françaises (cotées ou non) employant au moins 1 000 personnes qu'au sein de leurs instances dirigeantes et de leurs « Cadres Dirigeants » au sens contractuel, en mars 2026 il y ait au moins 30 % de femmes et en mars 2029 40 %.
+                </p>
 
-            <div class="text-center mt-4">
-                <a href="../contact/index.html" class="btn btn-primary-custom me-3">
-                    <i class="fas fa-envelope me-2"></i>
-                    Nous contacter pour un audit
-                </a>
+                <p class="content-text">
+                    C'est dans <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044566715" target="_blank">Article L23-12-1</a>, <a href="https://www.legifrance.gouv.fr/loda/id/LEGIARTI000044565408/2021-12-27" target="_blank">Création LOI n°2021-1774 du 24 décembre 2021 - art. 14 (V)</a><br>
+                    qu'est défini le terme « Instance dirigeante » à savoir :
+                </p>
+
+                <p class="content-text">
+                    « Est considérée comme instance dirigeante toute instance mise en place au sein de la société, par tout acte ou toute pratique sociétaire, aux fins d'assister régulièrement les organes chargés de la direction générale dans l'exercice de leurs missions. »
+                </p>
+
+                <p class="content-text">
+                    Essentiellement <strong>les Comités Exécutifs et les Comités de Direction</strong>
+                </p>
+
+                <p class="content-text">
+                    G &amp; S considère que ces Instances Dirigeantes et les Conseils d'Administration ou de Surveillance constituent les « Instances de Gouvernance » des sociétés.
+                </p>
+
+                <p class="content-text">
+                    Il faut noter qu'aujourd'hui le cas particulier des sociétés de type « consortium » avec un nombre de personnes peu élevé au siège social, mais avec des filiales pouvant elles-mêmes comporter en France ou à l'étranger des milliers de personnes, ne sont pas explicitement dans le périmètre de la loi. C'est en particulier le cas de sociétés du CAC 40. Il est vraisemblable que, compte tenu de leur souhait de bonne notoriété, elles feront tout le nécessaire pour respecter la loi.
+                </p>
+
+                <p class="content-text">
+                    Cette loi comporte une sanction forte, à savoir une amende de 1 % de la masse salariale.
+                </p>
+
+                <p class="content-text">
+                    La lecture détaillée de la loi fait penser que ces sanctions seront certes appliquées, mais pour les sociétés n'ayant pas réussi dans le dialogue avec les autorités à prouver qu'elles agissent au mieux pour respecter la loi favorablement.
+                </p>
+
+                <p class="content-text">
+                    Les deux principaux décrets d'application de la Loi Rixain sont :
+                </p>
+
+                <ul class="content-text">
+                    <li><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045243486" target="_blank">Décret n° 2022-243 du 25 février 2022</a>, qui précise les modalités de publication des écarts de représentation entre les femmes et les hommes parmi les cadres dirigeants et membres des instances dirigeantes des entreprises concernées.</li>
+                    <li><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047546170" target="_blank">Décret n° 2023-370 du 15 mai 2023</a>, qui fixe la procédure d'application de la pénalité financière applicable en cas de non-respect des objectifs de répartition équilibrée des sexes parmi les cadres dirigeants et membres des instances dirigeantes.</li>
+                </ul>
+
+                <p class="content-text">
+                    Par exemple en application de ce premier décret le ministère du travail a indiqué que :
+                </p>
+
+                <div class="info-table">
+                    <p class="mb-2"><strong>Extrait du site du Ministère du Travail</strong></p>
+                </div>
+
+                <div class="data-table">
+                    <p class="content-text">
+                        Au 1<sup>er</sup> mars 2025, 54 % des entreprises ont déclaré leurs résultats. À date, 73 % des entreprises comptent moins de 40 % de femmes parmi leurs cadres dirigeants (contre 76 % en 2022) et 64 % ont moins de 40 % de femmes dans les instances dirigeantes (contre 72 % en 2022).
+                    </p>
+                </div>
+
+                <p class="content-text">
+                    Enfin, si la loi Copé-Zimmerman a été l'un des déclics pour le lancement de <a href="formations-administrateurs.html">formations pour les administratrices et administrateurs</a>, jusqu'à présent il n'y avait pas de certificat pour les COMEX CODIR c'est désormais chose faite avec le <a href="certificat-centrale.html">Certificat de Centrale Supélec Comex Codir Gouvernance 5.0</a>
+                </p>
+
+                <div class="text-center mt-4">
+                    <a href="../index.html" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        Retour à l'accueil
+                    </a>
+                </div>
             </div>
-            
-            <!-- Back to home section -->
-            <div class="back-to-home">
-                <a href="../index.html" class="btn btn-primary-custom">
-                    <i class="fas fa-home me-2"></i>
-                    Retour à l'accueil
-                </a>
-            </div>
-        </div>
+        </section>
     </main>
-    
-    <!-- Footer include -->
-    <div id="footer-placeholder"></div>
 
-<!-- Search functionality script -->
-<script src="../js/search.js"></script>
-    
+    <div id="footer-placeholder"></div>
+    <script src="../js/search.js"></script>
 </body>
 </html>
