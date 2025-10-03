@@ -41,7 +41,7 @@ create_construction_page() {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        .construction-container {
+        .container main-container bg-white shadow-sm rounded mt-4 mb-4 p-4 {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -133,7 +133,7 @@ create_construction_page() {
             .construction-title {
                 font-size: 2em;
             }
-            .construction-container {
+            .container main-container bg-white shadow-sm rounded mt-4 mb-4 p-4 {
                 margin: 20px 10px;
                 padding: 30px 20px;
             }
@@ -150,7 +150,7 @@ create_construction_page() {
     <!-- Main content -->
     <main class="container-fluid">
         <div class="container">
-            <div class="construction-container">
+            <div class="container main-container bg-white shadow-sm rounded mt-4 mb-4 p-4">
                 <div class="logo-section">
                     <img src="../images/logo-gs.png" alt="Logo G-ET-S" class="logo" onerror="this.style.display='none'">
                 </div>

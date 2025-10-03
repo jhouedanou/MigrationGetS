@@ -597,7 +597,7 @@
                                 { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html', dateCreation: '2025-09-14' },
                                 { title: 'Le monde numérique et la relation client (Vidéo)', url: 'pages/monde-numerique.html', dateCreation: '2025-09-13' },
                                 { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html', dateCreation: '2025-09-12' },
-                                { title: 'Cours INSEEC - Instances de Gouvernance', url: 'pages/cours-inseec.html', dateCreation: '2025-09-11' },
+                                { title: 'Instances de gouvernance (Cours à l\'INSEEC)', url: 'pages/cours-inseec.html', dateCreation: '2025-09-11' },
 
                                 // Articles en construction
                                 { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true, dateCreation: '2025-09-10' },
@@ -618,7 +618,7 @@
                             ],
                             'feminisation-docs': [
                                 { title: 'Directive Européenne (2024)', url: 'pages/directive-europeenne.html' },
-                                { title: 'Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
+                                { title: 'Article 14 Loi Rixain (2021)', url: 'pages/loi-rixain.html' },
                                 { title: 'Loi Zimmerman (2011)', url: 'pages/loi-zimmerman.html' }
                             ],
                             'qui': [
@@ -710,19 +710,29 @@
                             applyColumnFilters();
                         }
 
+                        // Helper function to normalize text (remove accents)
+                        function normalizeText(text) {
+                            return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+                        }
+
                         // Filtrage des listes de colonnes (catégorie + recherche texte)
                         function applyColumnFilters() {
                             const categorySelect = document.getElementById('category-filter');
                             const searchInput = document.getElementById('search-input');
                             const category = categorySelect ? (categorySelect.value || '*') : '*';
                             const term = searchInput ? (searchInput.value || '').toLowerCase().trim() : '';
+                            const normalizedTerm = normalizeText(term);
 
                             // Parcourir tous les éléments de listes
                             const allItems = document.querySelectorAll('.content-list li.list-item');
                             allItems.forEach(function(li){
                                 const text = (li.textContent || '').toLowerCase();
+                                const normalizedText = normalizeText(text);
                                 const matchCategory = (category === '*') || li.classList.contains(category.replace('.', ''));
-                                const matchSearch = !term || text.includes(term);
+
+                                // Fuzzy search: match both with and without accents
+                                const matchSearch = !term || text.includes(term) || normalizedText.includes(normalizedTerm);
+
                                 li.style.display = (matchCategory && matchSearch) ? '' : 'none';
                             });
 
