@@ -123,6 +123,17 @@ function loadIncludes() {
         });
     });
 
+    // Charger le footer des contributions (si présent)
+    if ($('#contribution-footer-placeholder').length > 0) {
+        $('#contribution-footer-placeholder').load(basePath + 'includes/footer-contributions.html', function() {
+            console.log('Contribution footer loaded successfully');
+            // Corriger les chemins des images si on est dans /pages/
+            if (basePath) {
+                fixImagePaths('#contribution-footer-placeholder', basePath);
+            }
+        });
+    }
+
     // Charger le footer
     $('#footer-placeholder').load(basePath + 'includes/footer.html', function() {
         console.log('Footer loaded successfully');

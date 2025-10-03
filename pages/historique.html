@@ -3,57 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique - Page en cours de construction - G-ET-S</title>
+    <meta name="keywords" content="Gouvernance & Structures">
+    <title>Historique - G-ET-S</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom theme CSS -->
+    <link href="../css/theme.css" rel="stylesheet" type="text/css">
+
     <!-- jQuery for includes -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
     <!-- Custom includes script -->
     <script src="../js/includes.js"></script>
-    <link rel="stylesheet" href="../css/theme.css">
+
     <style>
-        .construction-container {
-            text-align: center;
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+        body {
+            background-color: #efefef;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        .construction-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 40px;
+        }
+
         .logo {
             max-width: 300px;
             height: auto;
-            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
         }
+
         .construction-title {
             color: #1e73be;
-            font-size: 2.2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
+            font-weight: 600;
         }
-        .construction-message {
-            font-size: 1.2em;
-            color: #666;
-            line-height: 1.6;
+
+        .construction-subtitle {
+            color: #6c757d;
+            font-size: 1.3em;
             margin-bottom: 30px;
+            font-weight: 300;
         }
-        .contact-info {
-            background: #f7f8f9;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #1e73be;
+
+        .construction-description {
+            color: #495057;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
-        .contact-info h3 {
-            color: #1e73be;
-            margin-bottom: 15px;
+
+        .spinner-container {
+            margin: 30px 0;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #1e73be;
+
+        .construction-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e73be;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-primary-custom {
+            background-color: #efefef;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            border-radius: 25px;
+            transition: all 0.3s ease;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            display: inline-block;
+            margin: 10px;
         }
-        .back-link:hover {
-            background: #035a9e;
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(30, 115, 190, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 4px solid #1e73be;
+        }
+
+        @media (max-width: 768px) {
+            .construction-title {
+                font-size: 2em;
+            }
+            .construction-container {
+                margin: 20px 10px;
+                padding: 30px 20px;
+            }
         }
     </style>
 	<link href="../css/theme.css" rel="stylesheet" type="text/css">
@@ -79,28 +152,115 @@
 <body>
     <!-- Header include -->
     <div id="header-placeholder"></div>
+
     <!-- Navigation include -->
     <div id="nav-placeholder"></div>
 
-    <div class="construction-container">
-        <img src="../images/2020/02/logo-gets-3C.png" alt="Logo G-ET-S" class="logo">
-        
-        <h1 class="construction-title">Historique - Page en cours de construction</h1>
-        
-        <p class="construction-message">
-            Cette page est actuellement en cours de développement. 
-            Le contenu sera disponible prochainement.
-        </p>
-        
-        <div class="contact-info">
-            <h3>Pour plus d'informations</h3>
-            <p>N'hésitez pas à nous contacter pour obtenir des informations sur ce sujet :</p>
-            <p><strong>Email :</strong> <a href="mailto:info@g-et-s.com">info@g-et-s.com</a></p>
-            <p><strong>Contact :</strong> <a href="mailto:contact@g-et-s.com">contact@g-et-s.com</a></p>
+    <!-- Main content -->
+    <main class="container-fluid">
+        <div class="container">
+            <div class="construction-container">
+                <div class="logo-section">
+                    <img src="../images/logo-gs.png" alt="Logo G-ET-S" class="logo" onerror="this.style.display='none'">
+                </div>
+
+                <h1 class="construction-title">
+                    <i class="fas fa-history text-primary me-3"></i>
+                    Historique
+                </h1>
+
+                <div class="construction-description" style="text-align: left;">
+                    <h2 style="color: #1e73be; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #1e73be; padding-bottom: 10px;">
+                        Communiqué de presse du 4 mai 2009
+                    </h2>
+
+                    <h3 style="color: #035a9e; font-size: 1.3em; margin-bottom: 20px;">
+                        Gouvernance et Structures propose aux Conseils d'Administration des prestations intégrées
+                    </h3>
+
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 20px;">
+                        Gouvernance & Structures, société d'études et de conseil créée en 2003, vient d'être reprise par l'un de ses associés fondateurs, Consultancy International Services.
+                    </p>
+
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 20px;">
+                        Désormais animé par son associé/gérant, Guy Le Péchon, X-INSEAD, membre de l'IFA, les « Gouvernance-Advisors » du réseau G & S peuvent mener des missions très diverses : diagnostic et « benchmarking » sur le fonctionnement ou la composition des Conseils d'Administration en vue d'en augmenter la valeur ajoutée, recherche de mandataires sociaux dont des administrateurs en particulier indépendants, utilisation ad-hoc des nouvelles technologies, enquêtes et études sur la « corporate gouvernance».
+                    </p>
+
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 30px;">
+                        Ainsi dernièrement G&S a mené une étude approfondie sur la place des femmes mandataires sociaux au sein de 550 entreprises françaises cotées sur Euronext et antérieurement une enquête originale à l'époque sur le thème de - gouvernance, performance et modernité-, enquête en collaboration avec l'ADAE et la société Acadys auprès d'un échantillon comprenant des entreprises moyennes et filiales de groupes étrangers.
+                    </p>
+
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #1e73be;">
+                        <p style="margin-bottom: 10px;"><strong>Site internet :</strong> <a href="http://www.g-et-s.com" style="color: #1e73be;">http://www.g-et-s.com</a></p>
+                        <p style="margin-bottom: 10px;"><strong>Contacts :</strong> <a href="mailto:info@g-et-s.com" style="color: #1e73be;">info@g-et-s.com</a></p>
+                        <p style="margin-bottom: 10px;"><strong>Courrier :</strong> Guy Le Péchon, G & S, 2 allée des troènes, 92330 SCEAUX, France</p>
+                        <p style="margin-bottom: 0;"><strong>Tél :</strong> 06 16 31 07 15</p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 30px; margin-bottom: 30px;">
+                        <h2 style="color: white; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px;">
+                            <i class="fas fa-award" style="margin-right: 10px;"></i>G & S pionnier pour observation de la féminisation des Conseils d'Administration
+                        </h2>
+
+                        <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 0;">
+                            G & S a été le premier à présenter des statistiques détaillées sur la féminisation des conseils des sociétés cotées sur Euronext Paris, lors d'une réunion des anciens de l'INSEAD en juillet 2009 pendant le temps de préparation de la loi Copé Zimmerman.
+                        </p>
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <p>L'étude G &amp; S sur <b><span style="color: #0000ff;">«&nbsp;La place des femmes administrateurs dans les sociétés cotées françaises&nbsp;»</span></b> <span style="color: #000000;">présentée ci-dessous a été mise à jour à partir des rapports annuels à fin 2009.</span></p>
+                        <p style="margin-top: 20px;"><b><span style="color: #000066;">Pour tous renseignement écrire à <a href="mailto:info@g-et-s.com">info@g-et-s.com</a></span></b></p>
+                    </div>
+
+                    <div style="margin: 30px 0; padding: 30px; background: #f8f9fa; border-radius: 12px;">
+                        <table border="2" width="100%" cellspacing="3" cellpadding="0" align="center">
+                            <tbody>
+                                <tr>
+                                    <td width="51%" height="322" style="padding: 15px;">
+                                        <p style="text-align: center;"><img decoding="async" class="aligncenter" src="https://www.g-et-s.com/images/tbrfclv.jpg" width="445" height="188" style="max-width: 100%; height: auto;"></p>
+                                        <p style="text-align: center;"><img decoding="async" class="aligncenter" src="https://www.g-et-s.com/images/salle.jpg" width="445" height="141" style="max-width: 100%; height: auto;"></p>
+                                    </td>
+                                    <td width="49%" height="322" style="padding: 15px;">
+                                        <div align="center">
+                                            <p align="center"><span style="color: #0033cc;">Le Petit déjeuner organisé début juillet 2009</span></p>
+                                            <p align="center"><span style="color: #0033cc;"><br>par</span></p>
+                                            <p align="center"><span style="color: #0033cc;"><br>le Club Mixité, et le Cercle des Administrateurs<br>INSEAD ALUMNI ASSOCIATION FRANCE<br>sur le thème :</span></p>
+                                            <p align="center"><br><b><span style="color: #000066;">«&nbsp;La place des femmes administrateurs dans les sociétés cotées françaises&nbsp;»</span></b></p>
+                                            <p align="center"><br>a rassemblé plus d'une soixantaine de participant(es)</p>
+                                            <p align="center">Voir les photos dans la colonne de gauche</p>
+                                            <p align="center">Le thème a été introduit par Guy Le Péchon, Associé/Gérant de</p>
+                                            <p align="center"><br>Gouvernance &amp; Structures par une présentation des résultats principaux de l'étude approfondie qu'il a menée dans plus de 500 sociétés françaises cotées sur les marchés A, B et C d'Euronext</p>
+                                            <p align="center"><span style="color: #ff0000;">Pour télédécharger le programme de cet évènement</span> <a href="https://g-et-s.com/wp-content/uploads/2020/01/invifad.pdf">cliquer ici</a><br><span style="color: #ff0000;">Pour parcourir les premiers transparents de la présentation</span> <a href="https://g-et-s.com/wp-content/uploads/2020/01/debpres.pdf">cliquer ici.</a><br><span style="color: #ff0000;">Pour obtenir des extraits de l'étude, envoyer un courriel à</span> <a href="mailto:info@g-et-s.com">info@g-et-s.com</a> en précisant bien vos noms, prénoms, coordonnées et fonctions</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h4><i class="fas fa-envelope text-primary me-2"></i>Nous contacter</h4>
+                    <p class="mb-2">Pour plus d'informations sur ce sujet, n'hésitez pas à nous contacter :</p>
+                    <p class="mb-0">
+                        <i class="fas fa-at text-primary me-2"></i>
+                        <strong>Email :</strong> contact@g-et-s.com
+                    </p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="../index.html" class="btn-primary-custom">
+                        <i class="fas fa-home me-2"></i>
+                        Retour à l'accueil
+                    </a>
+                    <a href="../contact/index.html" class="btn-primary-custom">
+                        <i class="fas fa-envelope me-2"></i>
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
         </div>
-        
-        <a href="../index.html" class="back-link">← Retour à l'accueil</a>
-    </div>
+    </main>
 
     <!-- Footer include -->
     <div id="footer-placeholder"></div>
