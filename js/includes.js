@@ -29,7 +29,7 @@ function loadIncludes() {
     }
 
     var basePath = computeBasePath();
-    
+
     // Ajouter le lien vers styles.css si pas déjà présent
     if (!document.querySelector('link[href*="styles.css"]')) {
         var stylesLink = document.createElement('link');
@@ -37,6 +37,25 @@ function loadIncludes() {
         stylesLink.type = 'text/css';
         stylesLink.href = basePath + 'styles.css';
         document.head.appendChild(stylesLink);
+    }
+
+    // Charger les scripts de recherche (données, modale et suggestions)
+    if (!document.querySelector('script[src*="articles-data.js"]')) {
+        var articlesDataScript = document.createElement('script');
+        articlesDataScript.src = basePath + 'js/articles-data.js';
+        document.head.appendChild(articlesDataScript);
+    }
+
+    if (!document.querySelector('script[src*="search-modal.js"]')) {
+        var searchModalScript = document.createElement('script');
+        searchModalScript.src = basePath + 'js/search-modal.js';
+        document.head.appendChild(searchModalScript);
+    }
+
+    if (!document.querySelector('script[src*="search-suggestions.js"]')) {
+        var searchSuggestionsScript = document.createElement('script');
+        searchSuggestionsScript.src = basePath + 'js/search-suggestions.js';
+        document.head.appendChild(searchSuggestionsScript);
     }
     
     // Charger le header

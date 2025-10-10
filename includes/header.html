@@ -67,6 +67,69 @@
         body.home-page #home-menu-container {
             display: none;
         }
+
+        /* Search Suggestions */
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1050;
+            margin-top: 2px;
+        }
+
+        .suggestions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .suggestion-item {
+            padding: 10px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s ease;
+            font-size: 12px;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background: #f8f9fa;
+        }
+
+        .suggestion-item-title {
+            font-weight: 500;
+            color: #1e73be;
+            margin-bottom: 2px;
+        }
+
+        .suggestion-item-category {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .suggestion-highlight {
+            background: #fff3cd;
+            font-weight: 600;
+        }
+
+        .no-suggestions {
+            padding: 12px;
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+        }
     </style>
     <div class="container">
         <!-- Top row with logo, social links and language flags -->
@@ -136,12 +199,25 @@
                 </div>
                 <div id="search-container"  class="col-12 mt-3">
                     <!-- Recherche locale -->
-                    <div style="max-width: 100%;">
-                        <input type="text"
-                               id="header-search-input"
-                               placeholder="Rechercher..."
-                               class="form-control form-control-sm"
-                               style="font-size: 11px; padding: 6px 8px;">
+                    <div style="max-width: 100%; position: relative;">
+                        <div class="input-group input-group-sm">
+                            <input type="text"
+                                   id="header-search-input"
+                                   placeholder="Rechercher..."
+                                   class="form-control"
+                                   autocomplete="off"
+                                   style="font-size: 11px; padding: 6px 32px 6px 8px;">
+                            <button class="btn btn-danger" type="button" id="header-search-clear" aria-label="Effacer la recherche" title="Effacer la recherche" style="position: absolute; right: 50px; top: 50%; transform: translateY(-50%); z-index: 10; padding: 4px 8px; display: none; border-radius: 4px;">
+                                <i class="fas fa-times" style="font-size: 11px;" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-primary" type="button" id="header-search-btn" style="padding: 6px 12px;">
+                                <i class="fas fa-search" style="font-size: 11px;"></i>
+                            </button>
+                        </div>
+                        <!-- Suggestions de recherche -->
+                        <div id="search-suggestions" class="search-suggestions" style="display: none;">
+                            <div class="suggestions-list"></div>
+                        </div>
                     </div>
 
                     <!-- Home and Menu Button (visible on all pages except home) -->

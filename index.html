@@ -37,10 +37,10 @@
         <div id="nav-placeholder"></div>
         <!-- Barre de filtres (déplacée sous la navigation) -->
         <style>
-            .filters-toolbar { border: 1px solid #e6e6e6; border-radius: 8px; padding: 10px; background: #ffffff; margin: 12px auto; max-width: 1140px; }
+            .filters-toolbar { border: 1px solid #e6e6e6; border-radius: 8px; padding: 10px; background: #ffffff; margin: 12px auto; max-width: 1140px; display:none;}
             .filters-toolbar .form-label { font-size: 0.8rem; color: #666; }
         </style>
-        <div class="filters-toolbar">
+        <div class="filters-toolbar hide hidden">
             <div class="row g-2 align-items-end">
                 <div class="col-sm-6 col-md-4">
                     <label for="category-filter" class="form-label mb-1">Filtrer par catégorie</label>
@@ -577,7 +577,8 @@
                     (function() {
                         const defaultImg = 'images/2020/02/logo-gets-3C.png';
 
-                        const dataSets = {
+                        // Utiliser les données centralisées ou fallback local
+                        const dataSets = window.articlesData || {
                             'generalites-contrib': [
                                 { title: 'Administrateur indépendant un vaccin ?', url: 'pages/administrateur-independant.html', dateCreation: '2025-09-30' },
                                 { title: 'IFA et le Numérique', url: 'pages/travaux-ifa-digital.html', dateCreation: '2025-09-29' },
@@ -592,24 +593,17 @@
 
                                 // Articles existants (dates antérieures approximatives)
                                 { title: 'Le monde et la gouvernance des ETI', url: 'pages/livre-eti.html', dateCreation: '2025-09-20' },
-                                { title: "Couverture L'Harmattan", url: 'pages/couverture-harmattan.html', dateCreation: '2025-09-19' },
-                                { title: 'Vidéo GLP VL', url: 'pages/video-glp-vl.html', dateCreation: '2025-09-18' },
-                                { title: 'Soirée de lancement', url: 'pages/soiree-lancement.html', dateCreation: '2025-09-17' },
-                                { title: 'Entreprise libérée (Préface)', url: 'pages/entreprise-liberee.html', dateCreation: '2025-09-16' },
-                                { title: 'IA et la Compliance (Avant-Propos)', url: 'pages/ia-compliance.html', dateCreation: '2025-09-15' },
                                 { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html', dateCreation: '2025-09-14' },
-                                { title: 'Le monde numérique et la relation client (Vidéo)', url: 'pages/monde-numerique.html', dateCreation: '2025-09-13' },
                                 { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html', dateCreation: '2025-09-12' },
                                 { title: 'Instances de gouvernance (Cours à l\'INSEEC)', url: 'pages/cours-inseec.html', dateCreation: '2025-09-11' },
 
                                 // Articles en construction
-                                { title: 'Consultant indépendant', url: 'pages/consultant-independant.html', construction: true, dateCreation: '2025-09-10' },
-                                { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true, dateCreation: '2025-09-08' },
-                                { title: "IFA et le numérique", url: 'pages/ifa-et-numerique.html', construction: true, dateCreation: '2025-09-07' }
+                                { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true, dateCreation: '2025-09-08' }
                             ],
                             'generalites-docs': [
-                                { title: 'Loi Pacte', url: 'pages/loi-pacte.html', construction: true },
-                                { title: 'Sites intéressants', url: 'sites-interesssants-4/index.html' },
+                                { title: 'Formation aux Comex/Codir', url: 'pages/certificat-centrale.html' },
+                                { title: "Formations au C.A.", url: 'pages/formations-administrateurs.html' },
+                                { title: 'Sites intéressants et Amis', url: 'sites-interesssants-4/index.html' },
                                 { title: 'Bibliographie', url: 'pages/bibliographie.html' }
                             ],
                             'feminisation-contrib': [
@@ -627,13 +621,10 @@
                             'qui': [
                                 { title: 'Introduction', url: 'pages/organisation-gs.html' },
                                 { title: 'Gouvernance Advisors', url: 'gouvernance-advisors/index.html' },
-                                { title: 'Sites intéressants ou amis', url: 'sites-interesssants-4/index.html' },
                                 { title: 'Historique', url: 'pages/historique.html' },
                                 { title: 'Contact', url: 'contact.html' }
                             ],
                             'pour-mandataires': [
-                                { title: 'Formation aux Comex/Codir', url: 'pages/certificat-centrale.html' },
-                                { title: "Formations au C.A.", url: 'pages/formations-administrateurs.html' },
                                 { title: 'Formation au digital', url: 'pages/informatique.html' },
                                 { title: 'Candidature comme mandataire', url: 'pages/candidats-mandataires.html' }
                             ],
