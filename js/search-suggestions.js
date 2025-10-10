@@ -67,26 +67,24 @@
             return;
         }
 
-        // Obtenir le chemin de base du site
+        // Déterminer si on est dans le dossier /pages/ ou à la racine
         const currentPath = window.location.pathname;
-        const pathParts = currentPath.split('/').filter(p => p);
-
-        // Déterminer combien de niveaux on doit remonter pour atteindre la racine
-        // Retirer le dernier élément (le fichier HTML actuel)
-        const depth = pathParts.length - 1;
+        const isInPagesFolder = currentPath.includes('/pages/');
 
         // Créer les éléments de suggestion
         suggestions.forEach(function(item) {
             const suggestionDiv = document.createElement('div');
             suggestionDiv.className = 'suggestion-item';
 
-            // Construire un chemin absolu depuis la racine
-            let targetUrl = item.url;
-
-            // Remonter à la racine en fonction de la profondeur
-            if (depth > 0) {
-                const prefix = '../'.repeat(depth);
-                targetUrl = prefix + item.url;
+            // Toutes les suggestions pointent vers le dossier pages/
+            // Construire le chemin en fonction de notre position
+            let targetUrl;
+            if (isInPagesFolder) {
+                // On est déjà dans /pages/, donc juste utiliser le nom du fichier
+                targetUrl = item.url.replace('pages/', '');
+            } else {
+                // On est à la racine ou ailleurs, utiliser le chemin complet
+                targetUrl = item.url;
             }
 
             suggestionDiv.setAttribute('data-url', targetUrl);

@@ -68,7 +68,7 @@ window.getAllArticles = function() {
     return allArticles;
 };
 
-// Fonction de recherche
+// Fonction de recherche (uniquement les pages du dossier /pages/)
 window.searchArticles = function(searchTerm) {
     if (!searchTerm || searchTerm.trim() === '') {
         return [];
@@ -77,7 +77,13 @@ window.searchArticles = function(searchTerm) {
     const term = searchTerm.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const allArticles = window.getAllArticles();
 
+    // Filtrer uniquement les articles qui sont dans le dossier pages/
     return allArticles.filter(article => {
+        // Vérifier que l'URL commence par 'pages/'
+        if (!article.url.startsWith('pages/')) {
+            return false;
+        }
+
         const title = article.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         return title.includes(term);
     });
