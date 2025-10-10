@@ -134,32 +134,17 @@
                         >
                     </a>
                 </div>
-                <div id="search-container"  class="col-12 mt-4">
-                    <!-- Navigation Search Filter -->
-                    <div class="nav-search-container mb-3" style="cursor: pointer; padding: 8px; border-radius: 8px; transition: background-color 0.2s;" 
-                         onmouseover="this.style.backgroundColor='#f8f9fa'" 
-                         onmouseout="this.style.backgroundColor='transparent'"
-                         title="Cliquer pour retourner à l'accueil">
-                        <input type="text" id="nav-search-input" 
-                               placeholder="Recherche" 
-                               class="form-control form-control-sm" 
-                               style="max-width: 300px;">
-                        <button type="button" id="clear-search" 
-                                class="btn btn-sm btn-outline-secondary mt-1"
-                                style="display: none; font-size: 0.8rem;">
-                            Effacer
-                        </button>
-                        <div id="search-results-count" class="small text-muted mt-1" style="display: none;"></div>
-                    </div>
-                    
+                <div id="search-container"  class="col-12 mt-3">
                     <!-- Google Search -->
                     <script>
-                        window.__gcse = { 
+                        window.__gcse = {
                             parsetags: 'explicit'
                         };
                     </script>
                     <script async src="https://cse.google.com/cse.js?cx=5241dfaf922d443f2"></script>
-                    <gcse:search></gcse:search>
+                    <div style="max-width: 100%;">
+                        <gcse:search></gcse:search>
+                    </div>
 
                     <!-- Home and Menu Button (visible on all pages except home) -->
                     <div id="home-menu-container" class="mt-3">
