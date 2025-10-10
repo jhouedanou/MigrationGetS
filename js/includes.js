@@ -50,6 +50,60 @@ function loadIncludes() {
         if (typeof google !== 'undefined' && google.search && google.search.cse) {
             google.search.cse.element.render('searchresults-only');
         }
+
+        // Configurer le lien "home"
+        const homeLink = document.getElementById('home-menu-link');
+        if (homeLink) {
+            homeLink.href = basePath ? basePath + 'index.html' : 'index.html';
+        }
+
+        const isHomePage = document.body.classList.contains('home-page');
+        const headerSearchInput = document.getElementById('header-search-input');
+
+        // Sur la page d'accueil : initialiser la recherche locale
+        if (isHomePage && typeof window.initHeaderSearch === 'function') {
+            console.log('Calling initHeaderSearch');
+            window.initHeaderSearch();
+
+            // Sauvegarder la recherche en temps réel sur la page d'accueil
+            if (headerSearchInput) {
+                headerSearchInput.addEventListener('input', function() {
+                    const searchValue = this.value;
+                    if (searchValue) {
+                        sessionStorage.setItem('pendingSearch', searchValue);
+                    } else {
+                        sessionStorage.removeItem('pendingSearch');
+                    }
+                });
+            }
+        }
+        // Sur les autres pages : redirection vers l'accueil au focus
+        else if (!isHomePage && headerSearchInput) {
+            console.log('Setting up redirect on Enter for non-home page');
+
+            // Sauvegarder la recherche en temps réel
+            headerSearchInput.addEventListener('input', function() {
+                const searchValue = this.value;
+                if (searchValue) {
+                    sessionStorage.setItem('pendingSearch', searchValue);
+                } else {
+                    sessionStorage.removeItem('pendingSearch');
+                }
+            });
+
+            // Rediriger uniquement quand on appuie sur Entrée
+            headerSearchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    e.preventDefault();
+                    const homePath = basePath ? basePath + 'index.html' : 'index.html';
+                    const searchValue = this.value;
+                    if (searchValue) {
+                        sessionStorage.setItem('pendingSearch', searchValue);
+                    }
+                    window.location.href = homePath;
+                }
+            });
+        }
     });
 
     // Charger le menu de navigation

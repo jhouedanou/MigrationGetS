@@ -841,15 +841,73 @@
                         })();
 
 
+                        // Fonction globale pour initialiser la recherche du header
+                        window.initHeaderSearch = function() {
+                            const headerSearchInput = document.getElementById('header-search-input');
+                            const searchInput = document.getElementById('search-input');
+
+                            console.log('initHeaderSearch called');
+                            console.log('headerSearchInput:', headerSearchInput);
+                            console.log('searchInput:', searchInput);
+
+                            // Restaurer la recherche depuis sessionStorage
+                            const pendingSearch = sessionStorage.getItem('pendingSearch');
+                            if (pendingSearch) {
+                                console.log('Restoring search from sessionStorage:', pendingSearch);
+                                if (headerSearchInput) {
+                                    headerSearchInput.value = pendingSearch;
+                                }
+                                if (searchInput) {
+                                    searchInput.value = pendingSearch;
+                                }
+                                // Appliquer le filtre automatiquement
+                                if (window.applyColumnFilters) {
+                                    setTimeout(function() {
+                                        window.applyColumnFilters();
+                                    }, 100);
+                                }
+                            }
+
+                            if (headerSearchInput) {
+                                console.log('Adding event listener to headerSearchInput');
+                                headerSearchInput.addEventListener('input', function(){
+                                    console.log('headerSearchInput input event:', this.value);
+                                    if (searchInput) {
+                                        searchInput.value = this.value;
+                                        console.log('Synchronized searchInput value:', searchInput.value);
+                                    }
+                                    if (window.applyColumnFilters) {
+                                        window.applyColumnFilters();
+                                    }
+                                });
+                            } else {
+                                console.log('headerSearchInput NOT FOUND!');
+                            }
+                        };
+
                         // Écouteurs filtres en haut de page pour filtrer les colonnes
                         (function initColumnFilters(){
                             const categorySelect = document.getElementById('category-filter');
                             const searchInput = document.getElementById('search-input');
+
+                            console.log('initColumnFilters - categorySelect:', categorySelect);
+                            console.log('initColumnFilters - searchInput:', searchInput);
+
                             if (categorySelect) {
                                 categorySelect.addEventListener('change', applyColumnFilters);
                             }
                             if (searchInput) {
+                                // Sauvegarder la recherche dans sessionStorage au fur et à mesure
+                                searchInput.addEventListener('input', function(){
+                                    const searchValue = this.value;
+                                    if (searchValue) {
+                                        sessionStorage.setItem('pendingSearch', searchValue);
+                                    } else {
+                                        sessionStorage.removeItem('pendingSearch');
+                                    }
+                                });
                                 searchInput.addEventListener('keyup', function(){
+                                    console.log('searchInput keyup:', this.value);
                                     applyColumnFilters();
                                 });
                             }
@@ -859,7 +917,11 @@
                             document.querySelectorAll('.clear-search').forEach(function(btn){
                                 btn.addEventListener('click', function(){
                                     if (searchInput) searchInput.value = '';
+                                    const headerSearchInput = document.getElementById('header-search-input');
+                                    if (headerSearchInput) headerSearchInput.value = '';
                                     if (categorySelect) categorySelect.value = '*';
+                                    // Supprimer la recherche du sessionStorage
+                                    sessionStorage.removeItem('pendingSearch');
                                     applyColumnFilters();
                                 });
                             });

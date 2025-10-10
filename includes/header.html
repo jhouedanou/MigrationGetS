@@ -135,15 +135,13 @@
                     </a>
                 </div>
                 <div id="search-container"  class="col-12 mt-3">
-                    <!-- Google Search -->
-                    <script>
-                        window.__gcse = {
-                            parsetags: 'explicit'
-                        };
-                    </script>
-                    <script async src="https://cse.google.com/cse.js?cx=5241dfaf922d443f2"></script>
+                    <!-- Recherche locale -->
                     <div style="max-width: 100%;">
-                        <gcse:search></gcse:search>
+                        <input type="text"
+                               id="header-search-input"
+                               placeholder="Rechercher..."
+                               class="form-control form-control-sm"
+                               style="font-size: 11px; padding: 6px 8px;">
                     </div>
 
                     <!-- Home and Menu Button (visible on all pages except home) -->
@@ -153,30 +151,6 @@
                             <span>Page d'accueil et menu</span>
                         </a>
                     </div>
-
-                    <script>
-                        // Set correct home link based on current page location
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const homeLink = document.getElementById('home-menu-link');
-                            if (homeLink) {
-                                // Determine correct path to home
-                                const currentPath = window.location.pathname;
-                                let homePath;
-
-                                if (currentPath.includes('/pages/')) {
-                                    homePath = '../index.html';
-                                } else if (currentPath.includes('/') && !currentPath.endsWith('index.html')) {
-                                    // For subdirectories
-                                    const depth = (currentPath.match(/\//g) || []).length - 1;
-                                    homePath = '../'.repeat(depth) + 'index.html';
-                                } else {
-                                    homePath = 'index.html';
-                                }
-
-                                homeLink.href = homePath;
-                            }
-                        });
-                    </script>
                 </div>
             </div>
             </div>

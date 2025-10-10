@@ -142,6 +142,7 @@ body strong {
 /* Google Custom Search Engine Styling */
 .gcse-search {
   width: 100%;
+  max-width: 100%;
 }
 
 /* Style pour la zone de recherche Google CSE */
@@ -155,11 +156,12 @@ body strong {
   border: 1px solid #ccc !important;
   border-radius: 4px !important;
   background: white !important;
+  max-width: 100% !important;
 }
 
 .gsc-control-cse .gsc-input-box .gsc-input {
-  font-size: 12px !important;
-  padding: 8px 12px !important;
+  font-size: 11px !important;
+  padding: 6px 8px !important;
   color: #666666 !important;
 }
 
