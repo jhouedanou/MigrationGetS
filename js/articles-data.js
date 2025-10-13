@@ -1,6 +1,7 @@
 // Données centralisées des articles pour le site G-ET-S
 window.articlesData = {
     'generalites-contrib': [
+        { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html', dateCreation: '2025-09-12' },
         { title: 'Administrateur indépendant un vaccin ?', url: 'pages/administrateur-independant.html', dateCreation: '2025-09-30' },
         { title: 'IFA et le Numérique', url: 'pages/travaux-ifa-digital.html', dateCreation: '2025-09-29' },
         { title: 'Comparaison féminisation Boards et Comex', url: 'pages/comparaison-feminisation-boards-comex.html', dateCreation: '2025-09-28' },
@@ -12,7 +13,6 @@ window.articlesData = {
         { title: 'Salariés et Dirigeants en Confiance', url: 'pages/salarie-dirigeants-confiance.html', dateCreation: '2025-09-24-0' },
         { title: 'Le monde et la gouvernance des ETI', url: 'pages/livre-eti.html', dateCreation: '2025-09-20' },
         { title: 'Intelligence collective (Webinar XMPC)', url: 'pages/intelligence-collective.html', dateCreation: '2025-09-14' },
-        { title: "Shadow Conseil d'Administration de jeunes", url: 'pages/shadow-conseil.html', dateCreation: '2025-09-12' },
         { title: 'Instances de gouvernance (Cours à l\'INSEEC)', url: 'pages/cours-inseec.html', dateCreation: '2025-09-11' },
         { title: 'Club Européen', url: 'pages/club-europeen.html', construction: true, dateCreation: '2025-09-08' }
     ],
