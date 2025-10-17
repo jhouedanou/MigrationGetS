@@ -529,11 +529,11 @@
 <link rel="stylesheet" id="hfe-style-css" href="./../wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css" media="all">
 <link rel="stylesheet" id="elementor-icons-css" href="./../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.css" media="all">
 <link rel="stylesheet" id="elementor-frontend-css" href="./../wp-content/plugins/elementor/assets/css/frontend.css" media="all">
-<link rel="stylesheet" id="elementor-post-624-css" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/elementor/css/post-624.css" media="all">
+<link rel="stylesheet" id="elementor-post-624-css" href="./../wp-content/uploads/elementor/css/post-624.css" media="all">
 <link rel="stylesheet" id="elementor-pro-css" href="./../wp-content/plugins/elementor-pro/assets/css/frontend.css" media="all">
-<link rel="stylesheet" id="elementor-post-656-css" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/elementor/css/post-656.css" media="all">
-<link rel="stylesheet" id="elementor-post-177-css" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/elementor/css/post-177.css" media="all">
-<link rel="stylesheet" id="elementor-post-197-css" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/elementor/css/post-197.css" media="all">
+<link rel="stylesheet" id="elementor-post-656-css" href="./../wp-content/uploads/elementor/css/post-656.css" media="all">
+<link rel="stylesheet" id="elementor-post-177-css" href="./../wp-content/uploads/elementor/css/post-177.css" media="all">
+<link rel="stylesheet" id="elementor-post-197-css" href="./../wp-content/uploads/elementor/css/post-197.css" media="all">
 <link rel="stylesheet" id="generate-style-grid-css" href="./../wp-content/themes/generatepress/assets/css/unsemantic-grid.css" media="all">
 <link rel="stylesheet" id="generate-style-css" href="./../wp-content/themes/generatepress/assets/css/style.css" media="all">
 <style id="generate-style-inline-css">
@@ -584,10 +584,10 @@ body{background-color:#efefef;color:#3a3a3a;}a{color:#1e73be;}a:hover, a:focus, 
 					}
 				}
 			</style>
-			<link rel="icon" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/2020/01/cropped-logo-gets-2-1-32x32.png" sizes="32x32">
-<link rel="icon" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/2020/01/cropped-logo-gets-2-1-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="https://g-et-s.com/ancien_site_backup/wp-content/uploads/2020/01/cropped-logo-gets-2-1-180x180.png">
-<meta name="msapplication-TileImage" content="https://g-et-s.com/ancien_site_backup/wp-content/uploads/2020/01/cropped-logo-gets-2-1-270x270.png">
+			<link rel="icon" href="./../wp-content/uploads/2020/01/cropped-logo-gets-2-1-32x32.png" sizes="32x32">
+<link rel="icon" href="./../wp-content/uploads/2020/01/cropped-logo-gets-2-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="./../wp-content/uploads/2020/01/cropped-logo-gets-2-1-180x180.png">
+<meta name="msapplication-TileImage" content="./../wp-content/uploads/2020/01/cropped-logo-gets-2-1-270x270.png">
 		<style id="wp-custom-css">
 			.main-navigation a {
     display: block;
@@ -703,7 +703,100 @@ td.elementor-repeater-item-87660df {
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5468751" data-id="5468751" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-4380364 elementor-widget elementor-widget-text-editor" data-id="4380364" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>[mapsmarker layer=&nbsp;&raquo;1&Prime;]</p>								</div>
+									<div class="contact-form-container" style="max-width: 600px; margin: 40px auto; padding: 30px; background: #f8f9fa; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+										<h3 style="color: #1e73be; text-align: center; margin-bottom: 20px; font-size: 1.8em;">
+											<i class="fas fa-envelope" style="margin-right: 10px;"></i>Contactez-nous
+										</h3>
+										<p style="text-align: center; color: #6c757d; margin-bottom: 30px;">
+											Nous sommes à votre écoute. N'hésitez pas à nous écrire.
+										</p>
+										<form id="contactForm" onsubmit="sendEmail(event)" style="display: flex; flex-direction: column; gap: 20px;">
+											<div style="display: flex; flex-direction: column;">
+												<label for="name" style="color: #495057; font-weight: 500; margin-bottom: 8px;">
+													<i class="fas fa-user" style="margin-right: 8px; color: #1e73be;"></i>Nom *
+												</label>
+												<input type="text" id="name" name="name" required
+													style="padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1em; transition: border-color 0.3s;"
+													onfocus="this.style.borderColor='#1e73be'"
+													onblur="this.style.borderColor='#dee2e6'">
+											</div>
+
+											<div style="display: flex; flex-direction: column;">
+												<label for="email" style="color: #495057; font-weight: 500; margin-bottom: 8px;">
+													<i class="fas fa-envelope" style="margin-right: 8px; color: #1e73be;"></i>Email *
+												</label>
+												<input type="email" id="email" name="email" required
+													style="padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1em; transition: border-color 0.3s;"
+													onfocus="this.style.borderColor='#1e73be'"
+													onblur="this.style.borderColor='#dee2e6'">
+											</div>
+
+											<div style="display: flex; flex-direction: column;">
+												<label for="subject" style="color: #495057; font-weight: 500; margin-bottom: 8px;">
+													<i class="fas fa-tag" style="margin-right: 8px; color: #1e73be;"></i>Sujet
+												</label>
+												<input type="text" id="subject" name="subject"
+													style="padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1em; transition: border-color 0.3s;"
+													onfocus="this.style.borderColor='#1e73be'"
+													onblur="this.style.borderColor='#dee2e6'">
+											</div>
+
+											<div style="display: flex; flex-direction: column;">
+												<label for="message" style="color: #495057; font-weight: 500; margin-bottom: 8px;">
+													<i class="fas fa-comment" style="margin-right: 8px; color: #1e73be;"></i>Message *
+												</label>
+												<textarea id="message" name="message" rows="6" required
+													style="padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1em; resize: vertical; transition: border-color 0.3s;"
+													onfocus="this.style.borderColor='#1e73be'"
+													onblur="this.style.borderColor='#dee2e6'"></textarea>
+											</div>
+
+											<button type="submit"
+												style="background: linear-gradient(135deg, #1e73be 0%, #0d5a9e 100%); color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(30, 115, 190, 0.3);"
+												onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(30, 115, 190, 0.4)';"
+												onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(30, 115, 190, 0.3)';">
+												<i class="fas fa-paper-plane" style="margin-right: 10px;"></i>Envoyer le message
+											</button>
+										</form>
+
+										<script>
+										function sendEmail(event) {
+											event.preventDefault();
+
+											// Récupérer les valeurs du formulaire
+											var name = document.getElementById('name').value;
+											var email = document.getElementById('email').value;
+											var subject = document.getElementById('subject').value || 'Contact depuis le site G-ET-S';
+											var message = document.getElementById('message').value;
+
+											// Construire le corps de l'email avec encodage correct
+											var body = 'Nom: ' + name + '%0D%0A';
+											body += 'Email: ' + email + '%0D%0A%0D%0A';
+											body += 'Message:%0D%0A' + encodeURIComponent(message);
+
+											// Encoder le sujet
+											var encodedSubject = encodeURIComponent(subject);
+
+											// Construire l'URL mailto avec encodage correct
+											var mailtoLink = 'mailto:contact@g-et-s.com?subject=' + encodedSubject + '&body=' + body;
+
+											// Ouvrir le client email
+											window.location.href = mailtoLink;
+
+											return false;
+										}
+										</script>
+
+										<div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #1e73be;">
+											<p style="margin: 0; color: #495057;">
+												<i class="fas fa-info-circle" style="margin-right: 8px; color: #1e73be;"></i>
+												Vous pouvez aussi nous contacter directement à :
+												<a href="mailto:contact@g-et-s.com" style="color: #1e73be; font-weight: 600; text-decoration: none;">
+													contact@g-et-s.com
+												</a>
+											</p>
+										</div>
+									</div>								</div>
 					</div>
 		</div>
 					</div>
