@@ -1,0 +1,46 @@
+# Fichiers et dossiers à ignorer lors du déploiement FTP
+
+# Fichiers Git
+.git/
+.gitignore
+.gitattributes
+
+# Fichiers de configuration locale
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Scripts de déploiement
+deploy-ftp.sh
+.git-ftp-ignore
+
+# Node modules (si applicable)
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Fichiers de log
+*.log
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+
+# Fichiers de backup
+*.backup
+*.bak
+*.old
+
+# Documentation de développement
+README.md
+CONTRIBUTING.md
+LICENSE
+
+# Fichiers de configuration PHP locale
+php.ini
+.htaccess.local

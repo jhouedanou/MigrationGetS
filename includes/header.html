@@ -15,13 +15,26 @@
             box-shadow: 0 10px 18px rgba(220, 38, 38, 0.28);
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: pulse-news 2s ease-in-out infinite;
         }
         .news-ribbon:hover {
             transform: translateY(-2px);
             box-shadow: 0 16px 26px rgba(220, 38, 38, 0.32);
             color: #ffffff;
+            animation: none;
         }
         .news-ribbon i { margin-right: 8px; }
+
+        @keyframes pulse-news {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 18px rgba(220, 38, 38, 0.28);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 24px rgba(220, 38, 38, 0.45);
+            }
+        }
         .logo-panel {
             background: linear-gradient(180deg, rgba(236, 241, 249, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
             border-radius: 26px;
